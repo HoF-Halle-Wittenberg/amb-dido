@@ -113,16 +113,6 @@ function amb_get_other_fields() {
             ],
             'amb_key' => 'isAccessibleForFree'
         ],
-        'amb_license' => [
-            'field_label' => 'Lizenz des Inhalts',
-            'options' => [
-                ['http://creativecommons.org/licenses/by/4.0/legalcode.de' => 'CC BY 4.0 Namensnennung'],
-                ['http://creativecommons.org/licenses/by-sa/4.0/legalcode.de' => 'CC BY-SA 4.0 Gleiche Bedingungen '],
-                ['https://creativecommons.org/licenses/by-nc/4.0/legalcode.de' => 'CC BY-NC 4.0 Nichtkommmerziell'],
-                ['https://www.gnu.org/licenses/gpl-3.0.xml' => 'GNU GPL 3 Software']
-            ],
-            'amb_key' => 'license'
-        ],
         'amb_conditionsOfAccess' => [
             'field_label' => 'Zugangsbedingungen',
             'options' => [
@@ -152,6 +142,10 @@ function amb_get_other_fields() {
  */
 function amb_get_json_urls() {
     $predefined_json_urls = [
+        'amb_license' => [
+            'url' => 'https://skohub.io/dini-ag-kim/license/heads/main/w3id.org/kim/license/index.json',
+            'amb_key' => 'license'
+        ],
         'amb_area' => [
             'url' => 'https://hof-halle-wittenberg.github.io/vocabs/area/index.json',
             'amb_key' => 'area'
@@ -454,7 +448,7 @@ function amb_dido_meta_box_callback($post) {
 
     // Generierung Autoren
     $creator = get_post_meta($post->ID, 'amb_creator', true);
-    echo '<label for="amb_creator" class="amb-field">Autor/innen</label><br />';
+    echo '<label for="amb_creator" class="amb-field">Autor:innen</label><br />';
     echo '<p class="components-form-token-field__help">Namen mit Kommas trennen.</p>';
     echo '<input type="text" name="amb_creator" size="80" value="' . esc_attr($creator) . '" class="amb-textinput" /><br />';
 
