@@ -22,9 +22,12 @@ function amb_dido_create_settings_page() {
  * Ausgabe der Optionsseite.
  */
 function amb_dido_settings_page() {
+    // Holen Sie sich die Plugin-Daten, einschließlich der Version
+    $plugin_data = get_plugin_data(WP_PLUGIN_DIR . '/amb-dido/amb-dido.php');
+    $version = $plugin_data['Version'];
     ?>
     <div class="wrap">
-        <h1>AMB-DidO Einstellungen</h1>
+        <h1>AMB-DidO Einstellungen <span class="version">Version <?php echo esc_html($version); ?></span></h1>
         <h2 class="nav-tab-wrapper">
             <?php
             $sections = [
@@ -102,7 +105,13 @@ function amb_dido_register_settings() {
     }
 
     add_settings_section('amb_dido_custom_fields_section', '', 'amb_dido_custom_fields_section_callback', 'amb_dido_custom_fields_section');
-    add_settings_field('amb_dido_custom_fields_field', '', 'amb_dido_custom_fields_field_callback', 'amb_dido_custom_fields_section', 'amb_dido_custom_fields_section');
+    add_settings_field(
+        'amb_dido_custom_fields_field',
+        'Benutzerdefinierte Wertelisten',
+        'amb_dido_custom_fields_field_callback',
+        'amb_dido_custom_fields_section',
+        'amb_dido_custom_fields_section'
+    );
 }
 
 function amb_dido_metadata_section_callback() {
@@ -141,6 +150,9 @@ function amb_dido_default_field_callback($args) {
   $options = get_option('amb_dido_defaults');
   $custom_labels = get_option('amb_dido_custom_labels', array());
 
+  echo '<div class="amb-default-field-row">';
+  
+  echo '<div class="amb-default-field-dropdown">';
   echo "<select name='amb_dido_defaults[{$args['id']}]'>";
   echo "<option value=''>--Keine Auswahl--</option>";
   echo "<option value='deactivate'" . ($options[$args['id']] === 'deactivate' ? ' selected="selected"' : '') . ">--Feld ausblenden--</option>";
@@ -153,10 +165,14 @@ function amb_dido_default_field_callback($args) {
     }
   }
   echo "</select>";
+  echo '</div>';
 
-  // Hinzufügen des Eingabefelds für das benutzerdefinierte Label
+  echo '<div class="amb-default-field-label">';
   $custom_label = isset($custom_labels[$args['id']]) ? $custom_labels[$args['id']] : '';
-  echo " <input type='text' name='amb_dido_custom_labels[{$args['id']}]' value='" . esc_attr($custom_label) . "' placeholder='Benutzerdefiniertes Label'>";
+  echo "<input type='text' name='amb_dido_custom_labels[{$args['id']}]' value='" . esc_attr($custom_label) . "' placeholder='Benutzerdefiniertes Label'>";
+  echo '</div>';
+
+  echo '</div>';
 }
 
 function amb_dido_sanitize_custom_labels($input) {
@@ -193,42 +209,52 @@ function amb_dido_sanitize_post_types($input) {
 }
 
 function amb_dido_custom_fields_section_callback() {
-    echo '<p>Fügen Sie hier benutzerdefinierte Wertelisten hinzu, indem Sie eine URL und einen AMB-Schlüssel angeben.</p>';
+    echo '<p>Fügen Sie hier benutzerdefinierte Wertelisten hinzu, indem Sie eine URL und ein AMB-Attribut angeben.</p>';
 }
 
 function amb_dido_custom_fields_field_callback() {
     $options = get_option('amb_dido_custom_fields', []);
-    $amb_keys = ['about', 'teaches', 'assesses', 'audience', 'interactivityType'];
 
+    echo '<div class="amb_dido_custom_fields_header">';
+    echo '<span>URL der Werteliste</span>';
+    echo '<span>Angewendetes Attribut</span>';
+    echo '<span></span>';
+    echo '</div>';
+    echo '<div id="amb_dido_custom_fields_wrapper">';
     echo '<div id="amb_dido_custom_fields_container">';
-    $counter = 1;
     foreach ($options as $custom_field) {
-        amb_dido_render_custom_field($custom_field['url'], $custom_field['key'], $counter);
-        $counter++;
+        amb_dido_render_custom_field($custom_field['url'], $custom_field['key'], substr($custom_field['meta_key'], 10));
     }
     echo '</div>';
-    echo '<button type="button" id="amb_dido_add_custom_field">Mehr hinzufügen</button>';
+    echo '<button type="button" id="amb_dido_add_custom_field" class="button">Mehr hinzufügen</button>';
+    echo '</div>';
 }
 
 function amb_dido_render_custom_field($url, $key, $counter) {
     $amb_keys = ['about', 'teaches', 'assesses', 'audience', 'interactivityType', 'competencyRequired', 'educationalLevel'];
     $meta_key = 'amb_custom' . $counter;
 
-    echo '<div class="amb_dido_custom_field_row">';
-    echo '<div class="amb_dido_custom_field_column">';
-    echo '<div class="amb_dido_custom_field_header">JSON-URL der Wertliste</div>';
-    echo '<input type="url" name="amb_dido_custom_fields[' . esc_attr($meta_key) . '][url]" value="' . esc_attr($url) . '" placeholder="URL eingeben" />';
+    echo '<div class="amb_dido_custom_field_container">';
+    
+    echo '<div class="amb_dido_custom_field_url">';
+    echo '<input type="url" name="amb_dido_custom_fields[' . esc_attr($meta_key) . '][url]" value="' . esc_attr($url) . '" placeholder="JSON-URL der Wertliste" />';
     echo '</div>';
-    echo '<div class="amb_dido_custom_field_column">';
-    echo '<div class="amb_dido_custom_field_header">AMB-Feld</div>';
+    
+    echo '<div class="amb_dido_custom_field_key">';
     echo '<select name="amb_dido_custom_fields[' . esc_attr($meta_key) . '][key]">';
     foreach ($amb_keys as $amb_key) {
         $selected = ($key === $amb_key) ? 'selected' : '';
         echo '<option value="' . esc_attr($amb_key) . '" ' . $selected . '>' . esc_html($amb_key) . '</option>';
     }
     echo '</select>';
-    echo '<input type="hidden" name="amb_dido_custom_fields[' . esc_attr($meta_key) . '][meta_key]" value="' . esc_attr($meta_key) . '" />';
     echo '</div>';
+    
+    echo '<div class="amb_dido_custom_field_remove">';
+    echo '<button type="button" class="button remove-custom-field">Entfernen</button>';
+    echo '</div>';
+    
+    echo '<input type="hidden" name="amb_dido_custom_fields[' . esc_attr($meta_key) . '][meta_key]" value="' . esc_attr($meta_key) . '" />';
+    
     echo '</div>';
 }
 
@@ -333,24 +359,23 @@ function amb_dido_custom_fields_js() {
         (function($) {
             var counter = <?php echo count(get_option('amb_dido_custom_fields', [])) + 1; ?>;
 
-            $('#amb_dido_add_custom_field').on('click', function() {
-                var newField = amb_dido_render_custom_field('', '', counter);
-                $('#amb_dido_custom_fields_container').append(newField);
-                counter++;
-            });
-
             function amb_dido_render_custom_field(url, key, counter) {
-                var $row = $('<div>', { 'class': 'amb_dido_custom_field_row' });
+                var ambKeys = ['about', 'teaches', 'assesses', 'audience', 'interactivityType', 'competencyRequired', 'educationalLevel'];
+                var metaKey = 'amb_custom' + counter;
 
-                var $columnUrl = $('<div>', { 'class': 'amb_dido_custom_field_column' });
-                var $headerUrl = $('<div>', { 'class': 'amb_dido_custom_field_header', text: 'JSON-URL der Wertliste' });
-                var $urlInput = $('<input>', { type: 'url', name: 'amb_dido_custom_fields[' + counter + '][url]', placeholder: 'URL eingeben', value: url });
-                $columnUrl.append($urlInput);
+                var $container = $('<div>', { 'class': 'amb_dido_custom_field_container' });
 
-                var $columnKey = $('<div>', { 'class': 'amb_dido_custom_field_column' });
-                var $headerKey = $('<div>', { 'class': 'amb_dido_custom_field_header', text: 'AMB-Feld' });
-                var $keySelect = $('<select>', { name: 'amb_dido_custom_fields[' + counter + '][key]' });
-                var ambKeys = ['about', 'teaches', 'assesses', 'audience', 'interactivityType', 'learningResourceType'];
+                var $urlDiv = $('<div>', { 'class': 'amb_dido_custom_field_url' });
+                var $urlInput = $('<input>', {
+                    type: 'url',
+                    name: 'amb_dido_custom_fields[' + metaKey + '][url]',
+                    value: url,
+                    placeholder: 'JSON-URL der Wertliste'
+                });
+                $urlDiv.append($urlInput);
+
+                var $keyDiv = $('<div>', { 'class': 'amb_dido_custom_field_key' });
+                var $keySelect = $('<select>', { name: 'amb_dido_custom_fields[' + metaKey + '][key]' });
                 $.each(ambKeys, function(index, ambKey) {
                     var $option = $('<option>', { value: ambKey, text: ambKey });
                     if (ambKey === key) {
@@ -358,13 +383,37 @@ function amb_dido_custom_fields_js() {
                     }
                     $keySelect.append($option);
                 });
-                $columnKey.append($keySelect);
+                $keyDiv.append($keySelect);
 
-                var $metaKeyInput = $('<input>', { type: 'hidden', name: 'amb_dido_custom_fields[' + counter + '][meta_key]', value: 'amb_custom' + counter });
-                $row.append($columnUrl, $columnKey, $metaKeyInput);
+                var $removeDiv = $('<div>', { 'class': 'amb_dido_custom_field_remove' });
+                var $removeButton = $('<button>', {
+                    type: 'button',
+                    class: 'button remove-custom-field',
+                    text: 'Entfernen'
+                });
+                $removeDiv.append($removeButton);
 
-                return $row;
+                var $metaKeyInput = $('<input>', {
+                    type: 'hidden',
+                    name: 'amb_dido_custom_fields[' + metaKey + '][meta_key]',
+                    value: metaKey
+                });
+
+                $container.append($urlDiv, $keyDiv, $removeDiv, $metaKeyInput);
+
+                return $container;
             }
+
+             $('#amb_dido_add_custom_field').on('click', function() {
+                var newField = amb_dido_render_custom_field('', '', counter);
+                $('#amb_dido_custom_fields_container').append(newField);
+                counter++;
+            });
+
+            $(document).on('click', '.remove-custom-field', function() {
+                $(this).closest('.amb_dido_custom_field_container').remove();
+            });
+
         })(jQuery);
     </script>
     <?php
