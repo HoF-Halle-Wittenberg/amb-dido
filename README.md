@@ -1,7 +1,7 @@
 ---
 Plugin Name: AMB-DidO Plugin 
 Description: Erstellt Metadaten gemäß AMB-Standard im JSON-Format für didaktische und Organisationsressourcen auf beliebigen Wordpress-Seiten.
-Latest Release: 0.8.4 
+Latest Release: 0.8.5
 Author: Justus Henke (HoF), Manuel Oellers (Contributor, U Münster) 
 ---
 # AMB-DidO Plugin 
@@ -37,6 +37,8 @@ Aktuell noch in Entwicklung, aber bereits funktionsfähig zum Testen.
 - Optionen: Darstellung der Options-Sektionen in Tabs
 - Optionen: Labels der Wertelisten können nun überschrieben werden
 - Optimierung: Darstellung von Taxonomien und Metafeldern mittels Shortcode
+- Löschen hinzugefügter Wertelisten
+- Optische Verbesserungen in den Einstellungen
 
 ## Features in Arbeit
 - Editor/Minor: Creator-Feld als Wordpress-Taxonomie integrieren statt Freifeld.
