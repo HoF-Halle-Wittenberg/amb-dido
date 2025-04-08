@@ -577,7 +577,7 @@ function amb_generate_creator_objects($post_id) {
             'name' => $creator,
         ];
     }
-    return $creator_objects;
+    return apply_filters('amb_filter_creator_objects', $post_id);
 }
 
 function amb_get_keywords($post_id) {
