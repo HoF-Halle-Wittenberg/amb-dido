@@ -435,6 +435,19 @@ function amb_dido_meta_box_callback($post) {
 
     $custom_labels = get_option('amb_dido_custom_labels', array());
 
+    // Aktueller Wert von disable Meta field
+    $disable_json_value = get_post_meta($post->ID, 'amb_disable_json_for_entry', true);
+
+
+
+
+    echo '<label for="amb_disable_json_for_entry">' .
+    '<input type="checkbox" name="amb_disable_json_for_entry" id="amb_disable_json_for_entry" value="true"' . 
+    ( $disable_json_value ? ' checked' : '' ) .
+    ' /> JSON Ausgabe unterdrücken' .
+    '</label>';
+
+
     // Generierung Description
     $description = '';
     $use_excerpt_for_description = get_option('use_excerpt_for_description', 'no');
@@ -495,18 +508,27 @@ function amb_dido_save_post_meta($post_id) {
     }
 
     // Speicherung der offenen Felder
-    $open_fields = [
-        'amb_description',
-        'amb_creator'
-    ];
-
-    foreach ($open_fields as $field) {
-        if (isset($_POST[$field])) {
-            update_post_meta($post_id, $field, sanitize_text_field($_POST[$field]));
-        } else {
-            delete_post_meta($post_id, $field);
+        $open_fields = [
+            'amb_description',
+            'amb_creator'
+        ];
+        foreach ($open_fields as $field) {
+            if (isset($_POST[$field])) {
+                update_post_meta($post_id, $field, sanitize_text_field($_POST[$field]));
+            } else {
+                delete_post_meta($post_id, $field);
+            }
         }
-    }
+        //Speicherung von einzlenen Checkboxes für Ja/Nein zustände
+        $boolean_fields = [
+            'amb_disable_json_for_entry'
+        ];
+        foreach ($boolean_fields as $bolfield) {
+            // Check and sanitize the input
+            $new_value = isset($_POST[$bolfield]) ? 'true' : 'false';
+            // Update the meta field in the database
+            update_post_meta($post_id, $bolfield, $new_value);
+        }
 
     // Alle Wertelisten speichern
     amb_save_all_checkbox_data($post_id);
@@ -565,6 +587,7 @@ function amb_save_all_checkbox_data($post_id) {
 }
 
 // creator-Objekte vorbereiten
+
 function amb_generate_creator_objects($post_id) {
     $creators = array_filter(explode(',', get_post_meta($post_id, 'amb_creator', true)), function($value) {
         return trim($value) !== '';
@@ -577,6 +600,7 @@ function amb_generate_creator_objects($post_id) {
             'name' => $creator,
         ];
     }
+    
     return $creator_objects;
 }
 
@@ -652,6 +676,14 @@ function amb_get_isaccessibleforfree($post): bool {
     return filter_var($amb_value, FILTER_VALIDATE_BOOLEAN);
 }
 
+function amb_get_disablejson($post): bool {
+    $field = 'amb_disable_json_for_entry';
+
+    $meta_value = get_post_meta($post->ID, $field, true);
+
+    return filter_var($meta_value, FILTER_VALIDATE_BOOLEAN);
+}
+
 /**
  * Bindet Custom-Fields in das JSON-LD-Format ein.
  */
@@ -661,7 +693,8 @@ function amb_dido_add_json_ld_to_header() {
 
         // Voreinstellungen aus Optionseite rufen
         $defaults = get_option('amb_dido_defaults');
-
+        $json_disabled = amb_get_disablejson($post);
+        if(!$json_disabled){
         // Mit Taxonomien überbrückte Felder rufen 
         $mapping = get_option('amb_dido_taxonomy_mapping', array());
 
@@ -744,6 +777,7 @@ function amb_dido_add_json_ld_to_header() {
 
         // JSON-LD-Ausgabe im Header
         echo '<script type="application/ld+json">' . json_encode($json_ld_data, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) . '</script>';
+        }
     }
 }
 
