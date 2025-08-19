@@ -32,6 +32,7 @@ function amb_dido_settings_page() {
             <?php
             $sections = [
                 'amb_dido_main_section' => 'Allgemeine Einstellungen',
+                'amb_dido_cache_section' => 'Cache-Verwaltung',
                 'amb_dido_taxonomy_section' => 'Taxonomie-Zuordnung',
                 'amb_dido_default_section' => 'Voreinstellungen',
                 'amb_dido_metadata_section' => 'Frontend-Anzeige',
@@ -82,28 +83,94 @@ function amb_dido_register_settings() {
         'default' => 'no',
         'sanitize_callback' => 'sanitize_text_field',
     ]);
+    // Cache-Einstellungen hinzufügen
+    register_setting('amb_dido_settings_group', 'amb_cache_mode', [
+        'default' => 'auto',
+        'sanitize_callback' => 'sanitize_text_field',
+    ]);
+    register_setting('amb_dido_settings_group', 'amb_storage_mode', [
+        'default' => 'hybrid',
+        'sanitize_callback' => 'sanitize_text_field',
+    ]);
 
-    // Abschnitte und Felder hinzufügen
+    // Hauptsektion
     add_settings_section('amb_dido_main_section', '', null, 'amb_dido_main_section');
     add_settings_field('amb_dido_post_types_field', 'Aktivierte Post-Typen', 'amb_dido_post_types_field_html', 'amb_dido_main_section', 'amb_dido_main_section');
     add_settings_field('override_ambkeyword_taxonomy', 'AMB Keywords Taxonomie überschreiben', 'render_override_ambkeyword_taxonomy_field', 'amb_dido_main_section', 'amb_dido_main_section');
     add_settings_field('show_ambkeywords_in_menu', 'AMB Keywords im Backend-Menü anzeigen', 'render_show_ambkeywords_in_menu_field', 'amb_dido_main_section', 'amb_dido_main_section');
     add_settings_field('use_excerpt_for_description', 'Textauszug (Exzerpt) für Beschreibung verwenden', 'render_use_excerpt_for_description_field', 'amb_dido_main_section', 'amb_dido_main_section');
 
+    // Cache-Sektion - HINZUGEFÜGT
+    add_settings_section('amb_dido_cache_section', '', 'amb_dido_cache_section_callback', 'amb_dido_cache_section');
+    
+    add_settings_field(
+        'amb_storage_mode',
+        'Speicher-Modus',
+        'amb_dido_storage_mode_callback',
+        'amb_dido_cache_section',
+        'amb_dido_cache_section'
+    );
+    
+    add_settings_field(
+        'amb_cache_mode',
+        'Cache-Modus',
+        'amb_dido_cache_mode_callback',
+        'amb_dido_cache_section',
+        'amb_dido_cache_section'
+    );
+    
+    add_settings_field(
+        'amb_dido_cache_management',
+        'Cache-Verwaltung',
+        'amb_dido_cache_management_callback',
+        'amb_dido_cache_section',
+        'amb_dido_cache_section'
+    );
+
+    // Taxonomie-Sektion
     add_settings_section('amb_dido_taxonomy_section', '', 'amb_dido_taxonomy_section_callback', 'amb_dido_taxonomy_section');
     add_settings_field('amb_dido_taxonomy_mapping', '', 'amb_dido_taxonomy_mapping_callback', 'amb_dido_taxonomy_section', 'amb_dido_taxonomy_section');
 
+    // Default-Sektion
     add_settings_section('amb_dido_default_section', '', 'amb_dido_default_section_description', 'amb_dido_default_section');
-    $all_fields = array_merge(amb_get_other_fields(), amb_get_all_external_values());
-    foreach ($all_fields as $key => $value) {
-        add_settings_field($key, $value['field_label'], 'amb_dido_default_field_callback', 'amb_dido_default_section', 'amb_dido_default_section', ['id' => $key, 'options' => $value['options']]);
+    
+    // SICHERER Ansatz: Nur lokale Felder verwenden für Admin-Setup
+    $all_fields = amb_get_other_fields(); // Erstmal nur lokale Felder
+    
+    // Externe Felder nur hinzufügen wenn Funktion verfügbar UND wir uns im korrekten Context befinden
+    if (function_exists('amb_get_all_external_values_with_mode') && !wp_doing_ajax() && is_admin()) {
+        try {
+            $external_fields = amb_get_all_external_values_with_mode();
+            if (is_array($external_fields) && !empty($external_fields)) {
+                $all_fields = array_merge($all_fields, $external_fields);
+            }
+        } catch (Exception $e) {
+            // Bei Fehlern einfach ohne externe Felder weitermachen
+            error_log('AMB-DidO: Externe Felder konnten nicht geladen werden: ' . $e->getMessage());
+        }
+    }
+    
+    // Sicherheitsprüfung
+    if (!is_array($all_fields) || empty($all_fields)) {
+        $all_fields = amb_get_other_fields();
     }
 
+    // Default-Sektion Felder hinzufügen
+    foreach ($all_fields as $key => $value) {
+        if (isset($value['field_label']) && isset($value['options'])) {
+            add_settings_field($key, $value['field_label'], 'amb_dido_default_field_callback', 'amb_dido_default_section', 'amb_dido_default_section', ['id' => $key, 'options' => $value['options']]);
+        }
+    }
+
+    // Metadata-Sektion
     add_settings_section('amb_dido_metadata_section', '', 'amb_dido_metadata_section_callback', 'amb_dido_metadata_section');
     foreach ($all_fields as $key => $info) {
-        add_settings_field($key, $info['field_label'], 'amb_dido_checkbox_field_callback', 'amb_dido_metadata_section', 'amb_dido_metadata_section', ['id' => $key]);
+        if (isset($info['field_label'])) {
+            add_settings_field($key, $info['field_label'], 'amb_dido_checkbox_field_callback', 'amb_dido_metadata_section', 'amb_dido_metadata_section', ['id' => $key]);
+        }
     }
 
+    // Custom Fields Sektion
     add_settings_section('amb_dido_custom_fields_section', '', 'amb_dido_custom_fields_section_callback', 'amb_dido_custom_fields_section');
     add_settings_field(
         'amb_dido_custom_fields_field',
@@ -114,13 +181,31 @@ function amb_dido_register_settings() {
     );
 }
 
+function amb_dido_storage_mode_callback() {
+    $mode = get_option('amb_storage_mode', 'hybrid');
+    echo '<select name="amb_storage_mode">';
+    echo '<option value="hybrid"' . selected($mode, 'hybrid', false) . '>Hybrid (empfohlen)</option>';
+    echo '<option value="local"' . selected($mode, 'local', false) . '>Nur lokale Dateien</option>';
+    echo '<option value="external"' . selected($mode, 'external', false) . '>Nur externe Quellen</option>';
+    echo '</select>';
+    echo '<p class="description">';
+    echo '<strong>Hybrid:</strong> Externe Quellen mit lokalem Fallback<br>';
+    echo '<strong>Lokal:</strong> Verwendet nur lokale Vokabular-Dateien<br>';
+    echo '<strong>Extern:</strong> Verwendet nur externe Quellen (alter Modus)';
+    echo '</p>';
+}
+
 function amb_dido_metadata_section_callback() {
     echo '<p>Wählen Sie die Metadatenfelder, die im Frontend angezeigt werden sollen.</p>';
     echo '<p>Alternativ können Metadatenfelder im Editor per Shortcodes aufgerufen werden: <span class="amb-code">[show_amb_metadata field="amb_audience"]</span> oder <span class="amb-code">[show_amb_metadata]</span> für alle aktivierten Felder.</p>';
     echo '<p>Sie können auch beliebige Felder in Ihrem Theme mit <span class="amb-code">show_amb_metadata("NAME_DES_FELDS")</span> aufrufen.</p>';
     echo '<p>Folgende Felder können Sie dafür verwenden:</p>';
 
-    $all_fields = array_merge(amb_get_other_fields(), amb_get_all_external_values());
+    if (function_exists('amb_get_all_external_values')) {
+        $all_fields = array_merge(amb_get_other_fields(), amb_get_all_external_values());
+    } else {
+        $all_fields = amb_get_other_fields();
+    }
     foreach ($all_fields as $field => $data) {
         echo $all_fields[$field]['field_label'] . ": <span class='amb-code'>" . $field . "</span> | ";
     }
@@ -133,7 +218,12 @@ function amb_dido_checkbox_field_callback($args) {
 }
 
 function amb_dido_sanitize_options($input) {
-    $new_input = [];
+    // Sichere Prüfung ob $input ein Array ist
+    if (!is_array($input)) {
+        return array();
+    }
+    
+    $new_input = array();
     foreach($input as $key => $value) {
         if (isset($input[$key])) {
             $new_input[$key] = $value ? 1 : 0;
@@ -176,21 +266,35 @@ function amb_dido_default_field_callback($args) {
 }
 
 function amb_dido_sanitize_custom_labels($input) {
-  $sanitized_input = array();
-  foreach ($input as $key => $value) {
-    $sanitized_input[$key] = sanitize_text_field($value);
-  }
-  return $sanitized_input;
+    // Sichere Prüfung
+    if (!is_array($input)) {
+        return array();
+    }
+    
+    $sanitized_input = array();
+    foreach ($input as $key => $value) {
+        $sanitized_input[$key] = sanitize_text_field($value);
+    }
+    return $sanitized_input;
 }
 
-function amb_dido_sanitize_defaults($value) {
-    if (!isset($value) || empty($value)) {
-        return '';
-    } elseif ($value === 'deactivate') {
-        return 'deactivate';
-    } else {
-        return $value;
+function amb_dido_sanitize_defaults($input) {
+    // Prüfen ob $input ein Array ist
+    if (!is_array($input)) {
+        return array();
     }
+    
+    $sanitized_input = array();
+    foreach ($input as $key => $value) {
+        if (!isset($value) || empty($value)) {
+            $sanitized_input[$key] = '';
+        } elseif ($value === 'deactivate') {
+            $sanitized_input[$key] = 'deactivate';
+        } else {
+            $sanitized_input[$key] = sanitize_text_field($value);
+        }
+    }
+    return $sanitized_input;
 }
 
 function amb_dido_post_types_field_html() {
@@ -259,11 +363,25 @@ function amb_dido_render_custom_field($url, $key, $counter) {
 }
 
 function amb_dido_sanitize_custom_fields($input) {
-    $sanitized_input = [];
+    // Sichere Prüfung ob $input ein Array ist
+    if (!is_array($input)) {
+        return array();
+    }
+    
+    $sanitized_input = array();
     foreach ($input as $custom_field) {
-        $sanitized_url = esc_url_raw($custom_field['url']);
-        $sanitized_key = in_array($custom_field['key'], ['about', 'teaches', 'assesses', 'audience', 'interactivityType']) ? $custom_field['key'] : '';
+        // Zusätzliche Prüfung ob $custom_field ein Array ist
+        if (!is_array($custom_field)) {
+            continue;
+        }
+        
+        // Sichere Zugriffe mit isset()
+        $url = isset($custom_field['url']) ? $custom_field['url'] : '';
+        $key = isset($custom_field['key']) ? $custom_field['key'] : '';
         $meta_key = isset($custom_field['meta_key']) ? $custom_field['meta_key'] : '';
+        
+        $sanitized_url = esc_url_raw($url);
+        $sanitized_key = in_array($key, ['about', 'teaches', 'assesses', 'audience', 'interactivityType']) ? $key : '';
 
         if (!empty($sanitized_url) && !empty($sanitized_key) && !empty($meta_key)) {
             $sanitized_input[$meta_key] = [
@@ -289,27 +407,49 @@ function amb_dido_taxonomy_section_callback() {
 }
 
 function amb_dido_taxonomy_mapping_callback() {
-    $all_fields = array_merge(amb_get_other_fields(), amb_get_all_external_values());
+    // Sichere Initialisierung
+    $all_fields = amb_get_other_fields();
+    
+    if (function_exists('amb_get_all_external_values')) {
+        try {
+            $external_fields = amb_get_all_external_values();
+            if (is_array($external_fields)) {
+                $all_fields = array_merge($all_fields, $external_fields);
+            }
+        } catch (Exception $e) {
+            // Fehler ignorieren, mit lokalen Feldern fortfahren
+        }
+    }
+    
     $taxonomies = get_taxonomies(array('public' => true), 'objects');
     $mapping = get_option('amb_dido_taxonomy_mapping', array());
 
-    foreach ($all_fields as $field_key => $field_data) {
-        echo '<tr>';
-        echo '<th scope="row">' . esc_html($field_data['field_label']) . '</th>';
-        echo '<td>';
-        echo '<select name="amb_dido_taxonomy_mapping[' . esc_attr($field_key) . ']">';
-        echo '<option value="">--Keine Auswahl--</option>';
-        foreach ($taxonomies as $taxonomy) {
-            $selected = (isset($mapping[$field_key]) && $mapping[$field_key] === $taxonomy->name) ? 'selected' : '';
-            echo '<option value="' . esc_attr($taxonomy->name) . '" ' . $selected . '>' . esc_html($taxonomy->label) . '</option>';
+    if (is_array($all_fields)) {
+        foreach ($all_fields as $field_key => $field_data) {
+            if (isset($field_data['field_label'])) {
+                echo '<tr>';
+                echo '<th scope="row">' . esc_html($field_data['field_label']) . '</th>';
+                echo '<td>';
+                echo '<select name="amb_dido_taxonomy_mapping[' . esc_attr($field_key) . ']">';
+                echo '<option value="">--Keine Auswahl--</option>';
+                foreach ($taxonomies as $taxonomy) {
+                    $selected = (isset($mapping[$field_key]) && $mapping[$field_key] === $taxonomy->name) ? 'selected' : '';
+                    echo '<option value="' . esc_attr($taxonomy->name) . '" ' . $selected . '>' . esc_html($taxonomy->label) . '</option>';
+                }
+                echo '</select>';
+                echo '</td>';
+                echo '</tr>';
+            }
         }
-        echo '</select>';
-        echo '</td>';
-        echo '</tr>';
     }
 }
 
 function amb_dido_sanitize_taxonomy_mapping($input) {
+    // Sichere Prüfung
+    if (!is_array($input)) {
+        return array();
+    }
+    
     $sanitized_input = array();
     foreach ($input as $field_key => $taxonomy) {
         if (!empty($taxonomy)) {
@@ -425,3 +565,391 @@ add_action('admin_menu', 'amb_dido_create_settings_page');
 
 // Hook to register settings
 add_action('admin_init', 'amb_dido_register_settings');
+
+
+/**
+ * Cache-Verwaltung zur Optionsseite hinzufügen
+ */
+function amb_dido_register_cache_settings() {
+    // Neue Sektion für Cache-Verwaltung
+    add_settings_section(
+        'amb_dido_cache_section', 
+        '', 
+        'amb_dido_cache_section_callback', 
+        'amb_dido_cache_section'
+    );
+    
+    add_settings_field(
+        'amb_dido_cache_management',
+        'Cache-Verwaltung',
+        'amb_dido_cache_management_callback',
+        'amb_dido_cache_section',
+        'amb_dido_cache_section'
+    );
+    
+    // Cache-Modus Setting
+    register_setting('amb_dido_settings_group', 'amb_cache_mode', [
+        'default' => 'auto',
+        'sanitize_callback' => 'sanitize_text_field',
+    ]);
+    
+    add_settings_field(
+        'amb_cache_mode',
+        'Cache-Modus',
+        'amb_dido_cache_mode_callback',
+        'amb_dido_cache_section',
+        'amb_dido_cache_section'
+    );
+}
+
+/**
+ * Cache-Sektion Callbacks
+ */
+function amb_dido_cache_section_callback() {
+    echo '<p>Verwalten Sie hier den Cache für externe Wertelisten und lokale Vokabulare. Der Cache verbessert die Performance erheblich.</p>';
+    
+    // Cache-Status anzeigen
+    $cache = get_transient('amb_external_values_cache');
+    $cache_status = $cache ? 'Aktiv' : 'Leer';
+    
+    echo "<p><strong>Cache-Status:</strong> $cache_status</p>";
+    if ($cache) {
+        $timeout = get_option('_transient_timeout_amb_external_values_cache', 0);
+        if ($timeout > 0) {
+            $expires = date('d.m.Y H:i', $timeout);
+            echo "<p><strong>Läuft ab:</strong> $expires</p>";
+        }
+    }
+    
+    // Backup-Status
+    $backup_count = 0;
+    $urls = amb_get_json_urls();
+    foreach ($urls as $key => $url_data) {
+        if (get_option('amb_local_backup_' . $key)) {
+            $backup_count++;
+        }
+    }
+    echo "<p><strong>Lokale Backups:</strong> $backup_count von " . count($urls) . " verfügbar</p>";
+    
+    // Vokabular-Manager Status
+    if (function_exists('amb_vocabularies_manager')) {
+        $manager = amb_vocabularies_manager();
+        $status = $manager->get_all_vocabulary_status();
+        $local_count = 0;
+        foreach ($status as $vocab_status) {
+            if ($vocab_status['exists']) {
+                $local_count++;
+            }
+        }
+        echo "<p><strong>Lokale Vokabular-Dateien:</strong> $local_count von " . count($status) . " verfügbar</p>";
+    }
+}
+
+/**
+ * AJAX-basierte Cache-Management Callback
+ * Ersetzt die vorherige Version
+ */
+function amb_dido_cache_management_callback() {
+    // Nonce für AJAX-Sicherheit
+    $nonce = wp_create_nonce('amb_cache_nonce');
+    
+    echo '<div style="margin-bottom: 15px;">';
+    echo '<h4>Cache-Aktionen</h4>';
+    echo '<button type="button" id="amb-refresh-cache" class="button-primary" data-nonce="' . $nonce . '">Cache aktualisieren</button> ';
+    echo '<button type="button" id="amb-clear-cache" class="button-secondary" data-nonce="' . $nonce . '">Cache leeren</button>';
+    echo '<p class="description">Cache aktualisieren lädt alle externen Listen neu. Cache leeren erzwingt Neuladen beim nächsten Zugriff.</p>';
+    echo '</div>';
+    
+    echo '<div>';
+    echo '<h4>Lokale Vokabulare</h4>';
+    echo '<button type="button" id="amb-download-vocab" class="button-secondary" data-nonce="' . $nonce . '">Alle Vokabulare herunterladen</button>';
+    echo '<p class="description">Lädt alle Vokabulare als lokale Dateien herunter für bessere Performance und Offline-Verfügbarkeit.</p>';
+    echo '</div>';
+    
+    echo '<div id="amb-cache-message" style="margin-top: 15px;"></div>';
+    
+    // Status-Informationen
+    echo '<div style="margin-top: 20px; padding: 10px; background: #f1f1f1; border-radius: 3px;">';
+    echo '<h4>Aktueller Status</h4>';
+    
+    $last_refresh = get_option('amb_last_cache_refresh', 0);
+    if ($last_refresh) {
+        echo '<p><strong>Letzter Cache-Refresh:</strong> ' . date('d.m.Y H:i:s', $last_refresh) . '</p>';
+    }
+    
+    $storage_mode = get_option('amb_storage_mode', 'hybrid');
+    $cache_mode = get_option('amb_cache_mode', 'auto');
+    echo '<p><strong>Aktueller Modus:</strong> ' . ucfirst($storage_mode) . ' / ' . ucfirst($cache_mode) . '</p>';
+    echo '</div>';
+    
+    // JavaScript für AJAX-Aufrufe
+    ?>
+    <script type="text/javascript">
+    jQuery(document).ready(function($) {
+        function showMessage(message, isSuccess) {
+            var messageDiv = $('#amb-cache-message');
+            var className = isSuccess ? 'notice-success' : 'notice-error';
+            messageDiv.html('<div class="notice ' + className + ' inline"><p>' + message + '</p></div>');
+            
+            // Nach 5 Sekunden ausblenden
+            setTimeout(function() {
+                messageDiv.fadeOut();
+            }, 5000);
+        }
+        
+        function performCacheAction(action, button) {
+            var nonce = button.data('nonce');
+            var originalText = button.text();
+            
+            button.prop('disabled', true).text('Wird verarbeitet...');
+            
+            $.post(ajaxurl, {
+                action: 'amb_cache_refresh',
+                cache_action: action,
+                nonce: nonce
+            }, function(response) {
+                showMessage(response.message, response.success);
+                button.prop('disabled', false).text(originalText);
+                
+                // Seite nach erfolgreicher Aktion neu laden um Status zu aktualisieren
+                if (response.success && (action === 'refresh' || action === 'download')) {
+                    setTimeout(function() {
+                        window.location.reload();
+                    }, 2000);
+                }
+            }).fail(function() {
+                showMessage('Fehler bei der Kommunikation mit dem Server', false);
+                button.prop('disabled', false).text(originalText);
+            });
+        }
+        
+        $('#amb-refresh-cache').click(function() {
+            performCacheAction('refresh', $(this));
+        });
+        
+        $('#amb-clear-cache').click(function() {
+            performCacheAction('clear', $(this));
+        });
+        
+        $('#amb-download-vocab').click(function() {
+            performCacheAction('download', $(this));
+        });
+    });
+    </script>
+    <?php
+}
+
+function amb_dido_cache_mode_callback() {
+    $mode = get_option('amb_cache_mode', 'auto');
+    echo '<select name="amb_cache_mode">';
+    echo '<option value="auto"' . selected($mode, 'auto', false) . '>Automatisch (empfohlen)</option>';
+    echo '<option value="manual"' . selected($mode, 'manual', false) . '>Nur manuell</option>';
+    echo '<option value="offline"' . selected($mode, 'offline', false) . '>Offline-Modus</option>';
+    echo '</select>';
+    echo '<p class="description">';
+    echo '<strong>Automatisch:</strong> Cache wird automatisch erneuert<br>';
+    echo '<strong>Manuell:</strong> Cache wird nur bei manueller Aktualisierung erneuert<br>';
+    echo '<strong>Offline:</strong> Verwendet nur lokale Backups, keine externen Aufrufe';
+    echo '</p>';
+}
+
+/**
+ * Verarbeitet Cache-Aktionen vor der Seitenausgabe
+ */
+function amb_dido_process_cache_actions() {
+    // Nur auf der Plugin-Optionsseite und bei POST-Requests
+    if (!isset($_GET['page']) || $_GET['page'] !== 'amb_dido' || $_SERVER['REQUEST_METHOD'] !== 'POST') {
+        return;
+    }
+    
+    // Sicherheitscheck
+    if (!current_user_can('manage_options')) {
+        return;
+    }
+    
+    $redirect_url = admin_url('options-general.php?page=amb_dido');
+    $message = '';
+    $status = '';
+    
+    // Cache-Refresh verarbeiten
+    if (isset($_POST['amb_refresh_cache_manual'])) {
+        if (function_exists('amb_refresh_external_cache')) {
+            // Output-Buffering starten um Logs zu unterdrücken
+            ob_start();
+            $success = amb_refresh_external_cache();
+            ob_end_clean(); // Buffer verwerfen
+            
+            if ($success) {
+                $message = 'cache_updated';
+                $status = 'success';
+            } else {
+                $message = 'cache_failed';
+                $status = 'error';
+            }
+        } else {
+            $message = 'function_missing';
+            $status = 'error';
+        }
+        
+        $redirect_url = add_query_arg(array(
+            'cache_action' => $message,
+            'cache_status' => $status
+        ), $redirect_url);
+        
+        wp_redirect($redirect_url);
+        exit;
+    }
+    
+    // Cache leeren verarbeiten
+    if (isset($_POST['amb_clear_cache'])) {
+        delete_transient('amb_external_values_cache');
+        
+        $redirect_url = add_query_arg(array(
+            'cache_action' => 'cache_cleared',
+            'cache_status' => 'success'
+        ), $redirect_url);
+        
+        wp_redirect($redirect_url);
+        exit;
+    }
+    
+    // Vokabulare herunterladen verarbeiten
+    if (isset($_POST['amb_download_vocabularies'])) {
+        if (function_exists('amb_vocabularies_manager')) {
+            // Output-Buffering starten
+            ob_start();
+            $manager = amb_vocabularies_manager();
+            $results = $manager->download_all_vocabularies();
+            ob_end_clean(); // Buffer verwerfen
+            
+            $success_count = 0;
+            foreach ($results as $result) {
+                if ($result['success']) {
+                    $success_count++;
+                }
+            }
+            
+            $redirect_url = add_query_arg(array(
+                'cache_action' => 'vocabularies_downloaded',
+                'cache_status' => 'success',
+                'success_count' => $success_count,
+                'total_count' => count($results)
+            ), $redirect_url);
+        } else {
+            $redirect_url = add_query_arg(array(
+                'cache_action' => 'vocabularies_failed',
+                'cache_status' => 'error'
+            ), $redirect_url);
+        }
+        
+        wp_redirect($redirect_url);
+        exit;
+    }
+}
+
+// Hook für die Verarbeitung vor der Seitenausgabe
+add_action('admin_init', 'amb_dido_process_cache_actions');
+
+
+/**
+ * Zeigt Benachrichtigungen basierend auf URL-Parametern an
+ */
+function amb_dido_show_cache_notices() {
+    if (!isset($_GET['page']) || $_GET['page'] !== 'amb_dido') {
+        return;
+    }
+    
+    if (isset($_GET['cache_action']) && isset($_GET['cache_status'])) {
+        $action = sanitize_text_field($_GET['cache_action']);
+        $status = sanitize_text_field($_GET['cache_status']);
+        $notice_class = $status === 'success' ? 'notice-success' : 'notice-error';
+        
+        switch ($action) {
+            case 'cache_updated':
+                echo '<div class="notice ' . $notice_class . ' is-dismissible"><p>Cache erfolgreich aktualisiert!</p></div>';
+                break;
+            case 'cache_failed':
+                echo '<div class="notice ' . $notice_class . ' is-dismissible"><p>Cache-Aktualisierung fehlgeschlagen! Prüfen Sie die Logs.</p></div>';
+                break;
+            case 'cache_cleared':
+                echo '<div class="notice ' . $notice_class . ' is-dismissible"><p>Cache erfolgreich geleert!</p></div>';
+                break;
+            case 'vocabularies_downloaded':
+                $success = isset($_GET['success_count']) ? intval($_GET['success_count']) : 0;
+                $total = isset($_GET['total_count']) ? intval($_GET['total_count']) : 0;
+                echo '<div class="notice ' . $notice_class . ' is-dismissible"><p>Vokabulare heruntergeladen: ' . $success . ' von ' . $total . ' erfolgreich!</p></div>';
+                break;
+            case 'vocabularies_failed':
+                echo '<div class="notice ' . $notice_class . ' is-dismissible"><p>Vokabular-Download fehlgeschlagen!</p></div>';
+                break;
+            case 'function_missing':
+                echo '<div class="notice ' . $notice_class . ' is-dismissible"><p>Cache-Funktion nicht verfügbar!</p></div>';
+                break;
+        }
+    }
+}
+
+/**
+ * AJAX Handler für Cache-Aktionen
+ */
+function amb_dido_ajax_cache_refresh() {
+    // Sicherheitscheck
+    if (!current_user_can('manage_options')) {
+        wp_die('Keine Berechtigung');
+    }
+    
+    check_ajax_referer('amb_cache_nonce', 'nonce');
+    
+    $action = sanitize_text_field($_POST['cache_action']);
+    $success = false;
+    $message = '';
+    
+    switch ($action) {
+        case 'refresh':
+            delete_transient('amb_external_values_cache');
+            if (function_exists('amb_get_all_external_values_with_mode')) {
+                $values = amb_get_all_external_values_with_mode();
+                if (!empty($values)) {
+                    set_transient('amb_external_values_cache', $values, 24 * HOUR_IN_SECONDS);
+                    update_option('amb_last_cache_refresh', time());
+                    $success = true;
+                    $message = 'Cache erfolgreich aktualisiert!';
+                } else {
+                    $message = 'Cache-Aktualisierung fehlgeschlagen!';
+                }
+            } else {
+                $message = 'Cache-Funktion nicht verfügbar!';
+            }
+            break;
+            
+        case 'clear':
+            delete_transient('amb_external_values_cache');
+            $success = true;
+            $message = 'Cache erfolgreich geleert!';
+            break;
+            
+        case 'download':
+            if (function_exists('amb_vocabularies_manager')) {
+                $manager = amb_vocabularies_manager();
+                $results = $manager->download_all_vocabularies();
+                $success_count = 0;
+                foreach ($results as $result) {
+                    if ($result['success']) {
+                        $success_count++;
+                    }
+                }
+                $success = true;
+                $message = "Vokabulare heruntergeladen: $success_count von " . count($results) . " erfolgreich!";
+            } else {
+                $message = 'Vokabular-Manager nicht verfügbar!';
+            }
+            break;
+    }
+    
+    wp_send_json(array(
+        'success' => $success,
+        'message' => $message
+    ));
+}
+
+add_action('wp_ajax_amb_cache_refresh', 'amb_dido_ajax_cache_refresh');
