@@ -1,0 +1,393 @@
+{
+    "id": "https:\/\/hof-halle-wittenberg.github.io\/vocabs\/organisationalContext\/",
+    "type": "ConceptScheme",
+    "title": {
+        "en": "Organisational Context",
+        "de": "Organisationaler Kontext"
+    },
+    "description": {
+        "en": "A value list to assign the organizational context to a resource.",
+        "de": "Eine Werteliste um einer Ressource den organisatorischen Kontext zuzuordnen."
+    },
+    "hasTopConcept": [
+        {
+            "id": "https:\/\/hof-halle-wittenberg.github.io\/vocabs\/organisationalContext\/DidacticSupport",
+            "prefLabel": {
+                "en": "didactic support",
+                "de": "didaktischer Support"
+            },
+            "definition": {
+                "en": "The resource provides support in the area of didactics.",
+                "de": "Die Ressource bietet Unterstützung im Bereich der Didaktik."
+            },
+            "narrower": [
+                {
+                    "id": "https:\/\/hof-halle-wittenberg.github.io\/vocabs\/organisationalContext\/FurtherEducation",
+                    "prefLabel": {
+                        "en": "further education",
+                        "de": "Weiterbildung"
+                    }
+                },
+                {
+                    "id": "https:\/\/hof-halle-wittenberg.github.io\/vocabs\/organisationalContext\/Training",
+                    "prefLabel": {
+                        "en": "training",
+                        "de": "Schulungen"
+                    }
+                },
+                {
+                    "id": "https:\/\/hof-halle-wittenberg.github.io\/vocabs\/organisationalContext\/Consultation",
+                    "prefLabel": {
+                        "en": "consultation",
+                        "de": "Beratung"
+                    }
+                },
+                {
+                    "id": "https:\/\/hof-halle-wittenberg.github.io\/vocabs\/organisationalContext\/ScholarshipAllocation",
+                    "prefLabel": {
+                        "en": "scholarship allocation",
+                        "de": "Vergabe von Stipendien"
+                    }
+                },
+                {
+                    "id": "https:\/\/hof-halle-wittenberg.github.io\/vocabs\/organisationalContext\/Mentoring",
+                    "prefLabel": {
+                        "en": "mentoring for students",
+                        "de": "Mentoring für Studierende"
+                    }
+                },
+                {
+                    "id": "https:\/\/hof-halle-wittenberg.github.io\/vocabs\/organisationalContext\/Internationalization",
+                    "prefLabel": {
+                        "en": "internationalization",
+                        "de": "Internationalisierung"
+                    }
+                },
+                {
+                    "id": "https:\/\/hof-halle-wittenberg.github.io\/vocabs\/organisationalContext\/IncentiveDevelopment",
+                    "prefLabel": {
+                        "en": "incentive development for good teaching",
+                        "de": "Entwicklung von Anreizen für gute Lehre"
+                    }
+                },
+                {
+                    "id": "https:\/\/hof-halle-wittenberg.github.io\/vocabs\/organisationalContext\/TeachingEvaluation",
+                    "prefLabel": {
+                        "en": "teaching evaluation",
+                        "de": "Lehrevaluation"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "https:\/\/hof-halle-wittenberg.github.io\/vocabs\/organisationalContext\/LegalSupport",
+            "prefLabel": {
+                "en": "legal support",
+                "de": "rechtlicher Support"
+            },
+            "definition": {
+                "en": "The resource provides support in the area of legal matters.",
+                "de": "Die Ressource bietet Unterstützung im Bereich der rechtlichen Fragen."
+            },
+            "narrower": [
+                {
+                    "id": "https:\/\/hof-halle-wittenberg.github.io\/vocabs\/organisationalContext\/QualityManagement",
+                    "prefLabel": {
+                        "en": "quality management",
+                        "de": "Qualitätsmanagement"
+                    }
+                },
+                {
+                    "id": "https:\/\/hof-halle-wittenberg.github.io\/vocabs\/organisationalContext\/LegalDepartment",
+                    "prefLabel": {
+                        "en": "legal department",
+                        "de": "Rechtsabteilung"
+                    }
+                },
+                {
+                    "id": "https:\/\/hof-halle-wittenberg.github.io\/vocabs\/organisationalContext\/DataProtectionOfficer",
+                    "prefLabel": {
+                        "en": "data protection officer",
+                        "de": "Datenschutzbeauftragte"
+                    }
+                },
+                {
+                    "id": "https:\/\/hof-halle-wittenberg.github.io\/vocabs\/organisationalContext\/EqualOpportunitiesOfficer",
+                    "prefLabel": {
+                        "en": "equal opportunities officer",
+                        "de": "Gleichstellungsbeauftragte"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "https:\/\/hof-halle-wittenberg.github.io\/vocabs\/organisationalContext\/InfrastructureSupport",
+            "prefLabel": {
+                "en": "infrastructure support",
+                "de": "Support Infrastruktur"
+            },
+            "definition": {
+                "en": "The resource provides support in the area of infrastructure.",
+                "de": "Die Ressource bietet Unterstützung im Bereich der Infrastruktur."
+            },
+            "narrower": [
+                {
+                    "id": "https:\/\/hof-halle-wittenberg.github.io\/vocabs\/organisationalContext\/SchedulingAndRoomPlanning",
+                    "prefLabel": {
+                        "en": "scheduling and room planning",
+                        "de": "Stunden- und Raumplanung"
+                    }
+                },
+                {
+                    "id": "https:\/\/hof-halle-wittenberg.github.io\/vocabs\/organisationalContext\/TechnologyAcquisition",
+                    "prefLabel": {
+                        "en": "technology acquisition",
+                        "de": "Anschaffung von Technik"
+                    }
+                },
+                {
+                    "id": "https:\/\/hof-halle-wittenberg.github.io\/vocabs\/organisationalContext\/ManualDevelopment",
+                    "prefLabel": {
+                        "en": "manual development",
+                        "de": "Erarbeitung von Anleitungen"
+                    }
+                },
+                {
+                    "id": "https:\/\/hof-halle-wittenberg.github.io\/vocabs\/organisationalContext\/LicenseProcurement",
+                    "prefLabel": {
+                        "en": "license procurement",
+                        "de": "Beschaffung von Lizenzen"
+                    }
+                },
+                {
+                    "id": "https:\/\/hof-halle-wittenberg.github.io\/vocabs\/organisationalContext\/SoftwareDevelopment",
+                    "prefLabel": {
+                        "en": "software development",
+                        "de": "Softwareentwicklung"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "https:\/\/hof-halle-wittenberg.github.io\/vocabs\/organisationalContext\/StrategicSupport",
+            "prefLabel": {
+                "en": "strategic support",
+                "de": "strategischer Support"
+            },
+            "definition": {
+                "en": "The resource provides support in the area of strategic planning.",
+                "de": "Die Ressource bietet Unterstützung im Bereich der strategischen Planung."
+            },
+            "narrower": [
+                {
+                    "id": "https:\/\/hof-halle-wittenberg.github.io\/vocabs\/organisationalContext\/ProgramIntroduction",
+                    "prefLabel": {
+                        "en": "program introduction",
+                        "de": "Einführung von Studiengängen"
+                    }
+                },
+                {
+                    "id": "https:\/\/hof-halle-wittenberg.github.io\/vocabs\/organisationalContext\/ExaminationAdministration",
+                    "prefLabel": {
+                        "en": "examination administration",
+                        "de": "Abnahme von Prüfungen"
+                    }
+                },
+                {
+                    "id": "https:\/\/hof-halle-wittenberg.github.io\/vocabs\/organisationalContext\/DevelopmentPlans",
+                    "prefLabel": {
+                        "en": "development plans",
+                        "de": "Entwicklung Hochschulentwicklungspläne"
+                    }
+                },
+                {
+                    "id": "https:\/\/hof-halle-wittenberg.github.io\/vocabs\/organisationalContext\/GuidelineDevelopment",
+                    "prefLabel": {
+                        "en": "guideline development",
+                        "de": "Entwicklung Leitbilder"
+                    }
+                },
+                {
+                    "id": "https:\/\/hof-halle-wittenberg.github.io\/vocabs\/organisationalContext\/Appointments",
+                    "prefLabel": {
+                        "en": "appointments",
+                        "de": "Berufungen"
+                    }
+                },
+                {
+                    "id": "https:\/\/hof-halle-wittenberg.github.io\/vocabs\/organisationalContext\/Enrollment",
+                    "prefLabel": {
+                        "en": "enrollment",
+                        "de": "Immatrikulation"
+                    }
+                },
+                {
+                    "id": "https:\/\/hof-halle-wittenberg.github.io\/vocabs\/organisationalContext\/ExaminationAffairs",
+                    "prefLabel": {
+                        "en": "examination affairs",
+                        "de": "Prüfungswesen"
+                    }
+                },
+                {
+                    "id": "https:\/\/hof-halle-wittenberg.github.io\/vocabs\/organisationalContext\/Evaluation",
+                    "prefLabel": {
+                        "en": "evaluation and accreditation",
+                        "de": "Evaluation und Akkreditierung"
+                    }
+                },
+                {
+                    "id": "https:\/\/hof-halle-wittenberg.github.io\/vocabs\/organisationalContext\/InterUniversityNetworking",
+                    "prefLabel": {
+                        "en": "inter-university networking",
+                        "de": "Hochschulübergreifende Vernetzung"
+                    }
+                }
+            ]
+        }
+    ],
+    "@context": {
+        "@version": 1.1,
+        "id": "@id",
+        "type": "@type",
+        "@vocab": "http:\/\/www.w3.org\/2004\/02\/skos\/core#",
+        "xsd": "http:\/\/www.w3.org\/2001\/XMLSchema#",
+        "dct": "http:\/\/purl.org\/dc\/terms\/",
+        "dc": "http:\/\/purl.org\/dc\/elements\/1.1\/",
+        "schema": "https:\/\/schema.org\/",
+        "vann": "http:\/\/purl.org\/vocab\/vann\/",
+        "ldp": "http:\/\/www.w3.org\/ns\/ldp#",
+        "owl": "http:\/\/www.w3.org\/2002\/07\/owl#",
+        "title": {
+            "@id": "dct:title",
+            "@container": "@language"
+        },
+        "dc:title": {
+            "@id": "dc:title",
+            "@container": "@language"
+        },
+        "dc:description": {
+            "@id": "dc:description",
+            "@container": "@language"
+        },
+        "description": {
+            "@id": "dct:description",
+            "@container": "@language"
+        },
+        "issued": {
+            "@id": "dct:issued",
+            "@type": "xsd:date"
+        },
+        "created": {
+            "@id": "dct:created",
+            "@type": "xsd:date"
+        },
+        "modified": {
+            "@id": "dct:modified",
+            "@type": "xsd:date"
+        },
+        "creator": "dct:creator",
+        "publisher": "dct:publisher",
+        "preferredNamespacePrefix": "vann:preferredNamespacePrefix",
+        "preferredNamespaceUri": "vann:preferredNamespaceUri",
+        "isBasedOn": "schema:isBasedOn",
+        "source": "dct:source",
+        "prefLabel": {
+            "@container": "@language"
+        },
+        "altLabel": {
+            "@container": [
+                "@language",
+                "@set"
+            ]
+        },
+        "hiddenLabel": {
+            "@container": [
+                "@language",
+                "@set"
+            ]
+        },
+        "definition": {
+            "@container": "@language"
+        },
+        "note": {
+            "@container": [
+                "@language",
+                "@set"
+            ]
+        },
+        "changeNote": {
+            "@container": [
+                "@language",
+                "@set"
+            ]
+        },
+        "editorialNote": {
+            "@container": [
+                "@language",
+                "@set"
+            ]
+        },
+        "historyNote": {
+            "@container": [
+                "@language",
+                "@set"
+            ]
+        },
+        "scopeNote": {
+            "@container": [
+                "@language",
+                "@set"
+            ]
+        },
+        "notation": {
+            "@container": "@set"
+        },
+        "example": {
+            "@container": "@language"
+        },
+        "narrower": {
+            "@container": "@set"
+        },
+        "related": {
+            "@container": "@set"
+        },
+        "relatedMatch": {
+            "@container": "@set"
+        },
+        "narrowerTransitive": {
+            "@container": "@set"
+        },
+        "broaderTransitive": {
+            "@container": "@set"
+        },
+        "broadMatch": {
+            "@container": "@set"
+        },
+        "narrowMatch": {
+            "@container": "@set"
+        },
+        "closeMatch": {
+            "@container": "@set"
+        },
+        "exactMatch": {
+            "@container": "@set"
+        },
+        "hasTopConcept": {
+            "@container": "@set"
+        },
+        "inScheme": {
+            "@container": "@set"
+        },
+        "topConceptOf": {
+            "@container": "@set"
+        },
+        "deprecated": {
+            "@id": "owl:deprecated",
+            "@type": "xsd:boolean"
+        },
+        "isReplacedBy": {
+            "@id": "dct:isReplacedBy",
+            "@container": "@set"
+        }
+    }
+}

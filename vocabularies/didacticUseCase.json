@@ -1,0 +1,496 @@
+{
+    "id": "https:\/\/hof-halle-wittenberg.github.io\/vocabs\/didacticUseCase\/",
+    "type": "ConceptScheme",
+    "title": {
+        "en": "Didactic Use Case",
+        "de": "Didaktischer Anwendungsfall"
+    },
+    "description": {
+        "en": "A value list to assign the didactic use case to a resource.",
+        "de": "Eine Werteliste, um einer Ressource den didaktischen Anwendungsfall zuzuordnen."
+    },
+    "hasTopConcept": [
+        {
+            "id": "https:\/\/hof-halle-wittenberg.github.io\/vocabs\/didacticUseCase\/TeachingMethods",
+            "prefLabel": {
+                "en": "Didactic Methods and Teaching Forms",
+                "de": "Didaktische Methoden und Lehrformen"
+            },
+            "definition": {
+                "en": "Various methods and teaching forms used in the didactic context.",
+                "de": "Verschiedene Methoden und Lehrformen, die im didaktischen Kontext verwendet werden."
+            },
+            "narrower": [
+                {
+                    "id": "https:\/\/hof-halle-wittenberg.github.io\/vocabs\/didacticUseCase\/BlendedLearning",
+                    "prefLabel": {
+                        "en": "Blended Learning",
+                        "de": "Blended Learning"
+                    }
+                },
+                {
+                    "id": "https:\/\/hof-halle-wittenberg.github.io\/vocabs\/didacticUseCase\/GroupWork",
+                    "prefLabel": {
+                        "en": "Group Work",
+                        "de": "Gruppenarbeit"
+                    }
+                },
+                {
+                    "id": "https:\/\/hof-halle-wittenberg.github.io\/vocabs\/didacticUseCase\/ProblemBasedLearning",
+                    "prefLabel": {
+                        "en": "Problem-Based Learning",
+                        "de": "Problembasiertes Lernen"
+                    }
+                },
+                {
+                    "id": "https:\/\/hof-halle-wittenberg.github.io\/vocabs\/didacticUseCase\/SelfDirectedLearning",
+                    "prefLabel": {
+                        "en": "Self-Directed Learning",
+                        "de": "Selbstgesteuertes Lernen"
+                    }
+                },
+                {
+                    "id": "https:\/\/hof-halle-wittenberg.github.io\/vocabs\/didacticUseCase\/ServiceLearning",
+                    "prefLabel": {
+                        "en": "Service Learning",
+                        "de": "Service Learning"
+                    }
+                },
+                {
+                    "id": "https:\/\/hof-halle-wittenberg.github.io\/vocabs\/didacticUseCase\/TeamLearning",
+                    "prefLabel": {
+                        "en": "Team Learning",
+                        "de": "Teamlearning"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "https:\/\/hof-halle-wittenberg.github.io\/vocabs\/didacticUseCase\/Competences",
+            "prefLabel": {
+                "en": "Competences and Skills",
+                "de": "Kompetenzen und Fähigkeiten"
+            },
+            "definition": {
+                "en": "Various competences and skills developed in the learning process.",
+                "de": "Verschiedene Kompetenzen und Fähigkeiten, die im Lernprozess entwickelt werden."
+            },
+            "narrower": [
+                {
+                    "id": "https:\/\/hof-halle-wittenberg.github.io\/vocabs\/didacticUseCase\/SubjectCompetences",
+                    "prefLabel": {
+                        "en": "Subject Competences",
+                        "de": "Fachkompetenzen"
+                    }
+                },
+                {
+                    "id": "https:\/\/hof-halle-wittenberg.github.io\/vocabs\/didacticUseCase\/FutureSkills",
+                    "prefLabel": {
+                        "en": "Future Skills",
+                        "de": "Future Skills"
+                    }
+                },
+                {
+                    "id": "https:\/\/hof-halle-wittenberg.github.io\/vocabs\/didacticUseCase\/MethodicalCompetences",
+                    "prefLabel": {
+                        "en": "Methodical Competences",
+                        "de": "Methodische Kompetenzen"
+                    }
+                },
+                {
+                    "id": "https:\/\/hof-halle-wittenberg.github.io\/vocabs\/didacticUseCase\/KeyCompetences",
+                    "prefLabel": {
+                        "en": "Key Competences",
+                        "de": "Schlüsselkompetenzen"
+                    }
+                },
+                {
+                    "id": "https:\/\/hof-halle-wittenberg.github.io\/vocabs\/didacticUseCase\/TransferCompetences",
+                    "prefLabel": {
+                        "en": "Transfer Competences",
+                        "de": "Transferkompetenzen"
+                    }
+                },
+                {
+                    "id": "https:\/\/hof-halle-wittenberg.github.io\/vocabs\/didacticUseCase\/SocialCompetences",
+                    "prefLabel": {
+                        "en": "Social Competences",
+                        "de": "Soziale Kompetenzen"
+                    }
+                },
+                {
+                    "id": "https:\/\/hof-halle-wittenberg.github.io\/vocabs\/didacticUseCase\/CriticalThinking",
+                    "prefLabel": {
+                        "en": "Critical Thinking",
+                        "de": "Kritisches Denken"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "https:\/\/hof-halle-wittenberg.github.io\/vocabs\/didacticUseCase\/LearningProcesses",
+            "prefLabel": {
+                "en": "Learning and Teaching Processes",
+                "de": "Lern- und Lehrprozesse"
+            },
+            "definition": {
+                "en": "Various processes involved in learning and teaching.",
+                "de": "Verschiedene Prozesse, die beim Lernen und Lehren eine Rolle spielen."
+            },
+            "narrower": [
+                {
+                    "id": "https:\/\/hof-halle-wittenberg.github.io\/vocabs\/didacticUseCase\/Attention",
+                    "prefLabel": {
+                        "en": "Attention",
+                        "de": "Aufmerksamkeit"
+                    }
+                },
+                {
+                    "id": "https:\/\/hof-halle-wittenberg.github.io\/vocabs\/didacticUseCase\/Feedback",
+                    "prefLabel": {
+                        "en": "Feedback",
+                        "de": "Feedback"
+                    }
+                },
+                {
+                    "id": "https:\/\/hof-halle-wittenberg.github.io\/vocabs\/didacticUseCase\/LearningResearch",
+                    "prefLabel": {
+                        "en": "Learning Research",
+                        "de": "Forschen lernen"
+                    }
+                },
+                {
+                    "id": "https:\/\/hof-halle-wittenberg.github.io\/vocabs\/didacticUseCase\/LearningAtmosphere",
+                    "prefLabel": {
+                        "en": "Learning Atmosphere",
+                        "de": "Lernatmosphäre"
+                    }
+                },
+                {
+                    "id": "https:\/\/hof-halle-wittenberg.github.io\/vocabs\/didacticUseCase\/LearningSuccess",
+                    "prefLabel": {
+                        "en": "Learning Success",
+                        "de": "Lernerfolg"
+                    }
+                },
+                {
+                    "id": "https:\/\/hof-halle-wittenberg.github.io\/vocabs\/didacticUseCase\/LearningPhaseDesign",
+                    "prefLabel": {
+                        "en": "Learning Phase Design",
+                        "de": "Lernphasengestaltung"
+                    }
+                },
+                {
+                    "id": "https:\/\/hof-halle-wittenberg.github.io\/vocabs\/didacticUseCase\/Orientation",
+                    "prefLabel": {
+                        "en": "Orientation",
+                        "de": "Orientierung"
+                    }
+                },
+                {
+                    "id": "https:\/\/hof-halle-wittenberg.github.io\/vocabs\/didacticUseCase\/Metacommunication",
+                    "prefLabel": {
+                        "en": "Metacommunication",
+                        "de": "Metakommunikation"
+                    }
+                },
+                {
+                    "id": "https:\/\/hof-halle-wittenberg.github.io\/vocabs\/didacticUseCase\/Transparency",
+                    "prefLabel": {
+                        "en": "Transparency",
+                        "de": "Transparenz"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "https:\/\/hof-halle-wittenberg.github.io\/vocabs\/didacticUseCase\/MotivationInteraction",
+            "prefLabel": {
+                "en": "Motivation and Interaction",
+                "de": "Motivation und Interaktion"
+            },
+            "definition": {
+                "en": "Aspects of motivation and interaction in the learning process.",
+                "de": "Aspekte der Motivation und Interaktion im Lernprozess."
+            },
+            "narrower": [
+                {
+                    "id": "https:\/\/hof-halle-wittenberg.github.io\/vocabs\/didacticUseCase\/JoyOfLearning",
+                    "prefLabel": {
+                        "en": "Joy of Learning",
+                        "de": "Freude am Lernen"
+                    }
+                },
+                {
+                    "id": "https:\/\/hof-halle-wittenberg.github.io\/vocabs\/didacticUseCase\/InterestMotivation",
+                    "prefLabel": {
+                        "en": "Interest \/ Motivation",
+                        "de": "Interesse \/ Motivation"
+                    }
+                },
+                {
+                    "id": "https:\/\/hof-halle-wittenberg.github.io\/vocabs\/didacticUseCase\/Interaction",
+                    "prefLabel": {
+                        "en": "Interaction",
+                        "de": "Interaktion"
+                    }
+                },
+                {
+                    "id": "https:\/\/hof-halle-wittenberg.github.io\/vocabs\/didacticUseCase\/Interdisciplinarity",
+                    "prefLabel": {
+                        "en": "Interdisciplinarity",
+                        "de": "Interdisziplinarität"
+                    }
+                },
+                {
+                    "id": "https:\/\/hof-halle-wittenberg.github.io\/vocabs\/didacticUseCase\/StudentParticipation",
+                    "prefLabel": {
+                        "en": "Student Participation",
+                        "de": "studentische Partizipation"
+                    }
+                },
+                {
+                    "id": "https:\/\/hof-halle-wittenberg.github.io\/vocabs\/didacticUseCase\/PeerRelationship",
+                    "prefLabel": {
+                        "en": "Peer Relationship",
+                        "de": "Peer-Beziehung"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "https:\/\/hof-halle-wittenberg.github.io\/vocabs\/didacticUseCase\/TeachingCompetences",
+            "prefLabel": {
+                "en": "Teaching Competences and Development",
+                "de": "Lehrkompetenzen und -entwicklung"
+            },
+            "definition": {
+                "en": "Development and improvement of teaching competences.",
+                "de": "Entwicklung und Verbesserung der Lehrkompetenzen."
+            },
+            "narrower": [
+                {
+                    "id": "https:\/\/hof-halle-wittenberg.github.io\/vocabs\/didacticUseCase\/TeachingCompetenceDevelopment",
+                    "prefLabel": {
+                        "en": "Teaching Competence Development",
+                        "de": "Lehrkompetenzentwicklung"
+                    }
+                },
+                {
+                    "id": "https:\/\/hof-halle-wittenberg.github.io\/vocabs\/didacticUseCase\/Communication",
+                    "prefLabel": {
+                        "en": "Communication",
+                        "de": "Kommunikation"
+                    }
+                },
+                {
+                    "id": "https:\/\/hof-halle-wittenberg.github.io\/vocabs\/didacticUseCase\/ConflictPrevention",
+                    "prefLabel": {
+                        "en": "Conflict Prevention",
+                        "de": "Konfliktprävention"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "https:\/\/hof-halle-wittenberg.github.io\/vocabs\/didacticUseCase\/SpecificEducationalGoals",
+            "prefLabel": {
+                "en": "Specific Educational Goals",
+                "de": "Spezifische Bildungsziele"
+            },
+            "definition": {
+                "en": "Specific goals to be achieved in the educational process.",
+                "de": "Besondere Ziele, die im Bildungsprozess erreicht werden sollen."
+            },
+            "narrower": [
+                {
+                    "id": "https:\/\/hof-halle-wittenberg.github.io\/vocabs\/didacticUseCase\/BestSupport",
+                    "prefLabel": {
+                        "en": "Best Support",
+                        "de": "Bestenförderung"
+                    }
+                },
+                {
+                    "id": "https:\/\/hof-halle-wittenberg.github.io\/vocabs\/didacticUseCase\/ThesisCandidates",
+                    "prefLabel": {
+                        "en": "Thesis Candidates",
+                        "de": "Kandidaten für Abschlussarbeiten"
+                    }
+                },
+                {
+                    "id": "https:\/\/hof-halle-wittenberg.github.io\/vocabs\/didacticUseCase\/PotentialDevelopment",
+                    "prefLabel": {
+                        "en": "Potential Development",
+                        "de": "Potenzialentwicklung"
+                    }
+                },
+                {
+                    "id": "https:\/\/hof-halle-wittenberg.github.io\/vocabs\/didacticUseCase\/PracticalProfessionalReference",
+                    "prefLabel": {
+                        "en": "Practical\/Professional Reference",
+                        "de": "Praxis\/Berufsbezug"
+                    }
+                },
+                {
+                    "id": "https:\/\/hof-halle-wittenberg.github.io\/vocabs\/didacticUseCase\/ResourceOrientation",
+                    "prefLabel": {
+                        "en": "Resource Orientation",
+                        "de": "Ressourcenorientierung"
+                    }
+                },
+                {
+                    "id": "https:\/\/hof-halle-wittenberg.github.io\/vocabs\/didacticUseCase\/Examination",
+                    "prefLabel": {
+                        "en": "Examination",
+                        "de": "Prüfen"
+                    }
+                }
+            ]
+        }
+    ],
+    "@context": {
+        "@version": 1.1,
+        "id": "@id",
+        "type": "@type",
+        "@vocab": "http:\/\/www.w3.org\/2004\/02\/skos\/core#",
+        "xsd": "http:\/\/www.w3.org\/2001\/XMLSchema#",
+        "dct": "http:\/\/purl.org\/dc\/terms\/",
+        "dc": "http:\/\/purl.org\/dc\/elements\/1.1\/",
+        "schema": "https:\/\/schema.org\/",
+        "vann": "http:\/\/purl.org\/vocab\/vann\/",
+        "ldp": "http:\/\/www.w3.org\/ns\/ldp#",
+        "owl": "http:\/\/www.w3.org\/2002\/07\/owl#",
+        "title": {
+            "@id": "dct:title",
+            "@container": "@language"
+        },
+        "dc:title": {
+            "@id": "dc:title",
+            "@container": "@language"
+        },
+        "dc:description": {
+            "@id": "dc:description",
+            "@container": "@language"
+        },
+        "description": {
+            "@id": "dct:description",
+            "@container": "@language"
+        },
+        "issued": {
+            "@id": "dct:issued",
+            "@type": "xsd:date"
+        },
+        "created": {
+            "@id": "dct:created",
+            "@type": "xsd:date"
+        },
+        "modified": {
+            "@id": "dct:modified",
+            "@type": "xsd:date"
+        },
+        "creator": "dct:creator",
+        "publisher": "dct:publisher",
+        "preferredNamespacePrefix": "vann:preferredNamespacePrefix",
+        "preferredNamespaceUri": "vann:preferredNamespaceUri",
+        "isBasedOn": "schema:isBasedOn",
+        "source": "dct:source",
+        "prefLabel": {
+            "@container": "@language"
+        },
+        "altLabel": {
+            "@container": [
+                "@language",
+                "@set"
+            ]
+        },
+        "hiddenLabel": {
+            "@container": [
+                "@language",
+                "@set"
+            ]
+        },
+        "definition": {
+            "@container": "@language"
+        },
+        "note": {
+            "@container": [
+                "@language",
+                "@set"
+            ]
+        },
+        "changeNote": {
+            "@container": [
+                "@language",
+                "@set"
+            ]
+        },
+        "editorialNote": {
+            "@container": [
+                "@language",
+                "@set"
+            ]
+        },
+        "historyNote": {
+            "@container": [
+                "@language",
+                "@set"
+            ]
+        },
+        "scopeNote": {
+            "@container": [
+                "@language",
+                "@set"
+            ]
+        },
+        "notation": {
+            "@container": "@set"
+        },
+        "example": {
+            "@container": "@language"
+        },
+        "narrower": {
+            "@container": "@set"
+        },
+        "related": {
+            "@container": "@set"
+        },
+        "relatedMatch": {
+            "@container": "@set"
+        },
+        "narrowerTransitive": {
+            "@container": "@set"
+        },
+        "broaderTransitive": {
+            "@container": "@set"
+        },
+        "broadMatch": {
+            "@container": "@set"
+        },
+        "narrowMatch": {
+            "@container": "@set"
+        },
+        "closeMatch": {
+            "@container": "@set"
+        },
+        "exactMatch": {
+            "@container": "@set"
+        },
+        "hasTopConcept": {
+            "@container": "@set"
+        },
+        "inScheme": {
+            "@container": "@set"
+        },
+        "topConceptOf": {
+            "@container": "@set"
+        },
+        "deprecated": {
+            "@id": "owl:deprecated",
+            "@type": "xsd:boolean"
+        },
+        "isReplacedBy": {
+            "@id": "dct:isReplacedBy",
+            "@container": "@set"
+        }
+    }
+}

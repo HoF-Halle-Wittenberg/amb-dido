@@ -1,0 +1,209 @@
+{
+    "id": "https:\/\/w3id.org\/kim\/license\/",
+    "type": "ConceptScheme",
+    "title": {
+        "de": "KIM Lizenztypen-Vokabular",
+        "en": "KIM license type vocabulary"
+    },
+    "description": {
+        "de": "Eine Wertelliste für Typen von Lizenzen entwickelt und publiziert vom Kompetenzzentrum für Interoperable Metadaten (KIM).",
+        "en": "A value list for   types of licenses developed and published by KIM."
+    },
+    "hasTopConcept": [
+        {
+            "id": "https:\/\/w3id.org\/kim\/license\/publicDomain",
+            "prefLabel": {
+                "de": "Keine Einschränkungen",
+                "en": "No Restrictions"
+            },
+            "altLabel": {
+                "de": [
+                    "PD",
+                    "Public Domain"
+                ],
+                "en": [
+                    "Public Domain",
+                    "PD"
+                ]
+            }
+        },
+        {
+            "id": "https:\/\/w3id.org\/kim\/license\/attribution",
+            "prefLabel": {
+                "de": "Namensnennung",
+                "en": "Attribution"
+            },
+            "altLabel": {
+                "de": [
+                    "BY"
+                ],
+                "en": [
+                    "BY"
+                ]
+            }
+        },
+        {
+            "id": "https:\/\/w3id.org\/kim\/license\/shareAlike",
+            "prefLabel": {
+                "de": "Änderungen unter gleichen Bedingungen",
+                "en": "Share Alike"
+            },
+            "altLabel": {
+                "de": [
+                    "SA",
+                    "Copyleft",
+                    "virale Lizenz"
+                ],
+                "en": [
+                    "SA",
+                    "Copyleft",
+                    "viral license"
+                ]
+            }
+        },
+        {
+            "id": "https:\/\/w3id.org\/kim\/license\/noDerivatives",
+            "prefLabel": {
+                "de": "Keine Bearbeitung",
+                "en": "No Derivatives"
+            },
+            "altLabel": {
+                "de": [
+                    "ND"
+                ],
+                "en": [
+                    "ND"
+                ]
+            }
+        },
+        {
+            "id": "https:\/\/w3id.org\/kim\/license\/nonCommercial",
+            "prefLabel": {
+                "de": "Nicht kommerziell",
+                "en": "Non Commercial"
+            },
+            "altLabel": {
+                "de": [
+                    "NC"
+                ],
+                "en": [
+                    "NC"
+                ]
+            }
+        },
+        {
+            "id": "https:\/\/w3id.org\/kim\/license\/nonCommercial-noDerivatives",
+            "prefLabel": {
+                "de": "Nicht-kommerziell - Keine Bearbeitung",
+                "en": "Non Commercial - No Derivatives"
+            },
+            "altLabel": {
+                "de": [
+                    "NC-ND"
+                ],
+                "en": [
+                    "CC-BY-SA",
+                    "NC-ND"
+                ]
+            }
+        },
+        {
+            "id": "https:\/\/w3id.org\/kim\/license\/noLicense",
+            "prefLabel": {
+                "de": "Keine Lizenzangabe",
+                "en": "No license"
+            }
+        }
+    ],
+    "@context": {
+        "@version": 1.1,
+        "id": "@id",
+        "type": "@type",
+        "@vocab": "http:\/\/www.w3.org\/2004\/02\/skos\/core#",
+        "xsd": "http:\/\/www.w3.org\/2001\/XMLSchema#",
+        "dct": "http:\/\/purl.org\/dc\/terms\/",
+        "schema": "http:\/\/schema.org\/",
+        "vann": "http:\/\/purl.org\/vocab\/vann\/",
+        "ldp": "http:\/\/www.w3.org\/ns\/ldp#",
+        "title": {
+            "@id": "dct:title",
+            "@container": "@language"
+        },
+        "description": {
+            "@id": "dct:description",
+            "@container": "@language"
+        },
+        "issued": {
+            "@id": "dct:issued",
+            "@type": "xsd:date"
+        },
+        "created": {
+            "@id": "dct:created",
+            "@type": "xsd:date"
+        },
+        "modified": {
+            "@id": "dct:modified",
+            "@type": "xsd:date"
+        },
+        "creator": "dct:creator",
+        "publisher": "dct:publisher",
+        "preferredNamespacePrefix": "vann:preferredNamespacePrefix",
+        "preferredNamespaceUri": "vann:preferredNamespaceUri",
+        "isBasedOn": "schema:isBasedOn",
+        "source": "dct:source",
+        "prefLabel": {
+            "@container": "@language"
+        },
+        "altLabel": {
+            "@container": [
+                "@language",
+                "@set"
+            ]
+        },
+        "definition": {
+            "@container": "@language"
+        },
+        "scopeNote": {
+            "@container": "@language"
+        },
+        "note": {
+            "@container": "@language"
+        },
+        "notation": {
+            "@container": "@set"
+        },
+        "example": {
+            "@container": "@language"
+        },
+        "narrower": {
+            "@container": "@set"
+        },
+        "related": {
+            "@container": "@set"
+        },
+        "relatedMatch": {
+            "@container": "@set"
+        },
+        "narrowerTransitive": {
+            "@container": "@set"
+        },
+        "broaderTransitive": {
+            "@container": "@set"
+        },
+        "broadMatch": {
+            "@container": "@set"
+        },
+        "narrowMatch": {
+            "@container": "@set"
+        },
+        "closeMatch": {
+            "@container": "@set"
+        },
+        "exactMatch": {
+            "@container": "@set"
+        },
+        "hasTopConcept": {
+            "@container": "@set"
+        }
+    }
+}

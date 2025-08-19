@@ -1,7 +1,7 @@
 ---
 Plugin Name: AMB-DidO Plugin 
 Description: Erstellt Metadaten gemäß AMB-Standard im JSON-Format für didaktische und Organisationsressourcen auf beliebigen Wordpress-Seiten.
-Latest Release: 0.8.5
+Latest Release: 0.8.6
 Author: Justus Henke (HoF), Manuel Oellers (Contributor, U Münster) 
 ---
 # AMB-DidO Plugin 
@@ -15,7 +15,18 @@ Weitere Informationen zum AMB: https://dini-ag-kim.github.io/amb/latest/
 Kontakt und Feedback sowie Feature-Requests: opendata@hof.uni-halle.de
 
 ## Status 
-Aktuell noch in Entwicklung, aber bereits funktionsfähig zum Testen.
+Bereits funktionsfähig zum Testen, aktuell keine größeren Probleme bekannt. 
+
+Neue Features in Version 0.8.6
+
+Erweiterte Cache-Verwaltung: Neue Cache-Verwaltungssektion in den Optionen mit detailliertem Status
+Hybrid-Speicher-Modus: Intelligente Kombination aus externen Quellen und lokalen Backups
+Offline-Modus: Vollständig lokaler Betrieb ohne externe Abhängigkeiten
+Automatische Cache-Aktualisierung: Tägliche automatische Erneuerung der externen Wertelisten
+Lokaler Vokabular-Manager: Download und lokale Speicherung aller Vokabulare für bessere Performance
+AJAX-basierte Cache-Aktionen: Moderne Benutzeroberfläche ohne Seitenreloads
+Verbesserte Fehlerbehandlung: Robuste Fallback-Mechanismen bei Netzwerkproblemen
+Detaillierte Status-Anzeige: Übersicht über Cache-Status, lokale Backups und Vokabular-Dateien
 
 ## Integrierte Features
 - Editor: Auswählen von Metadaten (Werte und offene Felder)
@@ -55,4 +66,3 @@ Aktuell noch in Entwicklung, aber bereits funktionsfähig zum Testen.
 - Editor: Import/Export von Metadaten im JSON bzw. YAML-Format, siehe: https://liascript.github.io/course/?https://raw.githubusercontent.com/tibhannover/oer-github-tutorial-liascript/main/tutorial.md#8
 - Editor: interne Relationen zu anderen Dokumenten erstellen (isPartOf, hasPart)
 - Interne Sitemap mit Metadaten ausgezeichneter Dokumente
-

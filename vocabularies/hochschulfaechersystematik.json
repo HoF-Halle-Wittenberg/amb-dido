@@ -1,0 +1,4117 @@
+{
+    "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/scheme",
+    "type": "ConceptScheme",
+    "title": {
+        "de": "Destatis-Systematik der Fächergruppen, Studienbereiche und Studienfächer"
+    },
+    "description": {
+        "de": "Diese SKOS-Klassifikation basiert auf der Destatis-[\"Systematik der Fächergruppen, Studienbereiche und Studienfächer\"](https:\/\/bartoc.org\/en\/node\/18919)."
+    },
+    "hasTopConcept": [
+        {
+            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n0",
+            "notation": [
+                "0"
+            ],
+            "prefLabel": {
+                "de": "Fachübergreifend",
+                "en": "Interdisciplinary",
+                "uk": "Міждисциплінарний"
+            }
+        },
+        {
+            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n1",
+            "notation": [
+                "1"
+            ],
+            "prefLabel": {
+                "de": "Geisteswissenschaften",
+                "en": "Humanities",
+                "uk": "Гуманітарні науки"
+            },
+            "narrower": [
+                {
+                    "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n01",
+                    "notation": [
+                        "01"
+                    ],
+                    "prefLabel": {
+                        "de": "Geisteswissenschaften allgemein",
+                        "en": "Humanities (general)",
+                        "uk": "Гуманітарні науки загалом"
+                    },
+                    "narrower": [
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n004",
+                            "notation": [
+                                "004"
+                            ],
+                            "prefLabel": {
+                                "de": "Interdisziplinäre Studien (Schwerpunkt Geisteswissenschaften)",
+                                "en": "Interdisciplinary Studies (specialising in Humanities)",
+                                "uk": "Міждисциплінарні науки (Спеціалізація гумагітарні науки)"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n090",
+                            "notation": [
+                                "090"
+                            ],
+                            "prefLabel": {
+                                "de": "Lernbereich Geisteswissenschaften",
+                                "en": "Area of study: Humanities",
+                                "uk": "Галузь знань: гуманітарні науки"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n02",
+                    "notation": [
+                        "02"
+                    ],
+                    "prefLabel": {
+                        "de": "Evangelische Theologie, -Religionslehre",
+                        "en": "Protestant Theology, Protestant Religious Education",
+                        "uk": "Протестантська теологія, протестантська релігійна освіта"
+                    },
+                    "narrower": [
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n053",
+                            "notation": [
+                                "053"
+                            ],
+                            "prefLabel": {
+                                "de": "Evang. Theologie, -Religionslehre",
+                                "en": "Protestant Theology, Protestant Religious Education",
+                                "uk": "Протестантська теологія, протестантська релігійна освіта"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n161",
+                            "notation": [
+                                "161"
+                            ],
+                            "prefLabel": {
+                                "de": "Diakoniewissenschaft",
+                                "en": "Pastoral Care Studies",
+                                "uk": "Душпастирські студії"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n544",
+                            "notation": [
+                                "544"
+                            ],
+                            "prefLabel": {
+                                "de": "Evang. Religionspädagogik, kirchliche Bildungsarbeit",
+                                "en": "Protestant Religious Pedagogy, Church Educational Work",
+                                "uk": "Протестантська релігійна педагогіка, церковно-виховна робота"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n03",
+                    "notation": [
+                        "03"
+                    ],
+                    "prefLabel": {
+                        "de": "Katholische Theologie, -Religionslehre",
+                        "en": "Catholic Theology, Catholic Religious Education",
+                        "uk": "Католицька теологія, католицька релігійна освіта"
+                    },
+                    "narrower": [
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n086",
+                            "notation": [
+                                "086"
+                            ],
+                            "prefLabel": {
+                                "de": "Kath. Theologie, -Religionslehre",
+                                "en": "Catholic Theology, Catholic Religious Education",
+                                "uk": "Католицька теологія, католицька релігійна освіта"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n162",
+                            "notation": [
+                                "162"
+                            ],
+                            "prefLabel": {
+                                "de": "Caritaswissenschaft",
+                                "en": "Caritas Science",
+                                "uk": "Наука Карітасу"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n545",
+                            "notation": [
+                                "545"
+                            ],
+                            "prefLabel": {
+                                "de": "Kath. Religionspädagogik, kirchliche Bildungsarbeit",
+                                "en": "Catholic Religious Pedagogy, Church Educational Work",
+                                "uk": "Католицька релігійна педагогіка, церковно-виховна робота"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n04",
+                    "notation": [
+                        "04"
+                    ],
+                    "prefLabel": {
+                        "de": "Philosophie",
+                        "en": "Philosophy",
+                        "uk": "Філософія"
+                    },
+                    "narrower": [
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n127",
+                            "notation": [
+                                "127"
+                            ],
+                            "prefLabel": {
+                                "de": "Philosophie",
+                                "en": "Philosophy",
+                                "uk": "Філософія"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n136",
+                            "notation": [
+                                "136"
+                            ],
+                            "prefLabel": {
+                                "de": "Religionswissenschaft",
+                                "en": "Religious Studies",
+                                "uk": "Релігієзнавство"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n169",
+                            "notation": [
+                                "169"
+                            ],
+                            "prefLabel": {
+                                "de": "Ethik",
+                                "en": "Ethics",
+                                "uk": "Етика"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n05",
+                    "notation": [
+                        "05"
+                    ],
+                    "prefLabel": {
+                        "de": "Geschichte",
+                        "en": "History",
+                        "uk": "Історія"
+                    },
+                    "narrower": [
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n012",
+                            "notation": [
+                                "012"
+                            ],
+                            "prefLabel": {
+                                "de": "Archäologie",
+                                "en": "Archaeology",
+                                "uk": "Археологія"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n068",
+                            "notation": [
+                                "068"
+                            ],
+                            "prefLabel": {
+                                "de": "Geschichte",
+                                "en": "History",
+                                "uk": "Історія"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n183",
+                            "notation": [
+                                "183"
+                            ],
+                            "prefLabel": {
+                                "de": "Wirtschafts-\/Sozialgeschichte",
+                                "en": "Economic\/Social History",
+                                "uk": "Економічна\/соціальна історія"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n272",
+                            "notation": [
+                                "272"
+                            ],
+                            "prefLabel": {
+                                "de": "Alte Geschichte",
+                                "en": "Ancient History",
+                                "uk": "Стародавня історія"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n273",
+                            "notation": [
+                                "273"
+                            ],
+                            "prefLabel": {
+                                "de": "Mittlere und neuere Geschichte",
+                                "en": "Medieval and Modern History",
+                                "uk": "Історія середньовіччя та новітнього часу"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n275",
+                            "notation": [
+                                "275"
+                            ],
+                            "prefLabel": {
+                                "de": "Wissenschaftsgeschichte\/Technikgeschichte",
+                                "en": "History of Science\/History of Technology",
+                                "uk": "Історія науки і техніки"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n548",
+                            "notation": [
+                                "548"
+                            ],
+                            "prefLabel": {
+                                "de": "Ur- und Frühgeschichte",
+                                "en": "Prehistory and Early History",
+                                "uk": "Історія первісного суспільства"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n06",
+                    "notation": [
+                        "06"
+                    ],
+                    "prefLabel": {
+                        "de": "Informations- und Bibliothekswissenschaften",
+                        "en": "Information and Library Sciences",
+                        "uk": "Бібліотекознавство, документознавство"
+                    },
+                    "narrower": [
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n022",
+                            "notation": [
+                                "022"
+                            ],
+                            "prefLabel": {
+                                "de": "Informations- und Bibliothekswissenschaften (nicht für Verwaltungsfachhochschulen)",
+                                "en": "Information and Library Sciences",
+                                "uk": "Бібліотекознавство"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n037",
+                            "notation": [
+                                "037"
+                            ],
+                            "prefLabel": {
+                                "de": "Archiv- und Dokumentationswissenschaft",
+                                "en": "Archival and Documentation Science",
+                                "uk": "Документознавство"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n07",
+                    "notation": [
+                        "07"
+                    ],
+                    "prefLabel": {
+                        "de": "Allgemeine und vergleichende Literatur- und Sprachwissenschaft",
+                        "en": "General and Comparative Literary Studies and Linguistics",
+                        "uk": "Загальне та порівняльне літературознавство та мовознавство"
+                    },
+                    "narrower": [
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n018",
+                            "notation": [
+                                "018"
+                            ],
+                            "prefLabel": {
+                                "de": "Berufsbezogene Fremdsprachenausbildung",
+                                "en": "Occupation-specific Foreign Language Training",
+                                "uk": "Викладання іноземних мов за професійним спрямуванням"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n152",
+                            "notation": [
+                                "152"
+                            ],
+                            "prefLabel": {
+                                "de": "Allgemeine Sprachwissenschaft\/Indogermanistik",
+                                "en": "General Linguistics\/Indo-European Studies",
+                                "uk": "Загальне мовознавство\/Індоєвропейські студії"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n160",
+                            "notation": [
+                                "160"
+                            ],
+                            "prefLabel": {
+                                "de": "Computerlinguistik",
+                                "en": "Computer Linguistics",
+                                "uk": "Комп'ютерна лінгвістика"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n188",
+                            "notation": [
+                                "188"
+                            ],
+                            "prefLabel": {
+                                "de": "Allgemeine Literaturwissenschaft",
+                                "en": "General Literary Studies",
+                                "uk": "Загальне літературознавство"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n284",
+                            "notation": [
+                                "284"
+                            ],
+                            "prefLabel": {
+                                "de": "Angewandte Sprachwissenschaft",
+                                "en": "Applied Linguistics",
+                                "uk": "Прикладна лінгвістика"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n08",
+                    "notation": [
+                        "08"
+                    ],
+                    "prefLabel": {
+                        "de": "Altphilologie (klassische Philologie), Neugriechisch",
+                        "en": "Classical Philology, Modern Greek",
+                        "uk": "Класична філологія, новогрецька мова"
+                    },
+                    "narrower": [
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n005",
+                            "notation": [
+                                "005"
+                            ],
+                            "prefLabel": {
+                                "de": "Klassische Philologie",
+                                "en": "Classical Philology",
+                                "uk": "Класична філологія"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n031",
+                            "notation": [
+                                "031"
+                            ],
+                            "prefLabel": {
+                                "de": "Byzantinistik",
+                                "en": "Byzantine Studies",
+                                "uk": "Комп'ютерна лінгвістика"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n043",
+                            "notation": [
+                                "043"
+                            ],
+                            "prefLabel": {
+                                "de": "Neugriechisch",
+                                "en": "Modern Greek",
+                                "uk": "Новогрецька мова"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n070",
+                            "notation": [
+                                "070"
+                            ],
+                            "prefLabel": {
+                                "de": "Griechisch",
+                                "en": "Greek",
+                                "uk": "Грецька мова"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n095",
+                            "notation": [
+                                "095"
+                            ],
+                            "prefLabel": {
+                                "de": "Latein",
+                                "en": "Latin",
+                                "uk": "Латинська мова"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n09",
+                    "notation": [
+                        "09"
+                    ],
+                    "prefLabel": {
+                        "de": "Germanistik (Deutsch, germanische Sprachen ohne Anglistik)",
+                        "en": "German Studies (German, Germanic Languages excl. English)",
+                        "uk": "Німецькі студії (німецька мова, германські мови без англійської мови)"
+                    },
+                    "narrower": [
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n034",
+                            "notation": [
+                                "034"
+                            ],
+                            "prefLabel": {
+                                "de": "Dänisch",
+                                "en": "Danish",
+                                "uk": "Данська мова"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n067",
+                            "notation": [
+                                "067"
+                            ],
+                            "prefLabel": {
+                                "de": "Germanistik\/Deutsch",
+                                "en": "German Studies\/German",
+                                "uk": "Германістика"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n119",
+                            "notation": [
+                                "119"
+                            ],
+                            "prefLabel": {
+                                "de": "Niederländisch",
+                                "en": "Dutch",
+                                "uk": "Голландська мова"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n120",
+                            "notation": [
+                                "120"
+                            ],
+                            "prefLabel": {
+                                "de": "Nordistik\/Skandinavistik (Nord. Philologie, Einzelsprachen a.n.g.)",
+                                "en": "Nordic\/Scand. St. (Nord. Phil., ind. lang. n.e.c.)",
+                                "uk": "Скандинавські студії"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n189",
+                            "notation": [
+                                "189"
+                            ],
+                            "prefLabel": {
+                                "de": "Niederdeutsch",
+                                "en": "Low German",
+                                "uk": "Нижньонімецька мова"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n271",
+                            "notation": [
+                                "271"
+                            ],
+                            "prefLabel": {
+                                "de": "Deutsch als Fremdsprache oder als Zweitsprache",
+                                "en": "German as a Foreign or Second Language",
+                                "uk": "Німецька як іноземна або друга мова"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n10",
+                    "notation": [
+                        "10"
+                    ],
+                    "prefLabel": {
+                        "de": "Anglistik, Amerikanistik",
+                        "en": "English Studies, American Studies",
+                        "uk": "Англійські студії, американські студії"
+                    },
+                    "narrower": [
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n006",
+                            "notation": [
+                                "006"
+                            ],
+                            "prefLabel": {
+                                "de": "Amerikanistik\/Amerikakunde",
+                                "en": "American Studies",
+                                "uk": "Американські студії"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n008",
+                            "notation": [
+                                "008"
+                            ],
+                            "prefLabel": {
+                                "de": "Anglistik\/Englisch",
+                                "en": "English Studies",
+                                "uk": "Англійські студії"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n11",
+                    "notation": [
+                        "11"
+                    ],
+                    "prefLabel": {
+                        "de": "Romanistik",
+                        "en": "Romance Studies",
+                        "uk": "Романістика"
+                    },
+                    "narrower": [
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n059",
+                            "notation": [
+                                "059"
+                            ],
+                            "prefLabel": {
+                                "de": "Französisch",
+                                "en": "French",
+                                "uk": "Французька мова"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n084",
+                            "notation": [
+                                "084"
+                            ],
+                            "prefLabel": {
+                                "de": "Italienisch",
+                                "en": "Italian",
+                                "uk": "Італійська мова"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n131",
+                            "notation": [
+                                "131"
+                            ],
+                            "prefLabel": {
+                                "de": "Portugiesisch",
+                                "en": "Portuguese",
+                                "uk": "Португальська мова"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n137",
+                            "notation": [
+                                "137"
+                            ],
+                            "prefLabel": {
+                                "de": "Romanistik (Romanische Philologie, Einzelsprachen a.n.g.)",
+                                "en": "Romance Studies (Rom. Phil., indiv. lang. n.e.c.)",
+                                "uk": "Романістика"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n150",
+                            "notation": [
+                                "150"
+                            ],
+                            "prefLabel": {
+                                "de": "Spanisch",
+                                "en": "Spanish",
+                                "uk": "Іспанська мова"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n12",
+                    "notation": [
+                        "12"
+                    ],
+                    "prefLabel": {
+                        "de": "Slawistik, Baltistik, Finno-Ugristik",
+                        "en": "Slavic, Baltic, Finno-Ugrian Studies",
+                        "uk": "Слов'янознавство, балтистика, фіно-угрознавство"
+                    },
+                    "narrower": [
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n016",
+                            "notation": [
+                                "016"
+                            ],
+                            "prefLabel": {
+                                "de": "Baltistik",
+                                "en": "Baltic Studies",
+                                "uk": "Балтійські студії"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n056",
+                            "notation": [
+                                "056"
+                            ],
+                            "prefLabel": {
+                                "de": "Finno-Ugristik",
+                                "en": "Finno-Ugrian Studies",
+                                "uk": "Фіно-угрознавство"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n130",
+                            "notation": [
+                                "130"
+                            ],
+                            "prefLabel": {
+                                "de": "Westslawisch (allgemein und a.n.g.)",
+                                "en": "Western Slavic (general and n.e.c.)",
+                                "uk": "Західнослов'янські мови"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n139",
+                            "notation": [
+                                "139"
+                            ],
+                            "prefLabel": {
+                                "de": "Russisch",
+                                "en": "Russian",
+                                "uk": "Російська мова"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n146",
+                            "notation": [
+                                "146"
+                            ],
+                            "prefLabel": {
+                                "de": "Slawistik (Slaw. Philologie)",
+                                "en": "Slavic Studies (Slavic Philology)",
+                                "uk": "Славістика (слов'янська філологія)"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n153",
+                            "notation": [
+                                "153"
+                            ],
+                            "prefLabel": {
+                                "de": "Südslawisch (Bulgarisch, Serbokroatisch, Slowenisch usw.)",
+                                "en": "South Slavic (Bulgar., Serbo-Croat., Slovene etc.)",
+                                "uk": "Південнослов'янські мови (болгарська, сербохорватська, словенська та ін.)"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n206",
+                            "notation": [
+                                "206"
+                            ],
+                            "prefLabel": {
+                                "de": "Polnisch",
+                                "en": "Polish",
+                                "uk": "Польська мова"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n207",
+                            "notation": [
+                                "207"
+                            ],
+                            "prefLabel": {
+                                "de": "Sorabistik",
+                                "en": "Sorbian Studies",
+                                "uk": "Лужицькі студії"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n209",
+                            "notation": [
+                                "209"
+                            ],
+                            "prefLabel": {
+                                "de": "Tschechisch",
+                                "en": "Czech",
+                                "uk": "Чеська мова"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n13",
+                    "notation": [
+                        "13"
+                    ],
+                    "prefLabel": {
+                        "de": "Sonstige Sprach- und Kulturwissenschaften",
+                        "en": "Other linguistic and cultural studies",
+                        "uk": "Інші лінгвокультурологічні дослідження"
+                    },
+                    "narrower": [
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n001",
+                            "notation": [
+                                "001"
+                            ],
+                            "prefLabel": {
+                                "de": "Ägyptologie",
+                                "en": "Egyptology",
+                                "uk": "Єгиптологія"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n002",
+                            "notation": [
+                                "002"
+                            ],
+                            "prefLabel": {
+                                "de": "Afrikanistik",
+                                "en": "African Studies",
+                                "uk": "Африканські студії"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n010",
+                            "notation": [
+                                "010"
+                            ],
+                            "prefLabel": {
+                                "de": "Arabisch\/Arabistik",
+                                "en": "Arabic\/Arabic Studies",
+                                "uk": "Арабістика"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n015",
+                            "notation": [
+                                "015"
+                            ],
+                            "prefLabel": {
+                                "de": "Außereuropäische Sprachen und Kulturen in Ozeanien und Amerika",
+                                "en": "Non-European Languages and Cultures in Oceania and America",
+                                "uk": "Неєвропейські мови та культури в Океанії та Америці"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n073",
+                            "notation": [
+                                "073"
+                            ],
+                            "prefLabel": {
+                                "de": "Judaistik\/Hebräisch ",
+                                "en": "Judaic Studies\/Hebrew",
+                                "uk": "Юдаїка"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n078",
+                            "notation": [
+                                "078"
+                            ],
+                            "prefLabel": {
+                                "de": "Indologie",
+                                "en": "Indology",
+                                "uk": "Індологія"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n081",
+                            "notation": [
+                                "081"
+                            ],
+                            "prefLabel": {
+                                "de": "Iranistik",
+                                "en": "Iranian Studies",
+                                "uk": "Іраністика"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n083",
+                            "notation": [
+                                "083"
+                            ],
+                            "prefLabel": {
+                                "de": "Islamwissenschaft",
+                                "en": "Islamic Studies",
+                                "uk": "Ісламознавство"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n085",
+                            "notation": [
+                                "085"
+                            ],
+                            "prefLabel": {
+                                "de": "Japanologie",
+                                "en": "Japanese Studies",
+                                "uk": "Японознавство"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n122",
+                            "notation": [
+                                "122"
+                            ],
+                            "prefLabel": {
+                                "de": "Orientalistik, Altorientalistik",
+                                "en": "Oriental Studies, Ancient Oriental Studies",
+                                "uk": "Сходознавство, Стародавнє сходознавство"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n145",
+                            "notation": [
+                                "145"
+                            ],
+                            "prefLabel": {
+                                "de": "Sinologie\/Koreanistik",
+                                "en": "Sinology\/Korean Studies",
+                                "uk": "Китаєзнавство\/Кореєзнавство"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n158",
+                            "notation": [
+                                "158"
+                            ],
+                            "prefLabel": {
+                                "de": "Turkologie",
+                                "en": "Turkish Studies",
+                                "uk": "Тюркологія"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n180",
+                            "notation": [
+                                "180"
+                            ],
+                            "prefLabel": {
+                                "de": "Kaukasistik",
+                                "en": "Caucasian Studies",
+                                "uk": "Кавказознавство"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n187",
+                            "notation": [
+                                "187"
+                            ],
+                            "prefLabel": {
+                                "de": "Asiatische Sprachen und Kulturen\/Asienwissenschaften",
+                                "en": "Asian Languages and Cultures\/Asian Studies",
+                                "uk": "Азійські мови та культури\/Азіатські студії"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n14",
+                    "notation": [
+                        "14"
+                    ],
+                    "prefLabel": {
+                        "de": "Kulturwissenschaften i.e.S.",
+                        "en": "Cultural Studies in the narrower sense",
+                        "uk": "Культурологія у вужчому розумінні"
+                    },
+                    "narrower": [
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n024",
+                            "notation": [
+                                "024"
+                            ],
+                            "prefLabel": {
+                                "de": "Europäische Ethnologie und Kulturwissenschaft",
+                                "en": "European Ethnology and Cultural Studies",
+                                "uk": "Європейська етнологія та культурологія"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n173",
+                            "notation": [
+                                "173"
+                            ],
+                            "prefLabel": {
+                                "de": "Ethnologie",
+                                "en": "Ethnology",
+                                "uk": "Етнологія"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n174",
+                            "notation": [
+                                "174"
+                            ],
+                            "prefLabel": {
+                                "de": "Volkskunde",
+                                "en": "Folklore",
+                                "uk": "Фольклор"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n18",
+                    "notation": [
+                        "18"
+                    ],
+                    "prefLabel": {
+                        "de": "Islamische Studien\/Islamische Theologie",
+                        "en": "Islamic Studies\/Islamic Theology",
+                        "uk": "Ісламознавство\/Ісламська теологія"
+                    },
+                    "narrower": [
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n292",
+                            "notation": [
+                                "292"
+                            ],
+                            "prefLabel": {
+                                "de": "Islamische Studien\/Islamische Theologie",
+                                "en": "Islamic Studies\/Islamic Theology",
+                                "uk": "Ісламознавство"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n030010001",
+                            "notation": [
+                                "292"
+                            ],
+                            "prefLabel": {
+                                "de": "Islamische Studien\/Islamische Theologie",
+                                "en": "Islamic Studies\/Islamic Theology",
+                                "uk": "Ісламознавство"
+                            },
+                            "deprecated": true
+                        }
+                    ]
+                },
+                {
+                    "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n19",
+                    "notation": [
+                        "19"
+                    ],
+                    "prefLabel": {
+                        "de": "Medienwissenschaft",
+                        "en": "Media Science",
+                        "uk": "Медіазнавство"
+                    },
+                    "narrower": [
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n302",
+                            "notation": [
+                                "302"
+                            ],
+                            "prefLabel": {
+                                "de": "Medienwissenschaft",
+                                "en": "Media Science",
+                                "uk": "Медіазнавство"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n2",
+            "notation": [
+                "2"
+            ],
+            "prefLabel": {
+                "de": "Sport",
+                "en": "Sports",
+                "uk": "Спорт"
+            },
+            "narrower": [
+                {
+                    "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n22",
+                    "notation": [
+                        "22"
+                    ],
+                    "prefLabel": {
+                        "de": "Sport, Sportwissenschaft",
+                        "en": "Sports, Sports Science",
+                        "uk": "Фізична культура та спорт"
+                    },
+                    "narrower": [
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n029",
+                            "notation": [
+                                "029"
+                            ],
+                            "prefLabel": {
+                                "de": "Sportwissenschaft",
+                                "en": "Sports Science",
+                                "uk": "Науки про спорт"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n098",
+                            "notation": [
+                                "098"
+                            ],
+                            "prefLabel": {
+                                "de": "Sportpädagogik\/Sportpsychologie",
+                                "en": "Sports Education\/Sports Psychology",
+                                "uk": "Спортивне виховання\/Психологія спорту"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n3",
+            "notation": [
+                "3"
+            ],
+            "prefLabel": {
+                "de": "Rechts-, Wirtschafts- und Sozialwissenschaften",
+                "en": "Law, Economics and Social Sciences",
+                "uk": "Право, економіка та суспільні науки"
+            },
+            "narrower": [
+                {
+                    "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n23",
+                    "notation": [
+                        "23"
+                    ],
+                    "prefLabel": {
+                        "de": "Rechts-, Wirtschafts- und Sozialwissenschaften allgemein",
+                        "en": "Law, Economics and Social Sciences (general)",
+                        "uk": "Право, економіка та суспільні науки"
+                    },
+                    "narrower": [
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n030",
+                            "notation": [
+                                "030"
+                            ],
+                            "prefLabel": {
+                                "de": "Interdisziplin. Studien (Schwerpunkt Rechts-, Wirtschafts- und Sozialwissenschaften)",
+                                "en": "Interdisc. St. (spec. in Law, Econ. and Soc. Sci.)",
+                                "uk": "Міждисциплінарні дослідження(у галізях юрид., екон. та сусп. наук)"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n055",
+                            "notation": [
+                                "055"
+                            ],
+                            "prefLabel": {
+                                "de": "Orientierungsstudium Gesellschaftswissenschaften",
+                                "en": "Social sciences orientation studies",
+                                "uk": "Орієнтаційні студії з соціальних наук"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n154",
+                            "notation": [
+                                "154"
+                            ],
+                            "prefLabel": {
+                                "de": "Lernbereich Gesellschaftslehre",
+                                "en": "Area of study: Social Studies",
+                                "uk": "Галузь знань: суспільні науки"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n24",
+                    "notation": [
+                        "24"
+                    ],
+                    "prefLabel": {
+                        "de": "Regionalwissenschaften",
+                        "en": "Regional Studies",
+                        "uk": "Регіональні студії"
+                    },
+                    "narrower": [
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n036",
+                            "notation": [
+                                "036"
+                            ],
+                            "prefLabel": {
+                                "de": "Sonstige Regionalwissenschaften",
+                                "en": "Other regional studies",
+                                "uk": "Інші регіональні студії"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n038",
+                            "notation": [
+                                "038"
+                            ],
+                            "prefLabel": {
+                                "de": "Lateinamerika-Studien",
+                                "en": "Latin American Studies",
+                                "uk": "Латиноамериканські студії"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n044",
+                            "notation": [
+                                "044"
+                            ],
+                            "prefLabel": {
+                                "de": "Ost- und Südosteuropa-Studien",
+                                "en": "East and Southeast European Studies",
+                                "uk": "Дослідження Східної та Південно-Східної Європи"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n25",
+                    "notation": [
+                        "25"
+                    ],
+                    "prefLabel": {
+                        "de": "Politikwissenschaft",
+                        "en": "Political Science",
+                        "uk": "Політологія"
+                    },
+                    "narrower": [
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n129",
+                            "notation": [
+                                "129"
+                            ],
+                            "prefLabel": {
+                                "de": "Politikwissenschaft\/Politologie",
+                                "en": "Political Science",
+                                "uk": "Політологія"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n26",
+                    "notation": [
+                        "26"
+                    ],
+                    "prefLabel": {
+                        "de": "Sozialwissenschaften\/Soziologie",
+                        "en": "Social Sciences\/Sociology",
+                        "uk": "Суспільні науки та соціологія"
+                    },
+                    "narrower": [
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n147",
+                            "notation": [
+                                "147"
+                            ],
+                            "prefLabel": {
+                                "de": "Sozialkunde",
+                                "en": "Social Studies",
+                                "uk": "Суспільствознавство"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n148",
+                            "notation": [
+                                "148"
+                            ],
+                            "prefLabel": {
+                                "de": "Sozialwissenschaften",
+                                "en": "Social Sciences",
+                                "uk": "Суспільні науки"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n149",
+                            "notation": [
+                                "149"
+                            ],
+                            "prefLabel": {
+                                "de": "Soziologie",
+                                "en": "Sociology",
+                                "uk": "Соціологія"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n27",
+                    "notation": [
+                        "27"
+                    ],
+                    "prefLabel": {
+                        "de": "Sozialwesen",
+                        "en": "Applied Social Science",
+                        "uk": "Прикладні суспільні науки"
+                    },
+                    "narrower": [
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n208",
+                            "notation": [
+                                "208"
+                            ],
+                            "prefLabel": {
+                                "de": "Soziale Arbeit",
+                                "en": "Social Work",
+                                "uk": "Соціальна робота"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n245",
+                            "notation": [
+                                "245"
+                            ],
+                            "prefLabel": {
+                                "de": "Sozialpädagogik",
+                                "en": "Social Pedagogy",
+                                "uk": "Соціальна педагогіка"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n253",
+                            "notation": [
+                                "253"
+                            ],
+                            "prefLabel": {
+                                "de": "Sozialwesen",
+                                "en": "Applied Social Science",
+                                "uk": "Прикладні суспільні науки"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n28",
+                    "notation": [
+                        "28"
+                    ],
+                    "prefLabel": {
+                        "de": "Rechtswissenschaften",
+                        "en": "Law",
+                        "uk": "Правознавство"
+                    },
+                    "narrower": [
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n042",
+                            "notation": [
+                                "042"
+                            ],
+                            "prefLabel": {
+                                "de": "Wirtschaftsrecht",
+                                "en": "Business Law",
+                                "uk": "Господарське право"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n135",
+                            "notation": [
+                                "135"
+                            ],
+                            "prefLabel": {
+                                "de": "Rechtswissenschaft",
+                                "en": "Law",
+                                "uk": "Правознавство"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n29",
+                    "notation": [
+                        "29"
+                    ],
+                    "prefLabel": {
+                        "de": "Verwaltungswissenschaften",
+                        "en": "Administrative Sciences",
+                        "uk": "Управління та адміністрування"
+                    },
+                    "narrower": [
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n168",
+                            "notation": [
+                                "168"
+                            ],
+                            "prefLabel": {
+                                "de": "Justizvollzug",
+                                "en": "Law Enforcement",
+                                "uk": "Правоохоронна діяльність"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n172",
+                            "notation": [
+                                "172"
+                            ],
+                            "prefLabel": {
+                                "de": "Verwaltungswissenschaft\/-wesen",
+                                "en": "Administrative Science\/Public Administration",
+                                "uk": "Управлінські науки\/Публічне адміністрування"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n255",
+                            "notation": [
+                                "255"
+                            ],
+                            "prefLabel": {
+                                "de": "Archivwesen",
+                                "en": "Archive Studies",
+                                "uk": "Архівна справа"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n256",
+                            "notation": [
+                                "256"
+                            ],
+                            "prefLabel": {
+                                "de": "Rechtspflege",
+                                "en": "Administration of Justice",
+                                "uk": "Правосуддя"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n257",
+                            "notation": [
+                                "257"
+                            ],
+                            "prefLabel": {
+                                "de": "Arbeits- und Berufsberatung",
+                                "en": "Occupational Guidance and Career Counselling",
+                                "uk": "Профорієнтація та розвиток кар'єри"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n258",
+                            "notation": [
+                                "258"
+                            ],
+                            "prefLabel": {
+                                "de": "Arbeitsverwaltung",
+                                "en": "Labour Administration",
+                                "uk": "Управління трудовими ресурсами"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n259",
+                            "notation": [
+                                "259"
+                            ],
+                            "prefLabel": {
+                                "de": "Auswärtige Angelegenheiten",
+                                "en": "Foreign Affairs Administration",
+                                "uk": "Міжнародні відносини"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n260",
+                            "notation": [
+                                "260"
+                            ],
+                            "prefLabel": {
+                                "de": "Bundeswehrverwaltung",
+                                "en": "Armed Forces Administration",
+                                "uk": "Військове управління"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n261",
+                            "notation": [
+                                "261"
+                            ],
+                            "prefLabel": {
+                                "de": "Innere Verwaltung",
+                                "en": "Internal Administration",
+                                "uk": "Внутрішнє адміністрування"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n262",
+                            "notation": [
+                                "262"
+                            ],
+                            "prefLabel": {
+                                "de": "Bibliothekswesen",
+                                "en": "Librarianship",
+                                "uk": "Бібліотечна справа"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n263",
+                            "notation": [
+                                "263"
+                            ],
+                            "prefLabel": {
+                                "de": "Polizei\/Verfassungsschutz",
+                                "en": "Police\/Protection of the Constitution",
+                                "uk": "Поліція\/Захист Конституції"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n264",
+                            "notation": [
+                                "264"
+                            ],
+                            "prefLabel": {
+                                "de": "Sozialversicherung",
+                                "en": "Social Security Administration",
+                                "uk": "Управління соціальним захистом"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n265",
+                            "notation": [
+                                "265"
+                            ],
+                            "prefLabel": {
+                                "de": "Bankwesen",
+                                "en": "Banking",
+                                "uk": "Банківська справа"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n266",
+                            "notation": [
+                                "266"
+                            ],
+                            "prefLabel": {
+                                "de": "Finanzverwaltung",
+                                "en": "Financial Administration",
+                                "uk": "Управління фінансами"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n268",
+                            "notation": [
+                                "268"
+                            ],
+                            "prefLabel": {
+                                "de": "Verkehrswesen",
+                                "en": "Transportation Systems",
+                                "uk": "Транспортні системи"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n269",
+                            "notation": [
+                                "269"
+                            ],
+                            "prefLabel": {
+                                "de": "Zoll- und Steuerverwaltung",
+                                "en": "Customs and Tax Administration",
+                                "uk": "Управління митною та податковою справою"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n30",
+                    "notation": [
+                        "30"
+                    ],
+                    "prefLabel": {
+                        "de": "Wirtschaftswissenschaften",
+                        "en": "Business and Economics",
+                        "uk": "Бізнес та економіка"
+                    },
+                    "narrower": [
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n011",
+                            "notation": [
+                                "011"
+                            ],
+                            "prefLabel": {
+                                "de": "Arbeitslehre\/Wirtschaftslehre",
+                                "en": "Work Studies\/Business Studies",
+                                "uk": "Студії у галузі організації праці\/Бізнес"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n021",
+                            "notation": [
+                                "021"
+                            ],
+                            "prefLabel": {
+                                "de": "Betriebswirtschaftslehre",
+                                "en": "Business Administration",
+                                "uk": "Бізнес-адміністрування"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n166",
+                            "notation": [
+                                "166"
+                            ],
+                            "prefLabel": {
+                                "de": "Sportmanagement\/Sportökonomie",
+                                "en": "Sports Management\/Sports Economics",
+                                "uk": "Спортивний менеджмент\/Економіка спорту"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n167",
+                            "notation": [
+                                "167"
+                            ],
+                            "prefLabel": {
+                                "de": "Europäische Wirtschaft",
+                                "en": "European Economic Studies",
+                                "uk": "Європейські економічні студії"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n175",
+                            "notation": [
+                                "175"
+                            ],
+                            "prefLabel": {
+                                "de": "Volkswirtschaftslehre",
+                                "en": "Economics",
+                                "uk": "Економіка"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n181",
+                            "notation": [
+                                "181"
+                            ],
+                            "prefLabel": {
+                                "de": "Wirtschaftspädagogik",
+                                "en": "Business and Economics Education",
+                                "uk": "Економічна та бізнес-освіта"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n182",
+                            "notation": [
+                                "182"
+                            ],
+                            "prefLabel": {
+                                "de": "Intern. Betriebswirtschaft\/Management",
+                                "en": "International Business Studies\/Management",
+                                "uk": "Міжнародний бізнес\/Менеджмент"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n184",
+                            "notation": [
+                                "184"
+                            ],
+                            "prefLabel": {
+                                "de": "Wirtschaftswissenschaften",
+                                "en": "Business and Economics",
+                                "uk": "Бізнес та економіка"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n210",
+                            "notation": [
+                                "210"
+                            ],
+                            "prefLabel": {
+                                "de": "Verkehrswirtschaft",
+                                "en": "Transport Economics",
+                                "uk": "Економіка транспорту"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n274",
+                            "notation": [
+                                "274"
+                            ],
+                            "prefLabel": {
+                                "de": "Tourismuswirtschaft",
+                                "en": "Tourism Management",
+                                "uk": "Туристичний менеджмент"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n304",
+                            "notation": [
+                                "304"
+                            ],
+                            "prefLabel": {
+                                "de": "Medienwirtschaft\/Medienmanagement",
+                                "en": "Media Economics\/Media Management",
+                                "uk": "Медіа-економіка\/Медіа-менеджмент"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n31",
+                    "notation": [
+                        "31"
+                    ],
+                    "prefLabel": {
+                        "de": "Wirtschaftsingenieurwesen mit wirtschaftswissenschaftlichem Schwerpunkt",
+                        "en": "Business Engineering specialising in Economics",
+                        "uk": "Бізнес інженерія у галузі економіки"
+                    },
+                    "narrower": [
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n179",
+                            "notation": [
+                                "179"
+                            ],
+                            "prefLabel": {
+                                "de": "Wirtschaftsingenieurwesen mit wirtschaftswissenschaftlichem Schwerpunkt",
+                                "en": "Business Engineering specialising in Economics",
+                                "uk": "Бізнес інженерія у галузі економіки"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n464",
+                            "notation": [
+                                "464"
+                            ],
+                            "prefLabel": {
+                                "de": "Facility Management",
+                                "en": "Facility Management",
+                                "uk": "Організація управління підприємством"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n32",
+                    "notation": [
+                        "32"
+                    ],
+                    "prefLabel": {
+                        "de": "Psychologie",
+                        "en": "Psychology",
+                        "uk": "Психологія"
+                    },
+                    "narrower": [
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n132",
+                            "notation": [
+                                "132"
+                            ],
+                            "prefLabel": {
+                                "de": "Psychologie",
+                                "en": "Psychology",
+                                "uk": "Психологія"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n33",
+                    "notation": [
+                        "33"
+                    ],
+                    "prefLabel": {
+                        "de": "Erziehungswissenschaften",
+                        "en": "Educational Sciences",
+                        "uk": "Педагогічні науки"
+                    },
+                    "narrower": [
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n052",
+                            "notation": [
+                                "052"
+                            ],
+                            "prefLabel": {
+                                "de": "Erziehungswissenschaft (Pädagogik)",
+                                "en": "Educational Science (Pedagogy)",
+                                "uk": "Педагогіка"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n115",
+                            "notation": [
+                                "115"
+                            ],
+                            "prefLabel": {
+                                "de": "Grundschul-\/Primarstufenpädagogik",
+                                "en": "Primary School Education\/Primary Level Education",
+                                "uk": "Початкова освіта"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n117",
+                            "notation": [
+                                "117"
+                            ],
+                            "prefLabel": {
+                                "de": "Ausländerpädagogik",
+                                "en": "Immigrant Education",
+                                "uk": "Освіта мігрантів"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n190",
+                            "notation": [
+                                "190"
+                            ],
+                            "prefLabel": {
+                                "de": "Sonderpädagogik",
+                                "en": "Special Needs Education",
+                                "uk": "Спеціальна освіта"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n254",
+                            "notation": [
+                                "254"
+                            ],
+                            "prefLabel": {
+                                "de": "Sachunterricht (einschl. Schulgarten)",
+                                "en": "General Studies (including School Garden)",
+                                "uk": "Загальна педагогіка(включно з дошкільною освітою)"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n270",
+                            "notation": [
+                                "270"
+                            ],
+                            "prefLabel": {
+                                "de": "Berufs- und Wirtschaftspädagogik",
+                                "en": "Vocational, Business and Economics Education",
+                                "uk": "Професійна, бізнес та економічна освіта"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n321",
+                            "notation": [
+                                "321"
+                            ],
+                            "prefLabel": {
+                                "de": "Erwachsenenbildung und außerschulische Jugendbildung",
+                                "en": "Adult Education and Extracurricular Youth Educat.",
+                                "uk": "Освіта дорослих та позашкільна освіта"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n361",
+                            "notation": [
+                                "361"
+                            ],
+                            "prefLabel": {
+                                "de": "Schulpädagogik",
+                                "en": "School Pedagogy",
+                                "uk": "Середня освіта"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n365",
+                            "notation": [
+                                "365"
+                            ],
+                            "prefLabel": {
+                                "de": "Pädagogik der frühen Kindheit",
+                                "en": "Early Childhood Education",
+                                "uk": "Дошкільна освіта"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n34",
+                    "notation": [
+                        "34"
+                    ],
+                    "prefLabel": {
+                        "de": "Kommunikationswissenschaft\/Publizistik",
+                        "en": "Communication Science\/Journalism",
+                        "uk": "Соціальні комунікації\/Журналістика"
+                    },
+                    "narrower": [
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n303",
+                            "notation": [
+                                "303"
+                            ],
+                            "prefLabel": {
+                                "de": "Kommunikationswissenschaft\/Publizistik",
+                                "en": "Communication Science\/Journalism",
+                                "uk": "Соціальні комунікації\/Журналістика"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n4",
+            "notation": [
+                "4"
+            ],
+            "prefLabel": {
+                "de": "Mathematik, Naturwissenschaften",
+                "en": "Mathematics, Natural Sciences",
+                "uk": "Математика, природничі науки"
+            },
+            "narrower": [
+                {
+                    "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n36",
+                    "notation": [
+                        "36"
+                    ],
+                    "prefLabel": {
+                        "de": "Mathematik, Naturwissenschaften allgemein",
+                        "en": "Mathematics, Natural Sciences (general)",
+                        "uk": "Математика, Природничі науки (загальні)"
+                    },
+                    "narrower": [
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n019",
+                            "notation": [
+                                "019"
+                            ],
+                            "prefLabel": {
+                                "de": "Orientierungsstudium MINT",
+                                "en": "STEM orientation studies",
+                                "uk": "Науки технологічного спрямування"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n049",
+                            "notation": [
+                                "049"
+                            ],
+                            "prefLabel": {
+                                "de": "Interdisziplin. Studien (Schwerpunkt Naturwissenschaften)",
+                                "en": "Interdisc. Studies (special. in Natural Sciences)",
+                                "uk": "Міждисциплінірні науки (у галузі Природничих наук)"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n186",
+                            "notation": [
+                                "186"
+                            ],
+                            "prefLabel": {
+                                "de": "Lernbereich Naturwissenschaft\/Sachunterricht",
+                                "en": "Area of study: Natural Sciences\/General Studies",
+                                "uk": "Галузь знань: Природничі науки\/Загальні науки"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n312",
+                            "notation": [
+                                "312"
+                            ],
+                            "prefLabel": {
+                                "de": "Statistik",
+                                "en": "Statistics",
+                                "uk": "Cтатистика"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n37",
+                    "notation": [
+                        "37"
+                    ],
+                    "prefLabel": {
+                        "de": "Mathematik",
+                        "en": "Mathematics",
+                        "uk": "Математика"
+                    },
+                    "narrower": [
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n105",
+                            "notation": [
+                                "105"
+                            ],
+                            "prefLabel": {
+                                "de": "Mathematik",
+                                "en": "Mathematics",
+                                "uk": "Математика"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n118",
+                            "notation": [
+                                "118"
+                            ],
+                            "prefLabel": {
+                                "de": "Technomathematik",
+                                "en": "Technomathematics",
+                                "uk": "Технічна математика"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n237",
+                            "notation": [
+                                "237"
+                            ],
+                            "prefLabel": {
+                                "de": "Mathematische Statistik\/Wahrscheinlichkeitsrechnung",
+                                "en": "Mathematical statistics\/probability calculation",
+                                "uk": "Математична статистика\/Теорія ймовірності"
+                            },
+                            "deprecated": true
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n276",
+                            "notation": [
+                                "276"
+                            ],
+                            "prefLabel": {
+                                "de": "Wirtschaftsmathematik",
+                                "en": "Business Mathematics",
+                                "uk": "Бізнес математика"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n39",
+                    "notation": [
+                        "39"
+                    ],
+                    "prefLabel": {
+                        "de": "Physik, Astronomie",
+                        "en": "Physics, Astronomy",
+                        "uk": "Фізика, Астрономія"
+                    },
+                    "narrower": [
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n0128",
+                            "notation": [
+                                "128"
+                            ],
+                            "prefLabel": {
+                                "de": "Physik",
+                                "en": "Physics",
+                                "uk": "Фізика"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n014",
+                            "notation": [
+                                "014"
+                            ],
+                            "prefLabel": {
+                                "de": "Astrophysik und Astronomie",
+                                "en": "Astrophysics, Astronomy",
+                                "uk": "Астрофізика, Астрономія"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n40",
+                    "notation": [
+                        "40"
+                    ],
+                    "prefLabel": {
+                        "de": "Chemie",
+                        "en": "Chemistry",
+                        "uk": "Хімія"
+                    },
+                    "narrower": [
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n025",
+                            "notation": [
+                                "025"
+                            ],
+                            "prefLabel": {
+                                "de": "Biochemie",
+                                "en": "Biochemistry",
+                                "uk": "Біохімія"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n032",
+                            "notation": [
+                                "032"
+                            ],
+                            "prefLabel": {
+                                "de": "Chemie",
+                                "en": "Chemistry",
+                                "uk": "Хімія"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n096",
+                            "notation": [
+                                "096"
+                            ],
+                            "prefLabel": {
+                                "de": "Lebensmittelchemie",
+                                "en": "Food Chemistry",
+                                "uk": "Харчова хімія"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n41",
+                    "notation": [
+                        "41"
+                    ],
+                    "prefLabel": {
+                        "de": "Pharmazie",
+                        "en": "Pharmacy",
+                        "uk": "Фармація"
+                    },
+                    "narrower": [
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n126",
+                            "notation": [
+                                "126"
+                            ],
+                            "prefLabel": {
+                                "de": "Pharmazie",
+                                "en": "Pharmacy",
+                                "uk": "Фармація"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n42",
+                    "notation": [
+                        "42"
+                    ],
+                    "prefLabel": {
+                        "de": "Biologie",
+                        "en": "Biology",
+                        "uk": "Біологія"
+                    },
+                    "narrower": [
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n009",
+                            "notation": [
+                                "009"
+                            ],
+                            "prefLabel": {
+                                "de": "Anthropologie (Humanbiologie)",
+                                "en": "Anthropology (Human Biology)",
+                                "uk": "Антропологія (Біологія людини)"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n026",
+                            "notation": [
+                                "026"
+                            ],
+                            "prefLabel": {
+                                "de": "Biologie",
+                                "en": "Biology",
+                                "uk": "Біологія"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n282",
+                            "notation": [
+                                "282"
+                            ],
+                            "prefLabel": {
+                                "de": "Biotechnologie",
+                                "en": "Biotechnology",
+                                "uk": "Біотехнологія"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n300",
+                            "notation": [
+                                "300"
+                            ],
+                            "prefLabel": {
+                                "de": "Biomedizin",
+                                "en": "Biomedicine",
+                                "uk": "Біомедицина"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n43",
+                    "notation": [
+                        "43"
+                    ],
+                    "prefLabel": {
+                        "de": "Geowissenschaften (ohne Geographie)",
+                        "en": "Geosciences (excl. Geography)",
+                        "uk": "Науки про Землю(крім географії)"
+                    },
+                    "narrower": [
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n039",
+                            "notation": [
+                                "039"
+                            ],
+                            "prefLabel": {
+                                "de": "Geowissenschaften allgemein",
+                                "en": "Geosciences (general)",
+                                "uk": "Науки про Землю (загальні)"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n065",
+                            "notation": [
+                                "065"
+                            ],
+                            "prefLabel": {
+                                "de": "Geologie\/Paläontologie",
+                                "en": "Geology\/Palaeontology",
+                                "uk": "Геологія\/Палеонтологія"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n066",
+                            "notation": [
+                                "066"
+                            ],
+                            "prefLabel": {
+                                "de": "Geophysik",
+                                "en": "Geophysics",
+                                "uk": "Геофізика"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n110",
+                            "notation": [
+                                "110"
+                            ],
+                            "prefLabel": {
+                                "de": "Meteorologie",
+                                "en": "Meteorology",
+                                "uk": "Метеорологія"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n111",
+                            "notation": [
+                                "111"
+                            ],
+                            "prefLabel": {
+                                "de": "Mineralogie",
+                                "en": "Mineralogy",
+                                "uk": "Мінералогія"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n124",
+                            "notation": [
+                                "124"
+                            ],
+                            "prefLabel": {
+                                "de": "Ozeanographie",
+                                "en": "Oceanography",
+                                "uk": "Океанографія"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n385",
+                            "notation": [
+                                "385"
+                            ],
+                            "prefLabel": {
+                                "de": "Geoökologie",
+                                "en": "Geoecology",
+                                "uk": "Геоекологія"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n44",
+                    "notation": [
+                        "44"
+                    ],
+                    "prefLabel": {
+                        "de": "Geographie",
+                        "en": "Geography",
+                        "uk": "Географія"
+                    },
+                    "narrower": [
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n050",
+                            "notation": [
+                                "050"
+                            ],
+                            "prefLabel": {
+                                "de": "Geographie\/Erdkunde",
+                                "en": "Geography",
+                                "uk": "Географія"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n178",
+                            "notation": [
+                                "178"
+                            ],
+                            "prefLabel": {
+                                "de": "Wirtschafts-\/Sozialgeographie",
+                                "en": "Economic\/Social Geography",
+                                "uk": "Соціально-економічна географія"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n283",
+                            "notation": [
+                                "283"
+                            ],
+                            "prefLabel": {
+                                "de": "Landschaftsökologie\/Biogeographie",
+                                "en": "Landscape Ecology\/Biogeography",
+                                "uk": "Ландшафтна екологія\/Біогеографія"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n5",
+            "notation": [
+                "5"
+            ],
+            "prefLabel": {
+                "de": "Humanmedizin\/Gesundheitswissenschaften",
+                "en": "Human Medicine \/ Health Sciences",
+                "uk": "Медицина \/ Науки про здоров'я"
+            },
+            "narrower": [
+                {
+                    "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n48",
+                    "notation": [
+                        "48"
+                    ],
+                    "prefLabel": {
+                        "de": "Gesundheitswissenschaften allgemein",
+                        "en": "Health Sciences (general)",
+                        "uk": "Науки про здоров'я (в цілому)"
+                    },
+                    "narrower": [
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n195",
+                            "notation": [
+                                "195"
+                            ],
+                            "prefLabel": {
+                                "de": "Gesundheitspädagogik",
+                                "en": "Health Education",
+                                "uk": "Санітарна освіта"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n232",
+                            "notation": [
+                                "232"
+                            ],
+                            "prefLabel": {
+                                "de": "Gesundheitswissenschaften\/-management",
+                                "en": "Health Science\/Health Management",
+                                "uk": "Науки про здоров'я\/Управління охороною здоров'я"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n233",
+                            "notation": [
+                                "233"
+                            ],
+                            "prefLabel": {
+                                "de": "Nichtärztliche Heilberufe\/Therapien",
+                                "en": "Non-medical Healthcare Professions\/Therapies",
+                                "uk": "Немедичні професії охорони здоров’я\/Терапії"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n234",
+                            "notation": [
+                                "234"
+                            ],
+                            "prefLabel": {
+                                "de": "Pflegewissenschaft\/-management",
+                                "en": "Nursing Science\/Nursing Management",
+                                "uk": "Медсестринство"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n49",
+                    "notation": [
+                        "49"
+                    ],
+                    "prefLabel": {
+                        "de": "Humanmedizin (ohne Zahnmedizin)",
+                        "en": "Human Medicine (excl. Dentistry)",
+                        "uk": "Медицина людини (крім стоматології)"
+                    },
+                    "narrower": [
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n107",
+                            "notation": [
+                                "107"
+                            ],
+                            "prefLabel": {
+                                "de": "Medizin (Allgemein-Medizin)",
+                                "en": "Medicine (General Medicine)",
+                                "uk": "Медицина (загальна медицина)"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n50",
+                    "notation": [
+                        "50"
+                    ],
+                    "prefLabel": {
+                        "de": "Zahnmedizin",
+                        "en": "Dentistry",
+                        "uk": "Стоматологія"
+                    },
+                    "narrower": [
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n185",
+                            "notation": [
+                                "185"
+                            ],
+                            "prefLabel": {
+                                "de": "Zahnmedizin",
+                                "en": "Dentistry",
+                                "uk": "Стоматологія"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n7",
+            "notation": [
+                "7"
+            ],
+            "prefLabel": {
+                "de": "Agrar-, Forst- und Ernährungswissenschaften, Veterinärmedizin",
+                "en": "Agricultural, Forest and Nutritional Sciences, Veterinary medicine",
+                "uk": "Сільськогосподарські, лісові та харчові науки, ветеринарія"
+            },
+            "narrower": [
+                {
+                    "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n51",
+                    "notation": [
+                        "51"
+                    ],
+                    "prefLabel": {
+                        "de": "Veterinärmedizin",
+                        "en": "Veterinary Medicine",
+                        "uk": "Ветеринарна медицина"
+                    },
+                    "narrower": [
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n156",
+                            "notation": [
+                                "156"
+                            ],
+                            "prefLabel": {
+                                "de": "Tiermedizin\/Veterinärmedizin",
+                                "en": "Veterinary Medicine",
+                                "uk": "Ветеринарна медицина"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n57",
+                    "notation": [
+                        "57"
+                    ],
+                    "prefLabel": {
+                        "de": "Landespflege, Umweltgestaltung",
+                        "en": "Land Management Engineering, Environmental Design",
+                        "uk": "Землеустрій, екологічний дизайн"
+                    },
+                    "narrower": [
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n061",
+                            "notation": [
+                                "061"
+                            ],
+                            "prefLabel": {
+                                "de": "Meliorationswesen",
+                                "en": "Ground Improvement",
+                                "uk": "Меліорація"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n064",
+                            "notation": [
+                                "064"
+                            ],
+                            "prefLabel": {
+                                "de": "Naturschutz",
+                                "en": "Nature Conservation",
+                                "uk": "Охорона природи"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n093",
+                            "notation": [
+                                "093"
+                            ],
+                            "prefLabel": {
+                                "de": "Landespflege\/Landschaftsgestaltung",
+                                "en": "Land Management Engineering\/Landscape Design",
+                                "uk": "Землеустрій\/Ландшафтний дизайн"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n58",
+                    "notation": [
+                        "58"
+                    ],
+                    "prefLabel": {
+                        "de": "Agrarwissenschaften, Lebensmittel- und Getränketechnologie",
+                        "en": "Agricultural Science, Food- and Beverage Technology",
+                        "uk": "Сільськогосподарська наука, харчові технології"
+                    },
+                    "narrower": [
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n003",
+                            "notation": [
+                                "003"
+                            ],
+                            "prefLabel": {
+                                "de": "Agrarwissenschaft\/Landwirtschaft",
+                                "en": "Agricultural Science\/Agriculture",
+                                "uk": "Аграрні науки\/Сільське господарство"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n028",
+                            "notation": [
+                                "028"
+                            ],
+                            "prefLabel": {
+                                "de": "Brauwesen\/Getränketechnologie",
+                                "en": "Brewing Science\/Beverage Technology",
+                                "uk": "Пивоваріння\/Технологія напоїв"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n060",
+                            "notation": [
+                                "060"
+                            ],
+                            "prefLabel": {
+                                "de": "Gartenbau",
+                                "en": "Horticulture",
+                                "uk": "Садово-паркове господарство"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n097",
+                            "notation": [
+                                "097"
+                            ],
+                            "prefLabel": {
+                                "de": "Lebensmitteltechnologie",
+                                "en": "Food Technology",
+                                "uk": "Харчові технології"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n125",
+                            "notation": [
+                                "125"
+                            ],
+                            "prefLabel": {
+                                "de": "Agrarökonomie",
+                                "en": "Agricultural Economics",
+                                "uk": "Економіка сільського господарства"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n138",
+                            "notation": [
+                                "138"
+                            ],
+                            "prefLabel": {
+                                "de": "Agrarbiologie",
+                                "en": "Agricultural Biology",
+                                "uk": "Агробіологія"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n220",
+                            "notation": [
+                                "220"
+                            ],
+                            "prefLabel": {
+                                "de": "Milch- und Molkereiwirtschaft",
+                                "en": "Dairy Farming",
+                                "uk": "Молочне тваринництво"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n227",
+                            "notation": [
+                                "227"
+                            ],
+                            "prefLabel": {
+                                "de": "Weinbau und Kellerwirtschaft",
+                                "en": "Viticulture and Oenology",
+                                "uk": "Виноградарство і виноробство"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n353",
+                            "notation": [
+                                "353"
+                            ],
+                            "prefLabel": {
+                                "de": "Pflanzenproduktion",
+                                "en": "Plant Production",
+                                "uk": "Рослинництво"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n371",
+                            "notation": [
+                                "371"
+                            ],
+                            "prefLabel": {
+                                "de": "Tierproduktion",
+                                "en": "Animal Production",
+                                "uk": "Тваринництво"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n59",
+                    "notation": [
+                        "59"
+                    ],
+                    "prefLabel": {
+                        "de": "Forstwissenschaft, Holzwirtschaft",
+                        "en": "Forestry, Wood Science",
+                        "uk": "Лісівництво, деревообробна промисловість"
+                    },
+                    "narrower": [
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n058",
+                            "notation": [
+                                "058"
+                            ],
+                            "prefLabel": {
+                                "de": "Forstwissenschaft, -wirtschaft",
+                                "en": "Forest Science, Forestry",
+                                "uk": "Лісівництво"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n075",
+                            "notation": [
+                                "075"
+                            ],
+                            "prefLabel": {
+                                "de": "Holzwirtschaft",
+                                "en": "Wood Science",
+                                "uk": "Деревообробна промисловість"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n60",
+                    "notation": [
+                        "60"
+                    ],
+                    "prefLabel": {
+                        "de": "Ernährungs- und Haushaltswissenschaften",
+                        "en": "Nutritional and Domestic Science",
+                        "uk": "Харчові та побутові науки"
+                    },
+                    "narrower": [
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n071",
+                            "notation": [
+                                "071"
+                            ],
+                            "prefLabel": {
+                                "de": "Haushalts- und Ernährungswissenschaft",
+                                "en": "Domestic and Nutritional Sciences",
+                                "uk": "Побутові та харчові науки"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n320",
+                            "notation": [
+                                "320"
+                            ],
+                            "prefLabel": {
+                                "de": "Ernährungswissenschaft",
+                                "en": "Nutritional Science",
+                                "uk": "Наука про харчування"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n333",
+                            "notation": [
+                                "333"
+                            ],
+                            "prefLabel": {
+                                "de": "Haushaltswissenschaft",
+                                "en": "Domestic Science",
+                                "uk": "Житлова економіка"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n8",
+            "notation": [
+                "8"
+            ],
+            "prefLabel": {
+                "de": "Ingenieurwissenschaften",
+                "en": "Engineering Sciences",
+                "uk": "Інженерія"
+            },
+            "narrower": [
+                {
+                    "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n61",
+                    "notation": [
+                        "61"
+                    ],
+                    "prefLabel": {
+                        "de": "Ingenieurwesen allgemein",
+                        "en": "Engineering (general)",
+                        "uk": "Інженерія (в цілому)"
+                    },
+                    "narrower": [
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n072",
+                            "notation": [
+                                "072"
+                            ],
+                            "prefLabel": {
+                                "de": "Interdisziplinäre Studien (Schwerpunkt Ingenieurwissenschaften)",
+                                "en": "Interdisc. Studies (specialising in Engineering)",
+                                "uk": "Міждисциплінарні дослідження (фокус на інженерії)"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n140",
+                            "notation": [
+                                "140"
+                            ],
+                            "prefLabel": {
+                                "de": "Angewandte Systemwissenschaften",
+                                "en": "Applied Systems Science",
+                                "uk": "Прикладні системні науки"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n199",
+                            "notation": [
+                                "199"
+                            ],
+                            "prefLabel": {
+                                "de": "Lernbereich Technik",
+                                "en": "Area of study: Technology",
+                                "uk": "Галузь знань: Технологія"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n201",
+                            "notation": [
+                                "201"
+                            ],
+                            "prefLabel": {
+                                "de": "Werken (technisch)\/Technologie",
+                                "en": "Handicrafts (technical)\/Technology",
+                                "uk": "Ремесла (технічні)\/Технологія"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n305",
+                            "notation": [
+                                "305"
+                            ],
+                            "prefLabel": {
+                                "de": "Medientechnik",
+                                "en": "Media Technology",
+                                "uk": "Медіатехнології"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n310",
+                            "notation": [
+                                "310"
+                            ],
+                            "prefLabel": {
+                                "de": "Regenerative Energien",
+                                "en": "Renewable Energy",
+                                "uk": "Відновлювальна енергія"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n380",
+                            "notation": [
+                                "380"
+                            ],
+                            "prefLabel": {
+                                "de": "Mechatronik",
+                                "en": "Mechatronics",
+                                "uk": "Мехатроніка"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n62",
+                    "notation": [
+                        "62"
+                    ],
+                    "prefLabel": {
+                        "de": "Bergbau, Hüttenwesen",
+                        "en": "Mining, Metallurgy",
+                        "uk": "Гірнича справа, металургія"
+                    },
+                    "narrower": [
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n020",
+                            "notation": [
+                                "020"
+                            ],
+                            "prefLabel": {
+                                "de": "Bergbau\/Bergtechnik",
+                                "en": "Mining\/Mine Engineering",
+                                "uk": "Гірнича справа\/Гірнича технологія"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n076",
+                            "notation": [
+                                "076"
+                            ],
+                            "prefLabel": {
+                                "de": "Hütten- und Gießereiwesen",
+                                "en": "Metallurgy and Foundry",
+                                "uk": "Металургія та ливарна промисловість"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n103",
+                            "notation": [
+                                "103"
+                            ],
+                            "prefLabel": {
+                                "de": "Markscheidewesen",
+                                "en": "Mine Surveying",
+                                "uk": "Маркшейдерія"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n390",
+                            "notation": [
+                                "390"
+                            ],
+                            "prefLabel": {
+                                "de": "Archäometrie (Ingenieurarchäologie)",
+                                "en": "Archaeometry (Archaeological Engineering)",
+                                "uk": "Археометрія (Археологічна інженерія)"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n63",
+                    "notation": [
+                        "63"
+                    ],
+                    "prefLabel": {
+                        "de": "Maschinenbau\/Verfahrenstechnik",
+                        "en": "Mechanical Engineering \/ Process Engineering",
+                        "uk": "Машинобудування\/Технологія"
+                    },
+                    "narrower": [
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n033",
+                            "notation": [
+                                "033"
+                            ],
+                            "prefLabel": {
+                                "de": "Chemie-Ingenieurwesen\/Chemieverfahrenstechnik",
+                                "en": "Chemical Engineering\/Chemical Process Engineering",
+                                "uk": "Хімічна інженерія\/Інженерія хімічних процесів"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n074",
+                            "notation": [
+                                "074"
+                            ],
+                            "prefLabel": {
+                                "de": "Transport-\/Fördertechnik",
+                                "en": "Transport and Conveying Technology",
+                                "uk": "Транспорт\/Конвеєрна техніка"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n082",
+                            "notation": [
+                                "082"
+                            ],
+                            "prefLabel": {
+                                "de": "Holz-\/Fasertechnik",
+                                "en": "Wood and Fibre Technology",
+                                "uk": "Технологія деревини та волокна"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n104",
+                            "notation": [
+                                "104"
+                            ],
+                            "prefLabel": {
+                                "de": "Maschinenbau\/-wesen",
+                                "en": "Mechanical Engineering",
+                                "uk": "Машинобудування"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n108",
+                            "notation": [
+                                "108"
+                            ],
+                            "prefLabel": {
+                                "de": "Metalltechnik",
+                                "en": "Metals Technology",
+                                "uk": "Технологія металів"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n141",
+                            "notation": [
+                                "141"
+                            ],
+                            "prefLabel": {
+                                "de": "Abfallwirtschaft",
+                                "en": "Waste Management",
+                                "uk": "Управління відходами"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n143",
+                            "notation": [
+                                "143"
+                            ],
+                            "prefLabel": {
+                                "de": "Augenoptik",
+                                "en": "Ophthalmic Optics",
+                                "uk": "Офтальмологічна оптика"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n144",
+                            "notation": [
+                                "144"
+                            ],
+                            "prefLabel": {
+                                "de": "Technische Kybernetik",
+                                "en": "Technical Cybernetics",
+                                "uk": "Технічна кібернетика"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n202",
+                            "notation": [
+                                "202"
+                            ],
+                            "prefLabel": {
+                                "de": "Fertigungs-\/Produktionstechnik",
+                                "en": "Manufacturing Technology\/Production Engineering",
+                                "uk": "Технологія виробництва\/Виробнича інженерія"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n211",
+                            "notation": [
+                                "211"
+                            ],
+                            "prefLabel": {
+                                "de": "Energieverfahrenstechnik",
+                                "en": "Energy Process Engineering",
+                                "uk": "Енергетичні технології (без електротехніки)"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n212",
+                            "notation": [
+                                "212"
+                            ],
+                            "prefLabel": {
+                                "de": "Feinwerktechnik",
+                                "en": "Precision Engineering",
+                                "uk": "Точна інженерія"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n213",
+                            "notation": [
+                                "213"
+                            ],
+                            "prefLabel": {
+                                "de": "Versorgungstechnik",
+                                "en": "Supply Technology",
+                                "uk": "Технології постачання"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n215",
+                            "notation": [
+                                "215"
+                            ],
+                            "prefLabel": {
+                                "de": "Gesundheitstechnik",
+                                "en": "Health Technology",
+                                "uk": "Технологія охорони здоров'я"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n216",
+                            "notation": [
+                                "216"
+                            ],
+                            "prefLabel": {
+                                "de": "Glastechnik\/Keramik",
+                                "en": "Glass Technology\/Ceramics",
+                                "uk": "Технологія скла\/Кераміка"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n219",
+                            "notation": [
+                                "219"
+                            ],
+                            "prefLabel": {
+                                "de": "Kunststofftechnik",
+                                "en": "Plastics Technology",
+                                "uk": "Технологія пластмас"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n224",
+                            "notation": [
+                                "224"
+                            ],
+                            "prefLabel": {
+                                "de": "Physikalische Technik\/Mechanische Verfahrenstechnik",
+                                "en": "Engineering Physics\/Mechanical Process Engineering",
+                                "uk": "Інженерна фізика"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n225",
+                            "notation": [
+                                "225"
+                            ],
+                            "prefLabel": {
+                                "de": "Textil- und Bekleidungstechnik\/-gewerbe",
+                                "en": "Textile and Clothing Technology\/Industry",
+                                "uk": "Текстильне виробництво\/Легка промисловість"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n226",
+                            "notation": [
+                                "226"
+                            ],
+                            "prefLabel": {
+                                "de": "Verfahrenstechnik",
+                                "en": "Process Engineering",
+                                "uk": "Технологія процесів"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n231",
+                            "notation": [
+                                "231"
+                            ],
+                            "prefLabel": {
+                                "de": "Druck- und Reproduktionstechnik",
+                                "en": "Printing and Reproduction Technology",
+                                "uk": "Технологія друку та розмноження"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n241",
+                            "notation": [
+                                "241"
+                            ],
+                            "prefLabel": {
+                                "de": "Kerntechnik\/Kernverfahrenstechnik",
+                                "en": "Nuclear technology\/nuclear process engineering",
+                                "uk": "Атомна інженерія\/Інженерія ядерних процесів"
+                            },
+                            "deprecated": true
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n457",
+                            "notation": [
+                                "457"
+                            ],
+                            "prefLabel": {
+                                "de": "Umwelttechnik (einschl. Recycling)",
+                                "en": "Environmental Technology (including Recycling)",
+                                "uk": "Екологічні технології (включно з переробкою)"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n64",
+                    "notation": [
+                        "64"
+                    ],
+                    "prefLabel": {
+                        "de": "Elektrotechnik und Informationstechnik",
+                        "en": "Electrical Engineering and Information Engineering",
+                        "uk": "Електротехніка та інформаційні технології"
+                    },
+                    "narrower": [
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n048",
+                            "notation": [
+                                "048"
+                            ],
+                            "prefLabel": {
+                                "de": "Elektrotechnik\/Elektronik",
+                                "en": "Electrical Engineering\/Electronics",
+                                "uk": "Електротехніка\/Електроніка"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n088",
+                            "notation": [
+                                "088"
+                            ],
+                            "prefLabel": {
+                                "de": "Optoelektronik",
+                                "en": "Optoelectronics",
+                                "uk": "Оптоелектроніка"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n157",
+                            "notation": [
+                                "157"
+                            ],
+                            "prefLabel": {
+                                "de": "Mikroelektronik",
+                                "en": "Microelectronics",
+                                "uk": "Мікроелектроніка"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n222",
+                            "notation": [
+                                "222"
+                            ],
+                            "prefLabel": {
+                                "de": "Kommunikations- und Informationstechnik",
+                                "en": "Communication Technology, Information Engineering",
+                                "uk": "Комунікаційні та інформаційні технології"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n286",
+                            "notation": [
+                                "286"
+                            ],
+                            "prefLabel": {
+                                "de": "Mikrosystemtechnik",
+                                "en": "Microsystems Technology",
+                                "uk": "Мікротехнологія"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n316",
+                            "notation": [
+                                "316"
+                            ],
+                            "prefLabel": {
+                                "de": "Elektrische Energietechnik",
+                                "en": "Electrical Power Engineering",
+                                "uk": "Електроенергетика"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n65",
+                    "notation": [
+                        "65"
+                    ],
+                    "prefLabel": {
+                        "de": "Verkehrstechnik, Nautik",
+                        "en": "Traffic Engineering, Nautical Science",
+                        "uk": "Транспортні технології\/Мореплавство"
+                    },
+                    "narrower": [
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n057",
+                            "notation": [
+                                "057"
+                            ],
+                            "prefLabel": {
+                                "de": "Luft- und Raumfahrttechnik",
+                                "en": "Aeronautical and Aerospace Engineering",
+                                "uk": "Авіаційна та ракетно-космічна техніка"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n089",
+                            "notation": [
+                                "089"
+                            ],
+                            "prefLabel": {
+                                "de": "Verkehrsingenieurwesen",
+                                "en": "Transport Engineering",
+                                "uk": "Транспортна інженерія"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n142",
+                            "notation": [
+                                "142"
+                            ],
+                            "prefLabel": {
+                                "de": "Schiffbau\/Schiffstechnik",
+                                "en": "Naval Architecture\/Ship Technology",
+                                "uk": "Морський транспорт\/Суднобудування"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n223",
+                            "notation": [
+                                "223"
+                            ],
+                            "prefLabel": {
+                                "de": "Nautik\/Seefahrt",
+                                "en": "Nautical Science\/Maritime Studies",
+                                "uk": "Морські науки"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n235",
+                            "notation": [
+                                "235"
+                            ],
+                            "prefLabel": {
+                                "de": "Fahrzeugtechnik",
+                                "en": "Automotive Technology",
+                                "uk": "Автомобільний транспорт"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n66",
+                    "notation": [
+                        "66"
+                    ],
+                    "prefLabel": {
+                        "de": "Architektur, Innenarchitektur",
+                        "en": "Architecture, Interior Architecture ",
+                        "uk": "Архітектура, дизайн інтер'єру"
+                    },
+                    "narrower": [
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n013",
+                            "notation": [
+                                "013"
+                            ],
+                            "prefLabel": {
+                                "de": "Architektur",
+                                "en": "Architecture",
+                                "uk": "Архітектура"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n242",
+                            "notation": [
+                                "242"
+                            ],
+                            "prefLabel": {
+                                "de": "Innenarchitektur",
+                                "en": "Interior Architecture",
+                                "uk": "Дизайн інтер'єру"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n67",
+                    "notation": [
+                        "67"
+                    ],
+                    "prefLabel": {
+                        "de": "Raumplanung",
+                        "en": "Spatial Planning",
+                        "uk": "Містобудування та територіальне планування"
+                    },
+                    "narrower": [
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n134",
+                            "notation": [
+                                "134"
+                            ],
+                            "prefLabel": {
+                                "de": "Raumplanung",
+                                "en": "Spatial Planning",
+                                "uk": "Територіальне планування"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n458",
+                            "notation": [
+                                "458"
+                            ],
+                            "prefLabel": {
+                                "de": "Umweltschutz",
+                                "en": "Environmental Protection",
+                                "uk": "Охорона навколишнього середовища"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n68",
+                    "notation": [
+                        "68"
+                    ],
+                    "prefLabel": {
+                        "de": "Bauingenieurwesen",
+                        "en": "Civil Engineering",
+                        "uk": "Цивільна інженерія"
+                    },
+                    "narrower": [
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n017",
+                            "notation": [
+                                "017"
+                            ],
+                            "prefLabel": {
+                                "de": "Bauingenieurwesen\/Ingenieurbau",
+                                "en": "Civil Engineering\/Structural Engineering",
+                                "uk": "Цивільна інженерія\/Будівництво"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n077",
+                            "notation": [
+                                "077"
+                            ],
+                            "prefLabel": {
+                                "de": "Wasserwirtschaft",
+                                "en": "Water Management",
+                                "uk": "Управління водними ресурсами"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n094",
+                            "notation": [
+                                "094"
+                            ],
+                            "prefLabel": {
+                                "de": "Wasserbau",
+                                "en": "Hydraulic Engineering",
+                                "uk": "Гідротехніка"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n197",
+                            "notation": [
+                                "197"
+                            ],
+                            "prefLabel": {
+                                "de": "Holzbau",
+                                "en": "Timber Construction",
+                                "uk": "Дерев'яне будівництво"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n429",
+                            "notation": [
+                                "429"
+                            ],
+                            "prefLabel": {
+                                "de": "Stahlbau",
+                                "en": "Steel Construction",
+                                "uk": "Сталеві будівельні конструкції"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n69",
+                    "notation": [
+                        "69"
+                    ],
+                    "prefLabel": {
+                        "de": "Vermessungswesen",
+                        "en": "Surveying",
+                        "uk": "Землеустрій"
+                    },
+                    "narrower": [
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n171",
+                            "notation": [
+                                "171"
+                            ],
+                            "prefLabel": {
+                                "de": "Vermessungswesen (Geodäsie)",
+                                "en": "Surveying (Geodesy)",
+                                "uk": "Геодезія та землеустрій"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n280",
+                            "notation": [
+                                "280"
+                            ],
+                            "prefLabel": {
+                                "de": "Kartographie",
+                                "en": "Cartography",
+                                "uk": "Картографія"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n70",
+                    "notation": [
+                        "70"
+                    ],
+                    "prefLabel": {
+                        "de": "Wirtschaftsingenieurwesen mit ingenieurwissenschaftlichem Schwerpunkt",
+                        "en": "Business Engineering specialising in Engineering Sciences",
+                        "uk": "Промислова інженерія у галузі технічних наук"
+                    },
+                    "narrower": [
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n370",
+                            "notation": [
+                                "370"
+                            ],
+                            "prefLabel": {
+                                "de": "Wirtschaftsingenieurwesen mit ingenieurwissenschaftlichem Schwerpunkt",
+                                "en": "Business Engineering specialising in Engineering Sciences",
+                                "uk": "Промислова інженерія у галузі технічних наук"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n71",
+                    "notation": [
+                        "71"
+                    ],
+                    "prefLabel": {
+                        "de": "Informatik",
+                        "en": "Computer Science",
+                        "uk": "Комп'ютерні науки"
+                    },
+                    "narrower": [
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n079",
+                            "notation": [
+                                "079"
+                            ],
+                            "prefLabel": {
+                                "de": "Informatik",
+                                "en": "Computer Science",
+                                "uk": "Комп'ютерні науки"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n121",
+                            "notation": [
+                                "121"
+                            ],
+                            "prefLabel": {
+                                "de": "Medieninformatik",
+                                "en": "Media Informatics",
+                                "uk": "Медіаінформатика"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n123",
+                            "notation": [
+                                "123"
+                            ],
+                            "prefLabel": {
+                                "de": "Ingenieurinformatik\/Technische Informatik",
+                                "en": "Computational Engineering\/Technical Computer Science",
+                                "uk": "Обчислювальна техніка\/Технічна інформатика"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n200",
+                            "notation": [
+                                "200"
+                            ],
+                            "prefLabel": {
+                                "de": "Computer- und Kommunikationstechniken",
+                                "en": "Computer and Communication Technology",
+                                "uk": "Інформаційно-комунікаційні технології"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n221",
+                            "notation": [
+                                "221"
+                            ],
+                            "prefLabel": {
+                                "de": "Bioinformatik",
+                                "en": "Bioinformatics",
+                                "uk": "Біоінформатика"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n247",
+                            "notation": [
+                                "247"
+                            ],
+                            "prefLabel": {
+                                "de": "Medizinische Informatik",
+                                "en": "Medical Informatics",
+                                "uk": "Медична інформатика"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n277",
+                            "notation": [
+                                "277"
+                            ],
+                            "prefLabel": {
+                                "de": "Wirtschaftsinformatik",
+                                "en": "Business Informatics",
+                                "uk": "Бізнес-інформатика"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n72",
+                    "notation": [
+                        "72"
+                    ],
+                    "prefLabel": {
+                        "de": "Materialwissenschaft und Werkstofftechnik",
+                        "en": "Materials Science and Materials Engineering",
+                        "uk": "Матеріалознавство та прикладна механіка"
+                    },
+                    "narrower": [
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n177",
+                            "notation": [
+                                "177"
+                            ],
+                            "prefLabel": {
+                                "de": "Werkstofftechnik",
+                                "en": "Materials Technology",
+                                "uk": "Матеріалознавство"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n294",
+                            "notation": [
+                                "294"
+                            ],
+                            "prefLabel": {
+                                "de": "Materialwissenschaft",
+                                "en": "Materials Science",
+                                "uk": "Матеріалознавство"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n9",
+            "notation": [
+                "9"
+            ],
+            "prefLabel": {
+                "de": "Kunst, Kunstwissenschaft",
+                "en": "Art, Art Theory",
+                "uk": "Мистецтво, мистецтвознавство"
+            },
+            "narrower": [
+                {
+                    "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n74",
+                    "notation": [
+                        "74"
+                    ],
+                    "prefLabel": {
+                        "de": "Kunst, Kunstwissenschaft allgemein",
+                        "en": "Art, Art Theory (general)",
+                        "uk": "Культура і мистецтво, теорія мистецтв (загальні)"
+                    },
+                    "narrower": [
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n040",
+                            "notation": [
+                                "040"
+                            ],
+                            "prefLabel": {
+                                "de": "Interdiszipl. Studien (Schwerpunkt Kunst, Kunstwissenschaft)",
+                                "en": "Interdisc. Studies (special. in Art, Art Theory)",
+                                "uk": "Мультидисциплінарні науки (Мистецтво, Теорія мистецтв)"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n091",
+                            "notation": [
+                                "091"
+                            ],
+                            "prefLabel": {
+                                "de": "Kunsterziehung",
+                                "en": "Arts Education",
+                                "uk": "Художня освіта"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n092",
+                            "notation": [
+                                "092"
+                            ],
+                            "prefLabel": {
+                                "de": "Kunstgeschichte, Kunstwissenschaft",
+                                "en": "Art History, Art Theory",
+                                "uk": "Історія та теорія образотворчого мистецтва"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n101",
+                            "notation": [
+                                "101"
+                            ],
+                            "prefLabel": {
+                                "de": "Restaurierungskunde",
+                                "en": "Restoration Studies",
+                                "uk": "Музейна реставрація"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n75",
+                    "notation": [
+                        "75"
+                    ],
+                    "prefLabel": {
+                        "de": "Bildende Kunst",
+                        "en": "Fine Arts",
+                        "uk": "Образотворче мистецтво"
+                    },
+                    "narrower": [
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n023",
+                            "notation": [
+                                "023"
+                            ],
+                            "prefLabel": {
+                                "de": "Bildende Kunst\/Graphik",
+                                "en": "Fine Arts\/Graphics",
+                                "uk": "Образотворче мистецтво\/Графіка"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n204",
+                            "notation": [
+                                "204"
+                            ],
+                            "prefLabel": {
+                                "de": "Malerei",
+                                "en": "Painting",
+                                "uk": "Живопис"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n205",
+                            "notation": [
+                                "205"
+                            ],
+                            "prefLabel": {
+                                "de": "Bildhauerei\/Plastik",
+                                "en": "Sculpting\/Statuary Art",
+                                "uk": "Скульптурне мистецтво"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n287",
+                            "notation": [
+                                "287"
+                            ],
+                            "prefLabel": {
+                                "de": "Neue Medien",
+                                "en": "New Media",
+                                "uk": "Нові засоби масової інформації"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n76",
+                    "notation": [
+                        "76"
+                    ],
+                    "prefLabel": {
+                        "de": "Gestaltung",
+                        "en": "Design",
+                        "uk": "Дизайн"
+                    },
+                    "narrower": [
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n007",
+                            "notation": [
+                                "007"
+                            ],
+                            "prefLabel": {
+                                "de": "Angewandte Kunst",
+                                "en": "Applied Art",
+                                "uk": "Декоративно-ужиткове мистецтво"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n069",
+                            "notation": [
+                                "069"
+                            ],
+                            "prefLabel": {
+                                "de": "Graphikdesign\/Kommunikationsgestaltung",
+                                "en": "Graphic Design\/Communication Design",
+                                "uk": "Графічний дизайн\/Комунікаційний дизайн"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n116",
+                            "notation": [
+                                "116"
+                            ],
+                            "prefLabel": {
+                                "de": "Textilgestaltung",
+                                "en": "Textile Design",
+                                "uk": "Дизайн одягу"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n159",
+                            "notation": [
+                                "159"
+                            ],
+                            "prefLabel": {
+                                "de": "Edelstein- und Schmuckdesign",
+                                "en": "Gemstone and Jewellery Design",
+                                "uk": "Дизайн дорогоцінних каменів та ювелірних виробів"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n176",
+                            "notation": [
+                                "176"
+                            ],
+                            "prefLabel": {
+                                "de": "Werkerziehung",
+                                "en": "Handicrafts Education",
+                                "uk": "Ремісництво"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n203",
+                            "notation": [
+                                "203"
+                            ],
+                            "prefLabel": {
+                                "de": "Industriedesign\/Produktgestaltung",
+                                "en": "Industrial Design\/Product Design",
+                                "uk": "Промисловий дизайн\/Дизайн продуктів"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n77",
+                    "notation": [
+                        "77"
+                    ],
+                    "prefLabel": {
+                        "de": "Darstellende Kunst, Film und Fernsehen, Theaterwissenschaft",
+                        "en": "Performing Arts, Film and Television Studies, Theatre Studies",
+                        "uk": "Акторська гра\/Телемистецтво\/Театральне мистецтво"
+                    },
+                    "narrower": [
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n035",
+                            "notation": [
+                                "035"
+                            ],
+                            "prefLabel": {
+                                "de": "Darstellende Kunst\/Bühnenkunst\/Regie",
+                                "en": "Performing Arts\/Stagecraft\/Directing",
+                                "uk": "Акторська гра\/Сценічне мистецтво\/Режисерська діяльність"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n054",
+                            "notation": [
+                                "054"
+                            ],
+                            "prefLabel": {
+                                "de": "Film und Fernsehen",
+                                "en": "Film and Television Studies",
+                                "uk": "Телемистецтво"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n102",
+                            "notation": [
+                                "102"
+                            ],
+                            "prefLabel": {
+                                "de": "Schauspiel",
+                                "en": "Drama Studies",
+                                "uk": "Сценічне мистецтво"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n106",
+                            "notation": [
+                                "106"
+                            ],
+                            "prefLabel": {
+                                "de": "Tanzpädagogik",
+                                "en": "Dance Education",
+                                "uk": "Хореографічне мистецтво"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n155",
+                            "notation": [
+                                "155"
+                            ],
+                            "prefLabel": {
+                                "de": "Theaterwissenschaft",
+                                "en": "Theatre Studies",
+                                "uk": "Театральне мистецтво"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n78",
+                    "notation": [
+                        "78"
+                    ],
+                    "prefLabel": {
+                        "de": "Musik, Musikwissenschaft",
+                        "en": "Music, Musicology",
+                        "uk": "Музика, музикознавство"
+                    },
+                    "narrower": [
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n080",
+                            "notation": [
+                                "080"
+                            ],
+                            "prefLabel": {
+                                "de": "Instrumentalmusik",
+                                "en": "Instrumental Music",
+                                "uk": "Інструментальна музика"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n113",
+                            "notation": [
+                                "113"
+                            ],
+                            "prefLabel": {
+                                "de": "Musikerziehung",
+                                "en": "Music Education",
+                                "uk": "Музична освіта"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n114",
+                            "notation": [
+                                "114"
+                            ],
+                            "prefLabel": {
+                                "de": "Musikwissenschaft\/-geschichte",
+                                "en": "Musicology\/History of Music",
+                                "uk": "Музикознавство\/Історія музики"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n163",
+                            "notation": [
+                                "163"
+                            ],
+                            "prefLabel": {
+                                "de": "Rhythmik",
+                                "en": "Rhythmics",
+                                "uk": "Ритміка"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n164",
+                            "notation": [
+                                "164"
+                            ],
+                            "prefLabel": {
+                                "de": "Jazz und Popularmusik",
+                                "en": "Jazz and Popular Music",
+                                "uk": "Джаз та популярна музика"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n165",
+                            "notation": [
+                                "165"
+                            ],
+                            "prefLabel": {
+                                "de": "Orchestermusik",
+                                "en": "Orchestral Music",
+                                "uk": "Оркестрова музика"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n191",
+                            "notation": [
+                                "191"
+                            ],
+                            "prefLabel": {
+                                "de": "Komposition",
+                                "en": "Composition",
+                                "uk": "Композиція"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n192",
+                            "notation": [
+                                "192"
+                            ],
+                            "prefLabel": {
+                                "de": "Dirigieren",
+                                "en": "Conducting",
+                                "uk": "Хорове диригування"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n193",
+                            "notation": [
+                                "193"
+                            ],
+                            "prefLabel": {
+                                "de": "Kirchenmusik",
+                                "en": "Church Music",
+                                "uk": "Церковна музика"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n194",
+                            "notation": [
+                                "194"
+                            ],
+                            "prefLabel": {
+                                "de": "Tonmeister",
+                                "en": "Sound Engineering",
+                                "uk": "Звукова інженерія"
+                            }
+                        },
+                        {
+                            "id": "https:\/\/w3id.org\/kim\/hochschulfaechersystematik\/n230",
+                            "notation": [
+                                "230"
+                            ],
+                            "prefLabel": {
+                                "de": "Gesang",
+                                "en": "Singing",
+                                "uk": "Вокальне мистецтво"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "@context": {
+        "@version": 1.1,
+        "id": "@id",
+        "type": "@type",
+        "@vocab": "http:\/\/www.w3.org\/2004\/02\/skos\/core#",
+        "xsd": "http:\/\/www.w3.org\/2001\/XMLSchema#",
+        "dct": "http:\/\/purl.org\/dc\/terms\/",
+        "dc": "http:\/\/purl.org\/dc\/elements\/1.1\/",
+        "schema": "https:\/\/schema.org\/",
+        "vann": "http:\/\/purl.org\/vocab\/vann\/",
+        "ldp": "http:\/\/www.w3.org\/ns\/ldp#",
+        "owl": "http:\/\/www.w3.org\/2002\/07\/owl#",
+        "title": {
+            "@id": "dct:title",
+            "@container": "@language"
+        },
+        "dc:title": {
+            "@id": "dc:title",
+            "@container": "@language"
+        },
+        "dc:description": {
+            "@id": "dc:description",
+            "@container": "@language"
+        },
+        "description": {
+            "@id": "dct:description",
+            "@container": "@language"
+        },
+        "issued": {
+            "@id": "dct:issued",
+            "@type": "xsd:date"
+        },
+        "created": {
+            "@id": "dct:created",
+            "@type": "xsd:date"
+        },
+        "modified": {
+            "@id": "dct:modified",
+            "@type": "xsd:date"
+        },
+        "creator": "dct:creator",
+        "publisher": "dct:publisher",
+        "preferredNamespacePrefix": "vann:preferredNamespacePrefix",
+        "preferredNamespaceUri": "vann:preferredNamespaceUri",
+        "isBasedOn": "schema:isBasedOn",
+        "source": "dct:source",
+        "prefLabel": {
+            "@container": "@language"
+        },
+        "altLabel": {
+            "@container": [
+                "@language",
+                "@set"
+            ]
+        },
+        "hiddenLabel": {
+            "@container": [
+                "@language",
+                "@set"
+            ]
+        },
+        "definition": {
+            "@container": "@language"
+        },
+        "note": {
+            "@container": [
+                "@language",
+                "@set"
+            ]
+        },
+        "changeNote": {
+            "@container": [
+                "@language",
+                "@set"
+            ]
+        },
+        "editorialNote": {
+            "@container": [
+                "@language",
+                "@set"
+            ]
+        },
+        "historyNote": {
+            "@container": [
+                "@language",
+                "@set"
+            ]
+        },
+        "scopeNote": {
+            "@container": [
+                "@language",
+                "@set"
+            ]
+        },
+        "notation": {
+            "@container": "@set"
+        },
+        "example": {
+            "@container": "@language"
+        },
+        "narrower": {
+            "@container": "@set"
+        },
+        "related": {
+            "@container": "@set"
+        },
+        "relatedMatch": {
+            "@container": "@set"
+        },
+        "narrowerTransitive": {
+            "@container": "@set"
+        },
+        "broaderTransitive": {
+            "@container": "@set"
+        },
+        "broadMatch": {
+            "@container": "@set"
+        },
+        "narrowMatch": {
+            "@container": "@set"
+        },
+        "closeMatch": {
+            "@container": "@set"
+        },
+        "exactMatch": {
+            "@container": "@set"
+        },
+        "hasTopConcept": {
+            "@container": "@set"
+        },
+        "inScheme": {
+            "@container": "@set"
+        },
+        "topConceptOf": {
+            "@container": "@set"
+        },
+        "deprecated": {
+            "@id": "owl:deprecated",
+            "@type": "xsd:boolean"
+        },
+        "isReplacedBy": {
+            "@id": "dct:isReplacedBy",
+            "@container": "@set"
+        }
+    }
+}

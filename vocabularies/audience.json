@@ -1,0 +1,465 @@
+{
+    "id": "https:\/\/hof-halle-wittenberg.github.io\/vocabs\/audience\/",
+    "type": "ConceptScheme",
+    "title": {
+        "de": "Zielgruppe"
+    },
+    "description": {
+        "en": "A list of audiences that can be assigned to a resource.",
+        "de": "Eine Liste von Zielgruppen, die einer Ressource zugeordnet werden können."
+    },
+    "hasTopConcept": [
+        {
+            "id": "https:\/\/hof-halle-wittenberg.github.io\/vocabs\/audience\/Administrator",
+            "prefLabel": {
+                "en": "Administration & Management",
+                "de": "Verwaltung & Management"
+            },
+            "definition": {
+                "en": "Individuals responsible for administrative tasks at the university.",
+                "de": "Personen, die administrative Aufgaben an der Hochschule ausüben."
+            },
+            "narrower": [
+                {
+                    "id": "https:\/\/hof-halle-wittenberg.github.io\/vocabs\/audience\/TechnicalStaff",
+                    "prefLabel": {
+                        "en": "Technical & Administrative Staff",
+                        "de": "Technisches & Verwaltungspersonal"
+                    },
+                    "definition": {
+                        "en": "Staff members responsible for technical and administrative tasks at the university.",
+                        "de": "Mitarbeiter:innen, die technische und administrative Aufgaben an der Hochschule erledigen."
+                    }
+                },
+                {
+                    "id": "https:\/\/hof-halle-wittenberg.github.io\/vocabs\/audience\/LegalStaff",
+                    "prefLabel": {
+                        "en": "Legal Department",
+                        "de": "Rechtsabteilung\/Justiziariat"
+                    },
+                    "definition": {
+                        "en": "Legal personnel responsible for legal matters at the university.",
+                        "de": "Juristisches Personal, das für rechtliche Angelegenheiten an der Hochschule zuständig ist."
+                    }
+                },
+                {
+                    "id": "https:\/\/hof-halle-wittenberg.github.io\/vocabs\/audience\/Leadership",
+                    "prefLabel": {
+                        "en": "University\/Faculty\/Departmental Leadership",
+                        "de": "Leitungsebene Hochschule\/Fakultät\/Fachbereich"
+                    },
+                    "definition": {
+                        "en": "Individuals in leadership positions at the university, faculty, or department level.",
+                        "de": "Personen in leitenden Positionen auf Hochschul-, Fakultäts- oder Fachbereichsebene."
+                    }
+                },
+                {
+                    "id": "https:\/\/hof-halle-wittenberg.github.io\/vocabs\/audience\/CIO",
+                    "prefLabel": {
+                        "en": "Chief Information Officer",
+                        "de": "Chief Information Officer"
+                    },
+                    "definition": {
+                        "en": "Individuals responsible for the information technology and digital resources of the university.",
+                        "de": "Personen, die für die Informationstechnologie und die digitalen Ressourcen der Hochschule verantwortlich sind."
+                    }
+                },
+                {
+                    "id": "https:\/\/hof-halle-wittenberg.github.io\/vocabs\/audience\/ProgramDirector",
+                    "prefLabel": {
+                        "en": "Program Directors",
+                        "de": "Studiengangsverantwortliche"
+                    },
+                    "definition": {
+                        "en": "Individuals responsible for the management and organization of a study program at the university.",
+                        "de": "Personen, die für die Leitung und Organisation eines Studiengangs an der Hochschule verantwortlich sind."
+                    }
+                },
+                {
+                    "id": "https:\/\/hof-halle-wittenberg.github.io\/vocabs\/audience\/ITCommittee",
+                    "prefLabel": {
+                        "en": "IT Committee\/Commission",
+                        "de": "IT-Ausschuss\/-Kommission"
+                    },
+                    "definition": {
+                        "en": "Committee responsible for the strategic direction and development of the IT infrastructure at the university.",
+                        "de": "Gremium, das für die strategische Ausrichtung und Entwicklung der IT-Infrastruktur an der Hochschule zuständig ist."
+                    }
+                }
+            ]
+        },
+        {
+            "id": "https:\/\/hof-halle-wittenberg.github.io\/vocabs\/audience\/Public",
+            "prefLabel": {
+                "en": "General Public",
+                "de": "Allgemeine Öffentlichkeit"
+            },
+            "definition": {
+                "en": "People outside the university who are interested in the activities of the university.",
+                "de": "Menschen außerhalb der Hochschule, die an den Aktivitäten der Hochschule interessiert sind."
+            },
+            "narrower": [
+                {
+                    "id": "https:\/\/hof-halle-wittenberg.github.io\/vocabs\/audience\/ExternalStakeholder",
+                    "prefLabel": {
+                        "en": "External Stakeholders",
+                        "de": "Außerhochschulische Akteur:innen"
+                    },
+                    "definition": {
+                        "en": "Individuals or organizations outside the university who are involved in the activities of the university.",
+                        "de": "Personen oder Organisationen außerhalb der Hochschule, die an den Aktivitäten der Hochschule beteiligt sind."
+                    }
+                },
+                {
+                    "id": "https:\/\/hof-halle-wittenberg.github.io\/vocabs\/audience\/ExternalPartners",
+                    "prefLabel": {
+                        "en": "External Cooperation Partners",
+                        "de": "Außerhochschulische Kooperationspartner"
+                    },
+                    "definition": {
+                        "en": "Individuals or organisations outside the university who are in formal cooperation with the university.",
+                        "de": "Personen oder Organisationen außerhalb der Hochschule, die mit der Hochschule in formaler Kooperation stehen."
+                    }
+                }
+            ]
+        },
+        {
+            "id": "https:\/\/hof-halle-wittenberg.github.io\/vocabs\/audience\/Mentor",
+            "prefLabel": {
+                "en": "Mentor",
+                "de": "Mentor:in"
+            },
+            "definition": {
+                "en": "Experienced individuals who support others in their professional or academic development.",
+                "de": "Erfahrene Personen, die andere in ihrer beruflichen oder akademischen Entwicklung unterstützen."
+            }
+        },
+        {
+            "id": "https:\/\/hof-halle-wittenberg.github.io\/vocabs\/audience\/PeerTutor",
+            "prefLabel": {
+                "en": "Peer Tutor",
+                "de": "Peer-Tutor:in"
+            },
+            "definition": {
+                "en": "Students or staff who assist other students in their learning process.",
+                "de": "Studierende oder Mitarbeiter:innen, die anderen Studierenden bei ihrem Lernprozess helfen."
+            }
+        },
+        {
+            "id": "https:\/\/hof-halle-wittenberg.github.io\/vocabs\/audience\/Professional",
+            "prefLabel": {
+                "en": "Professional",
+                "de": "Fachkraft"
+            },
+            "definition": {
+                "en": "Individuals with specific expertise or skills working in a particular field.",
+                "de": "Personen mit spezifischem Fachwissen oder Fähigkeiten, die in einem bestimmten Bereich arbeiten."
+            },
+            "narrower": [
+                {
+                    "id": "https:\/\/hof-halle-wittenberg.github.io\/vocabs\/audience\/ITServices",
+                    "prefLabel": {
+                        "en": "Data Center\/IT Services",
+                        "de": "Rechenzentrum\/IT-Services"
+                    },
+                    "definition": {
+                        "en": "Facility or department responsible for the provision and operation of the IT infrastructure at the university.",
+                        "de": "Einrichtung oder Abteilung, die für die Bereitstellung und den Betrieb der IT-Infrastruktur an der Hochschule verantwortlich ist."
+                    }
+                },
+                {
+                    "id": "https:\/\/hof-halle-wittenberg.github.io\/vocabs\/audience\/Library",
+                    "prefLabel": {
+                        "en": "University Library",
+                        "de": "Hochschulbibliothek"
+                    },
+                    "definition": {
+                        "en": "Institution providing information and resources for study, teaching, and research.",
+                        "de": "Einrichtung, die Informationen und Ressourcen für Studium, Lehre und Forschung bereitstellt."
+                    }
+                },
+                {
+                    "id": "https:\/\/hof-halle-wittenberg.github.io\/vocabs\/audience\/StudyAdvising",
+                    "prefLabel": {
+                        "en": "Study Advising\/Student Services",
+                        "de": "Studienberatung\/Studierendenservice"
+                    },
+                    "definition": {
+                        "en": "Department or service facility that supports students with questions about their studies.",
+                        "de": "Abteilung oder Serviceeinrichtung, die Studierenden bei Fragen rund um das Studium unterstützt."
+                    }
+                },
+                {
+                    "id": "https:\/\/hof-halle-wittenberg.github.io\/vocabs\/audience\/QualityManagement",
+                    "prefLabel": {
+                        "en": "Quality Management",
+                        "de": "Qualitätsmanagement"
+                    },
+                    "definition": {
+                        "en": "Individuals or institutions responsible for ensuring and enhancing the quality of teaching and studies at the university.",
+                        "de": "Verantwortliche Personen oder Einrichtungen, die für die Sicherung und Weiterentwicklung der Qualität von Lehre und Studium an der Hochschule zuständig sind."
+                    }
+                },
+                {
+                    "id": "https:\/\/hof-halle-wittenberg.github.io\/vocabs\/audience\/Didactics",
+                    "prefLabel": {
+                        "en": "University Didactics",
+                        "de": "Hochschuldidaktik"
+                    },
+                    "definition": {
+                        "en": "Individuals or institutions that support and train teachers in their didactic skills.",
+                        "de": "Personen oder Einrichtungen, die Lehrkräfte in ihren didaktischen Fähigkeiten unterstützen und weiterbilden."
+                    }
+                },
+                {
+                    "id": "https:\/\/hof-halle-wittenberg.github.io\/vocabs\/audience\/TeacherSupport",
+                    "prefLabel": {
+                        "en": "Teacher Support\/Consulting",
+                        "de": "Lehrendensupport\/-Beratung"
+                    },
+                    "definition": {
+                        "en": "Individuals or institutions that advise and support teachers on teaching and didactics.",
+                        "de": "Personen oder Einrichtungen, die Lehrkräfte bei Fragen zur Lehre und Didaktik beraten und unterstützen."
+                    }
+                }
+            ]
+        },
+        {
+            "id": "https:\/\/hof-halle-wittenberg.github.io\/vocabs\/audience\/Learner",
+            "prefLabel": {
+                "en": "Student",
+                "de": "Student:in"
+            },
+            "definition": {
+                "en": "Individuals engaged in a learning process, acquiring new knowledge or skills.",
+                "de": "Personen, die sich in einem Lernprozess befinden und neues Wissen oder Fähigkeiten erwerben."
+            },
+            "narrower": [
+                {
+                    "id": "https:\/\/hof-halle-wittenberg.github.io\/vocabs\/audience\/FirstYearStudents",
+                    "prefLabel": {
+                        "en": "First-Year Students",
+                        "de": "Studienanfänger:innen"
+                    },
+                    "definition": {
+                        "en": "Students in their first year of study.",
+                        "de": "Studierende im ersten Jahr ihres Studiums."
+                    }
+                },
+                {
+                    "id": "https:\/\/hof-halle-wittenberg.github.io\/vocabs\/audience\/AdvancedStudents",
+                    "prefLabel": {
+                        "en": "Advanced Students",
+                        "de": "Fortgeschrittene Studierende"
+                    },
+                    "definition": {
+                        "en": "Students in higher semesters of their studies.",
+                        "de": "Studierende, die sich in höheren Semestern ihres Studiums befinden."
+                    }
+                },
+                {
+                    "id": "https:\/\/hof-halle-wittenberg.github.io\/vocabs\/audience\/DoctoralStudents",
+                    "prefLabel": {
+                        "en": "Doctoral Students",
+                        "de": "Doktoranden"
+                    },
+                    "definition": {
+                        "en": "Students working on their doctoral degree.",
+                        "de": "Studierende, die an ihrer Promotion arbeiten."
+                    }
+                }
+            ]
+        },
+        {
+            "id": "https:\/\/hof-halle-wittenberg.github.io\/vocabs\/audience\/Teacher",
+            "prefLabel": {
+                "en": "Teacher",
+                "de": "Lehrperson"
+            },
+            "definition": {
+                "en": "A person who has been trained to implement pedagogical methods and practices.",
+                "de": "Eine Person, die ausgebildet wurde, pädagogische Methoden und Praktiken umzusetzen."
+            },
+            "narrower": [
+                {
+                    "id": "https:\/\/hof-halle-wittenberg.github.io\/vocabs\/audience\/ScientificStaff",
+                    "prefLabel": {
+                        "en": "Scientific Staff",
+                        "de": "Mittelbau"
+                    },
+                    "definition": {
+                        "en": "Individuals involved in research projects or scientific activities.",
+                        "de": "Personen, die an Forschungsprojekten beteiligt sind oder wissenschaftliche Tätigkeiten ausüben."
+                    }
+                },
+                {
+                    "id": "https:\/\/hof-halle-wittenberg.github.io\/vocabs\/audience\/Professors",
+                    "prefLabel": {
+                        "en": "Professors",
+                        "de": "Professor:innen"
+                    },
+                    "definition": {
+                        "en": "Experienced university teachers with advanced academic rank.",
+                        "de": "Erfahrene Hochschullehrer:innen mit fortgeschrittenem akademischen Rang."
+                    }
+                },
+                {
+                    "id": "https:\/\/hof-halle-wittenberg.github.io\/vocabs\/audience\/NewProfessors",
+                    "prefLabel": {
+                        "en": "Newly Appointed Professors",
+                        "de": "Neuberufene Professor:innen"
+                    },
+                    "definition": {
+                        "en": "University professors who have recently been appointed.",
+                        "de": "Hochschullehrer:innen, die kürzlich eine Professur angetreten haben."
+                    }
+                }
+            ]
+        }
+    ],
+    "@context": {
+        "@version": 1.1,
+        "id": "@id",
+        "type": "@type",
+        "@vocab": "http:\/\/www.w3.org\/2004\/02\/skos\/core#",
+        "xsd": "http:\/\/www.w3.org\/2001\/XMLSchema#",
+        "dct": "http:\/\/purl.org\/dc\/terms\/",
+        "dc": "http:\/\/purl.org\/dc\/elements\/1.1\/",
+        "schema": "https:\/\/schema.org\/",
+        "vann": "http:\/\/purl.org\/vocab\/vann\/",
+        "ldp": "http:\/\/www.w3.org\/ns\/ldp#",
+        "owl": "http:\/\/www.w3.org\/2002\/07\/owl#",
+        "title": {
+            "@id": "dct:title",
+            "@container": "@language"
+        },
+        "dc:title": {
+            "@id": "dc:title",
+            "@container": "@language"
+        },
+        "dc:description": {
+            "@id": "dc:description",
+            "@container": "@language"
+        },
+        "description": {
+            "@id": "dct:description",
+            "@container": "@language"
+        },
+        "issued": {
+            "@id": "dct:issued",
+            "@type": "xsd:date"
+        },
+        "created": {
+            "@id": "dct:created",
+            "@type": "xsd:date"
+        },
+        "modified": {
+            "@id": "dct:modified",
+            "@type": "xsd:date"
+        },
+        "creator": "dct:creator",
+        "publisher": "dct:publisher",
+        "preferredNamespacePrefix": "vann:preferredNamespacePrefix",
+        "preferredNamespaceUri": "vann:preferredNamespaceUri",
+        "isBasedOn": "schema:isBasedOn",
+        "source": "dct:source",
+        "prefLabel": {
+            "@container": "@language"
+        },
+        "altLabel": {
+            "@container": [
+                "@language",
+                "@set"
+            ]
+        },
+        "hiddenLabel": {
+            "@container": [
+                "@language",
+                "@set"
+            ]
+        },
+        "definition": {
+            "@container": "@language"
+        },
+        "note": {
+            "@container": [
+                "@language",
+                "@set"
+            ]
+        },
+        "changeNote": {
+            "@container": [
+                "@language",
+                "@set"
+            ]
+        },
+        "editorialNote": {
+            "@container": [
+                "@language",
+                "@set"
+            ]
+        },
+        "historyNote": {
+            "@container": [
+                "@language",
+                "@set"
+            ]
+        },
+        "scopeNote": {
+            "@container": [
+                "@language",
+                "@set"
+            ]
+        },
+        "notation": {
+            "@container": "@set"
+        },
+        "example": {
+            "@container": "@language"
+        },
+        "narrower": {
+            "@container": "@set"
+        },
+        "related": {
+            "@container": "@set"
+        },
+        "relatedMatch": {
+            "@container": "@set"
+        },
+        "narrowerTransitive": {
+            "@container": "@set"
+        },
+        "broaderTransitive": {
+            "@container": "@set"
+        },
+        "broadMatch": {
+            "@container": "@set"
+        },
+        "narrowMatch": {
+            "@container": "@set"
+        },
+        "closeMatch": {
+            "@container": "@set"
+        },
+        "exactMatch": {
+            "@container": "@set"
+        },
+        "hasTopConcept": {
+            "@container": "@set"
+        },
+        "inScheme": {
+            "@container": "@set"
+        },
+        "topConceptOf": {
+            "@container": "@set"
+        },
+        "deprecated": {
+            "@id": "owl:deprecated",
+            "@type": "xsd:boolean"
+        },
+        "isReplacedBy": {
+            "@id": "dct:isReplacedBy",
+            "@container": "@set"
+        }
+    }
+}

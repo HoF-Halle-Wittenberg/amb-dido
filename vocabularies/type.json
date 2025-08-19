@@ -1,0 +1,192 @@
+{
+    "id": "https:\/\/hof-halle-wittenberg.github.io\/vocabs\/type\/",
+    "type": "ConceptScheme",
+    "title": {
+        "en": "Content Type",
+        "de": "Inhaltstyp"
+    },
+    "description": {
+        "en": "A value list to assign the basic content type to a resource.",
+        "de": "Eine Werteliste um den grundlegenden Inhaltstyp einer Ressource zuzuordnen."
+    },
+    "hasTopConcept": [
+        {
+            "id": "https:\/\/hof-halle-wittenberg.github.io\/vocabs\/type\/LearningResource",
+            "prefLabel": {
+                "en": "Learning Resource",
+                "de": "Lernressource"
+            },
+            "definition": {
+                "en": "The LearningResource type can be used to indicate CreativeWorks (whether physical or digital) that have a particular and explicit orientation towards learning, education, skill acquisition, and other educational purposes.",
+                "de": "Der Typ LearningResource kann verwendet werden, um CreativeWorks (physisch oder digital) zu kennzeichnen, die eine besondere und ausdrückliche Ausrichtung auf das Lernen, die Ausbildung, den Erwerb von Fähigkeiten und andere Bildungszwecke haben."
+            }
+        },
+        {
+            "id": "https:\/\/hof-halle-wittenberg.github.io\/vocabs\/type\/HowToTip",
+            "prefLabel": {
+                "en": "How To Tip",
+                "de": "Anleitung"
+            },
+            "definition": {
+                "en": "An explanation in the instructions for how to achieve a result. It provides supplementary information about a technique, supply, author's preference, etc. It can explain what could be done, or what should not be done, but doesn't specify what should be done (see HowToDirection).",
+                "de": "Eine Erläuterung in der Anleitung, wie ein Ergebnis erreicht werden kann. Sie liefert zusätzliche Informationen über eine Technik, ein Angebot, die Vorlieben des Autors usw. Sie kann erklären, was getan werden könnte oder was nicht getan werden sollte, schreibt aber nicht vor, was getan werden sollte."
+            }
+        },
+        {
+            "id": "https:\/\/hof-halle-wittenberg.github.io\/vocabs\/type\/HowToDirection",
+            "prefLabel": {
+                "en": "How To Direction",
+                "de": "Anweisung"
+            },
+            "definition": {
+                "en": "A direction indicating a single action to do in the instructions for how to achieve a result.",
+                "de": "Eine Anweisung, die eine einzelne Handlung angibt, wie ein Ergebnis zu erreichen ist."
+            }
+        }
+    ],
+    "@context": {
+        "@version": 1.1,
+        "id": "@id",
+        "type": "@type",
+        "@vocab": "http:\/\/www.w3.org\/2004\/02\/skos\/core#",
+        "xsd": "http:\/\/www.w3.org\/2001\/XMLSchema#",
+        "dct": "http:\/\/purl.org\/dc\/terms\/",
+        "dc": "http:\/\/purl.org\/dc\/elements\/1.1\/",
+        "schema": "https:\/\/schema.org\/",
+        "vann": "http:\/\/purl.org\/vocab\/vann\/",
+        "ldp": "http:\/\/www.w3.org\/ns\/ldp#",
+        "owl": "http:\/\/www.w3.org\/2002\/07\/owl#",
+        "title": {
+            "@id": "dct:title",
+            "@container": "@language"
+        },
+        "dc:title": {
+            "@id": "dc:title",
+            "@container": "@language"
+        },
+        "dc:description": {
+            "@id": "dc:description",
+            "@container": "@language"
+        },
+        "description": {
+            "@id": "dct:description",
+            "@container": "@language"
+        },
+        "issued": {
+            "@id": "dct:issued",
+            "@type": "xsd:date"
+        },
+        "created": {
+            "@id": "dct:created",
+            "@type": "xsd:date"
+        },
+        "modified": {
+            "@id": "dct:modified",
+            "@type": "xsd:date"
+        },
+        "creator": "dct:creator",
+        "publisher": "dct:publisher",
+        "preferredNamespacePrefix": "vann:preferredNamespacePrefix",
+        "preferredNamespaceUri": "vann:preferredNamespaceUri",
+        "isBasedOn": "schema:isBasedOn",
+        "source": "dct:source",
+        "prefLabel": {
+            "@container": "@language"
+        },
+        "altLabel": {
+            "@container": [
+                "@language",
+                "@set"
+            ]
+        },
+        "hiddenLabel": {
+            "@container": [
+                "@language",
+                "@set"
+            ]
+        },
+        "definition": {
+            "@container": "@language"
+        },
+        "note": {
+            "@container": [
+                "@language",
+                "@set"
+            ]
+        },
+        "changeNote": {
+            "@container": [
+                "@language",
+                "@set"
+            ]
+        },
+        "editorialNote": {
+            "@container": [
+                "@language",
+                "@set"
+            ]
+        },
+        "historyNote": {
+            "@container": [
+                "@language",
+                "@set"
+            ]
+        },
+        "scopeNote": {
+            "@container": [
+                "@language",
+                "@set"
+            ]
+        },
+        "notation": {
+            "@container": "@set"
+        },
+        "example": {
+            "@container": "@language"
+        },
+        "narrower": {
+            "@container": "@set"
+        },
+        "related": {
+            "@container": "@set"
+        },
+        "relatedMatch": {
+            "@container": "@set"
+        },
+        "narrowerTransitive": {
+            "@container": "@set"
+        },
+        "broaderTransitive": {
+            "@container": "@set"
+        },
+        "broadMatch": {
+            "@container": "@set"
+        },
+        "narrowMatch": {
+            "@container": "@set"
+        },
+        "closeMatch": {
+            "@container": "@set"
+        },
+        "exactMatch": {
+            "@container": "@set"
+        },
+        "hasTopConcept": {
+            "@container": "@set"
+        },
+        "inScheme": {
+            "@container": "@set"
+        },
+        "topConceptOf": {
+            "@container": "@set"
+        },
+        "deprecated": {
+            "@id": "owl:deprecated",
+            "@type": "xsd:boolean"
+        },
+        "isReplacedBy": {
+            "@id": "dct:isReplacedBy",
+            "@container": "@set"
+        }
+    }
+}

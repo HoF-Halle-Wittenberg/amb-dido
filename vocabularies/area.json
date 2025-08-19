@@ -1,0 +1,203 @@
+{
+    "id": "https:\/\/hof-halle-wittenberg.github.io\/vocabs\/area\/",
+    "type": "ConceptScheme",
+    "title": {
+        "en": "University Mission",
+        "de": "Leistungsbereich der Hochschule"
+    },
+    "description": {
+        "en": "A value list to assign the addressed mission of the university to a resource.",
+        "de": "Eine Werteliste um einer Ressource den adressierten Leistungsbereich der Hochschule zuzuordnen."
+    },
+    "hasTopConcept": [
+        {
+            "id": "https:\/\/hof-halle-wittenberg.github.io\/vocabs\/area\/General",
+            "prefLabel": {
+                "en": "general",
+                "de": "bereichsübergreifend"
+            },
+            "definition": {
+                "en": "The resource is not limited to a specific mission of the university",
+                "de": "Die Ressource ist nicht auf einen bestimmten Leistungsbereich der Hochschule beschränkt"
+            }
+        },
+        {
+            "id": "https:\/\/hof-halle-wittenberg.github.io\/vocabs\/area\/Teaching",
+            "prefLabel": {
+                "en": "Teaching\/Studies",
+                "de": "Lehre\/Studium"
+            },
+            "definition": {
+                "en": "The resource is aimed in particular at the mission of teaching and studies.",
+                "de": "Die Ressource richtet sich insbesondere an den Leistungsbereich Lehre und Studium."
+            }
+        },
+        {
+            "id": "https:\/\/hof-halle-wittenberg.github.io\/vocabs\/area\/Research",
+            "prefLabel": {
+                "en": "Research",
+                "de": "Forschung"
+            },
+            "definition": {
+                "en": "The resource is aimed in particular at the mission of research.",
+                "de": "Die Ressource richtet sich insbesondere an den Leistungsbereich Forschung."
+            }
+        },
+        {
+            "id": "https:\/\/hof-halle-wittenberg.github.io\/vocabs\/area\/Transfer",
+            "prefLabel": {
+                "en": "Research",
+                "de": "Transfer\/Third Mission"
+            },
+            "definition": {
+                "en": "The resource is aimed in particular at the transfer or third mission.",
+                "de": "Die Ressource richtet sich insbesondere an den Leistungsbereich Transfer\/Third Mission."
+            }
+        }
+    ],
+    "@context": {
+        "@version": 1.1,
+        "id": "@id",
+        "type": "@type",
+        "@vocab": "http:\/\/www.w3.org\/2004\/02\/skos\/core#",
+        "xsd": "http:\/\/www.w3.org\/2001\/XMLSchema#",
+        "dct": "http:\/\/purl.org\/dc\/terms\/",
+        "dc": "http:\/\/purl.org\/dc\/elements\/1.1\/",
+        "schema": "https:\/\/schema.org\/",
+        "vann": "http:\/\/purl.org\/vocab\/vann\/",
+        "ldp": "http:\/\/www.w3.org\/ns\/ldp#",
+        "owl": "http:\/\/www.w3.org\/2002\/07\/owl#",
+        "title": {
+            "@id": "dct:title",
+            "@container": "@language"
+        },
+        "dc:title": {
+            "@id": "dc:title",
+            "@container": "@language"
+        },
+        "dc:description": {
+            "@id": "dc:description",
+            "@container": "@language"
+        },
+        "description": {
+            "@id": "dct:description",
+            "@container": "@language"
+        },
+        "issued": {
+            "@id": "dct:issued",
+            "@type": "xsd:date"
+        },
+        "created": {
+            "@id": "dct:created",
+            "@type": "xsd:date"
+        },
+        "modified": {
+            "@id": "dct:modified",
+            "@type": "xsd:date"
+        },
+        "creator": "dct:creator",
+        "publisher": "dct:publisher",
+        "preferredNamespacePrefix": "vann:preferredNamespacePrefix",
+        "preferredNamespaceUri": "vann:preferredNamespaceUri",
+        "isBasedOn": "schema:isBasedOn",
+        "source": "dct:source",
+        "prefLabel": {
+            "@container": "@language"
+        },
+        "altLabel": {
+            "@container": [
+                "@language",
+                "@set"
+            ]
+        },
+        "hiddenLabel": {
+            "@container": [
+                "@language",
+                "@set"
+            ]
+        },
+        "definition": {
+            "@container": "@language"
+        },
+        "note": {
+            "@container": [
+                "@language",
+                "@set"
+            ]
+        },
+        "changeNote": {
+            "@container": [
+                "@language",
+                "@set"
+            ]
+        },
+        "editorialNote": {
+            "@container": [
+                "@language",
+                "@set"
+            ]
+        },
+        "historyNote": {
+            "@container": [
+                "@language",
+                "@set"
+            ]
+        },
+        "scopeNote": {
+            "@container": [
+                "@language",
+                "@set"
+            ]
+        },
+        "notation": {
+            "@container": "@set"
+        },
+        "example": {
+            "@container": "@language"
+        },
+        "narrower": {
+            "@container": "@set"
+        },
+        "related": {
+            "@container": "@set"
+        },
+        "relatedMatch": {
+            "@container": "@set"
+        },
+        "narrowerTransitive": {
+            "@container": "@set"
+        },
+        "broaderTransitive": {
+            "@container": "@set"
+        },
+        "broadMatch": {
+            "@container": "@set"
+        },
+        "narrowMatch": {
+            "@container": "@set"
+        },
+        "closeMatch": {
+            "@container": "@set"
+        },
+        "exactMatch": {
+            "@container": "@set"
+        },
+        "hasTopConcept": {
+            "@container": "@set"
+        },
+        "inScheme": {
+            "@container": "@set"
+        },
+        "topConceptOf": {
+            "@container": "@set"
+        },
+        "deprecated": {
+            "@id": "owl:deprecated",
+            "@type": "xsd:boolean"
+        },
+        "isReplacedBy": {
+            "@id": "dct:isReplacedBy",
+            "@container": "@set"
+        }
+    }
+}
