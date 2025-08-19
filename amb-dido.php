@@ -2,7 +2,7 @@
 /**
  * Plugin Name: AMB-DidO Plugin 
  * Description: Erstellt Metadaten gemäß AMB-Standard im JSON-Format für didaktische und Organisationsressourcen
- * Version: 0.8.5
+ * Version: 0.8.6
  * Author Justus Henke, Manuel Oellers
  */
 
@@ -16,7 +16,7 @@ include_once(plugin_dir_path( __FILE__ ) . 'metabox.php');  // Weitere Metaboxen
 include_once(plugin_dir_path( __FILE__ ) . 'frontend.php'); // Frontend-Darstellung
 include_once(plugin_dir_path( __FILE__ ) . 'search.php');   // Suchfunktionen
 require_once(plugin_dir_path( __FILE__ ) . 'options.php');  // Plugin-Einstellungen
-
+include_once(plugin_dir_path( __FILE__ ) . 'vocabularies-manager.php'); // Vokabular-Manager
 
 /**
  * Abhängige Dateien laden
@@ -191,19 +191,342 @@ function amb_get_json_urls() {
 }
 
 
-function amb_get_all_external_values() {
+function amb_get_all_external_values_with_mode() {
+    $storage_mode = get_option('amb_storage_mode', 'hybrid');
+    $cache_mode = get_option('amb_cache_mode', 'auto');
+    
+    amb_dido_log("Storage-Modus: $storage_mode, Cache-Modus: $cache_mode");
+    
+    switch ($storage_mode) {
+        case 'local':
+            // Nur lokale Dateien verwenden
+            return amb_get_local_vocabularies_only();
+            
+        case 'external':
+            // Nur externe Quellen (alter Modus)
+            return amb_get_external_vocabularies_only($cache_mode);
+            
+        case 'hybrid':
+        default:
+            // Hybrid: externe mit lokalem Fallback
+            return amb_get_hybrid_vocabularies($cache_mode);
+    }
+}
+
+
+
+
+function amb_get_local_backups_only() {
     $urls = amb_get_json_urls();
     $all_values = [];
+    
+    foreach ($urls as $key => $url_data) {
+        $local_backup = get_option('amb_local_backup_' . $key, []);
+        if (!empty($local_backup)) {
+            $all_values[$key] = $local_backup;
+        }
+    }
+    
+    return $all_values;
+}
+
+function amb_load_external_values_and_cache() {
+    amb_dido_log("Lade externe Wertelisten");
+    
+    $urls = amb_get_json_urls();
+    $all_values = [];
+    $fetch_failed = false;
 
     foreach ($urls as $key => $url_data) {
-        $values = amb_fetch_external_values($url_data['url'], $key, $url_data['amb_key']);
+        $values = amb_fetch_external_values_with_timeout($url_data['url'], $key, $url_data['amb_key']);
         if (!empty($values)) {
             $all_values[$key] = $values;
+            update_option('amb_local_backup_' . $key, $values);
+        } else {
+            $fetch_failed = true;
+            $local_backup = get_option('amb_local_backup_' . $key, []);
+            if (!empty($local_backup)) {
+                $all_values[$key] = $local_backup;
+            }
         }
+    }
+    
+    if (!$fetch_failed && !empty($all_values)) {
+        set_transient('amb_external_values_cache', $all_values, 24 * HOUR_IN_SECONDS);
     }
 
     return $all_values;
 }
+
+/**
+ * Nur lokale Vokabulare laden
+ */
+function amb_get_local_vocabularies_only() {
+    amb_dido_log("Lade nur lokale Vokabulare");
+    
+    $manager = amb_vocabularies_manager();
+    $local_values = $manager->load_all_local_vocabularies();
+    
+    if (empty($local_values)) {
+        amb_dido_log("Keine lokalen Vokabulare gefunden - verwende Backup aus Optionen");
+        return amb_get_options_backup_vocabularies();
+    }
+    
+    amb_dido_log("Erfolgreich " . count($local_values) . " lokale Vokabulare geladen");
+    return $local_values;
+}
+
+/**
+ * Nur externe Vokabulare laden (alter Modus)
+ */
+function amb_get_external_vocabularies_only($cache_mode) {
+    amb_dido_log("Lade nur externe Vokabulare");
+    
+    if ($cache_mode === 'offline') {
+        return amb_get_options_backup_vocabularies();
+    }
+    
+    $cache_key = 'amb_external_values_cache';
+    
+    // Cache prüfen
+    $cached_values = get_transient($cache_key);
+    if ($cached_values !== false && $cache_mode !== 'manual') {
+        amb_dido_log("Verwende gecachte externe Vokabulare");
+        return $cached_values;
+    }
+    
+    // Manueller Modus: nur bei expliziter Anfrage laden
+    if ($cache_mode === 'manual' && !isset($_POST['amb_refresh_cache_manual'])) {
+        if ($cached_values !== false) {
+            return $cached_values;
+        } else {
+            return amb_get_options_backup_vocabularies();
+        }
+    }
+    
+    // Externe Quellen laden
+    return amb_load_external_vocabularies_and_cache();
+}
+
+/**
+ * Hybrid-Modus: externe mit lokalem Fallback
+ */
+function amb_get_hybrid_vocabularies($cache_mode) {
+    amb_dido_log("Lade Vokabulare im Hybrid-Modus");
+    
+    if ($cache_mode === 'offline') {
+        return amb_get_local_vocabularies_only();
+    }
+    
+    $cache_key = 'amb_external_values_cache';
+    
+    // Prüfe Cache
+    $cached_values = get_transient($cache_key);
+    if ($cached_values !== false && $cache_mode !== 'manual') {
+        amb_dido_log("Verwende gecachte Vokabulare (Hybrid)");
+        return $cached_values;
+    }
+    
+    // Manueller Modus
+    if ($cache_mode === 'manual' && !isset($_POST['amb_refresh_cache_manual'])) {
+        if ($cached_values !== false) {
+            return $cached_values;
+        } else {
+            return amb_get_local_vocabularies_only();
+        }
+    }
+    
+    // Versuche externe Quellen zu laden
+    $external_values = amb_load_external_vocabularies_with_fallback();
+    
+    if (!empty($external_values)) {
+        // Cache setzen
+        set_transient($cache_key, $external_values, 24 * HOUR_IN_SECONDS);
+        return $external_values;
+    } else {
+        // Fallback zu lokalen Dateien
+        amb_dido_log("Externe Quellen fehlgeschlagen - verwende lokale Dateien");
+        return amb_get_local_vocabularies_only();
+    }
+}
+
+/**
+ * Externe Vokabulare mit Fallback-Mechanismus laden
+ */
+function amb_load_external_vocabularies_with_fallback() {
+    amb_dido_log("Lade externe Vokabulare mit Fallback");
+    
+    $urls = amb_get_json_urls();
+    $all_values = [];
+    $manager = amb_vocabularies_manager();
+    $failed_keys = [];
+
+    foreach ($urls as $key => $url_data) {
+        $values = amb_fetch_external_values_with_timeout($url_data['url'], $key, $url_data['amb_key'], 10);
+        
+        if (!empty($values)) {
+            $all_values[$key] = $values;
+            
+            // Als lokales Backup speichern
+            update_option('amb_local_backup_' . $key, $values);
+            
+            // Auch als lokale Datei speichern wenn möglich
+            $manager->save_vocabulary_data($key, $values);
+            
+            amb_dido_log("Erfolgreich geladen: $key");
+        } else {
+            $failed_keys[] = $key;
+            amb_dido_log("Fehler beim Laden: $key");
+            
+            // Versuche lokale Datei zu laden
+            $local_values = $manager->load_local_vocabulary($key);
+            if (!empty($local_values)) {
+                $all_values[$key] = $local_values;
+                amb_dido_log("Lokales Backup verwendet für: $key");
+            } else {
+                // Fallback zu Optionen-Backup
+                $options_backup = get_option('amb_local_backup_' . $key, []);
+                if (!empty($options_backup)) {
+                    $all_values[$key] = $options_backup;
+                    amb_dido_log("Optionen-Backup verwendet für: $key");
+                }
+            }
+        }
+    }
+    
+    if (!empty($failed_keys)) {
+        amb_dido_log("Fehlgeschlagene Downloads: " . implode(', ', $failed_keys));
+    }
+
+    return $all_values;
+}
+
+/**
+ * Backup aus WordPress-Optionen laden
+ */
+function amb_get_options_backup_vocabularies() {
+    amb_dido_log("Lade Vokabular-Backups aus Optionen");
+    
+    $urls = amb_get_json_urls();
+    $all_values = [];
+    
+    foreach ($urls as $key => $url_data) {
+        $backup = get_option('amb_local_backup_' . $key, []);
+        if (!empty($backup)) {
+            $all_values[$key] = $backup;
+        }
+    }
+    
+    amb_dido_log("Backup-Vokabulare geladen: " . count($all_values));
+    return $all_values;
+}
+
+/**
+ * Neue Funktion: Externe Werte mit Timeout abrufen
+ * Fügen Sie diese Funktion NACH amb_get_all_external_values_with_mode() ein
+ */
+function amb_fetch_external_values_with_timeout($url, $key, $amb_key, $timeout = 5) {
+    $response = wp_remote_get($url, [
+        'timeout' => $timeout,
+        'sslverify' => true,
+        'user-agent' => 'AMB-DidO Plugin/0.8.5'
+    ]);
+    
+    if (is_wp_error($response)) {
+        amb_dido_log('Fehler beim Abrufen von ' . $url . ': ' . $response->get_error_message());
+        return [];
+    }
+
+    $response_code = wp_remote_retrieve_response_code($response);
+    if ($response_code !== 200) {
+        amb_dido_log('HTTP Fehler ' . $response_code . ' für URL: ' . $url);
+        return [];
+    }
+
+    $body = wp_remote_retrieve_body($response);
+    $data = json_decode($body, true);
+
+    if (!$data) {
+        amb_dido_log('Ungültige JSON-Daten von ' . $url);
+        return [];
+    }
+
+    $field_label = $data['title']['de'] ?? 'Standard-Titel';
+    $concepts = $data['hasTopConcept'] ?? [];
+    $options = amb_parse_concepts($concepts);
+
+    return [
+        'field_label' => $field_label,
+        'options' => $options,
+        'amb_key' => $amb_key
+    ];
+}
+
+/**
+ * Neue Funktion: Cache-Verwaltung
+ * Fügen Sie diese Funktionen am Ende der Datei vor dem schließenden ?> ein
+ */
+function amb_refresh_external_cache() {
+    // Logging temporär deaktivieren um Output zu vermeiden
+    $old_log_function = null;
+    if (function_exists('amb_dido_log')) {
+        // Temporäre Funktion erstellen die nichts tut
+        $old_log_function = 'amb_dido_log';
+        if (!function_exists('amb_dido_log_backup')) {
+            function amb_dido_log_backup($message) {
+                // Original-Funktion als Backup
+                if (is_array($message) || is_object($message)) {
+                    $message = print_r($message, true);
+                }
+                $log_file = plugin_dir_path(__FILE__) . 'amb_dido.log';
+                file_put_contents($log_file, current_time('mysql') . " " . $message . "\n", FILE_APPEND);
+            }
+        }
+    }
+    
+    // Cache löschen
+    delete_transient('amb_external_values_cache');
+    
+    // Versuche neue Werte zu laden
+    $success = false;
+    if (function_exists('amb_get_all_external_values_with_mode')) {
+        $values = amb_get_all_external_values_with_mode();
+        if (!empty($values)) {
+            // Cache setzen
+            set_transient('amb_external_values_cache', $values, 24 * HOUR_IN_SECONDS);
+            update_option('amb_last_cache_refresh', time());
+            $success = true;
+            
+            // Stilles Logging
+            amb_dido_log_backup("Cache erfolgreich neu geladen");
+        } else {
+            amb_dido_log_backup("Cache-Neuladen fehlgeschlagen - keine Werte erhalten");
+        }
+    }
+    
+    return $success;
+}
+
+/**
+ * WP-Cron Job für automatische Cache-Aktualisierung
+ */
+function amb_schedule_cache_refresh() {
+    if (!wp_next_scheduled('amb_refresh_cache_hook')) {
+        wp_schedule_event(time(), 'daily', 'amb_refresh_cache_hook');
+        amb_dido_log("Tägliche Cache-Aktualisierung geplant");
+    }
+}
+add_action('wp', 'amb_schedule_cache_refresh');
+add_action('amb_refresh_cache_hook', 'amb_refresh_external_cache');
+
+/**
+ * Deaktivierung des Cron-Jobs bei Plugin-Deaktivierung
+ */
+function amb_deactivate_cron() {
+    wp_clear_scheduled_hook('amb_refresh_cache_hook');
+    amb_dido_log("Cron-Job deaktiviert");
+}
+register_deactivation_hook(__FILE__, 'amb_deactivate_cron');
 
 function amb_fetch_external_values($url, $key, $amb_key) {
     $response = wp_remote_get($url);
@@ -300,7 +623,7 @@ function amb_dido_display_defaults($field, $options) {
 
     // Mapping von field auf field_label
     //$all_fields = amb_get_other_fields();
-    $all_fields = array_merge(amb_get_other_fields(), amb_get_all_external_values());
+    $all_fields = array_merge(amb_get_other_fields(), amb_get_all_external_values_with_mode());
     $field_label = isset($all_fields[$field]['field_label']) ? $all_fields[$field]['field_label'] : $field;
 
     // Ausgabe der Default-Werte oder "Keine Auswahl"
@@ -456,7 +779,7 @@ function amb_dido_meta_box_callback($post) {
     // Generierung der Checkbox-Felder
     $defaults = get_option('amb_dido_defaults');
     $mapping = get_option('amb_dido_taxonomy_mapping', array());
-    $checkbox_options = array_merge(amb_get_other_fields(), amb_get_all_external_values());
+    $checkbox_options = array_merge(amb_get_other_fields(), amb_get_all_external_values_with_mode());
     // Zieht die Feldstruktur korrekt mit allen verfügbaren Ebenen
 
     foreach ($checkbox_options as $field => $data) {
@@ -514,8 +837,8 @@ function amb_dido_save_post_meta($post_id) {
 
 function amb_save_all_checkbox_data($post_id) {
     // Alle verfügbaren externen Werte abrufen
-    // $all_options = amb_get_all_external_values();
-    $all_options = array_merge(amb_get_other_fields(), amb_get_all_external_values());
+    // $all_options = amb_get_all_external_values_with_mode();
+    $all_options = array_merge(amb_get_other_fields(), amb_get_all_external_values_with_mode());
 
     if (empty($all_options)) {
         return;
@@ -666,7 +989,7 @@ function amb_dido_add_json_ld_to_header() {
         $mapping = get_option('amb_dido_taxonomy_mapping', array());
 
         // Alle Felder (hartkodiert und extern) abrufen
-        $all_options = array_merge(amb_get_other_fields(), amb_get_all_external_values());
+        $all_options = array_merge(amb_get_other_fields(), amb_get_all_external_values_with_mode());
 
         // JSON Elemente zusammenstellen
         $json_ld_data = [
