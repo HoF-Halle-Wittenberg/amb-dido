@@ -577,7 +577,7 @@ function amb_generate_creator_objects($post_id) {
             'name' => $creator,
         ];
     }
-    return apply_filters('amb_filter_creator_objects', $post_id);
+    return apply_filters('amb_filter_creator_objects', $creator_objects, $post_id);
 }
 
 function amb_get_keywords($post_id) {
@@ -746,5 +746,6 @@ function amb_dido_add_json_ld_to_header() {
         echo '<script type="application/ld+json">' . json_encode($json_ld_data, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) . '</script>';
     }
 }
+
 
 
