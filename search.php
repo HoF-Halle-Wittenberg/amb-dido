@@ -32,9 +32,16 @@ function custom_search_query($search, $wp_query) {
     $search .= " OR {$wpdb->posts}.post_content LIKE '%{$search_term}%'";
 
     // Add custom meta fields to search
-    $all_options = amb_get_all_external_values();
-    $meta_keys = array_keys($all_options); // Dynamically get meta keys
+        if (function_exists('amb_get_all_external_values')) {
+        try {
+             $all_options = amb_get_all_external_values();
+            $meta_keys = array_keys($all_options); // Dynamically get meta keys
 
+        } catch (Exception $e) {
+            // Fehler ignorieren, mit lokalen Feldern fortfahren
+        }
+    }
+   
     // Check if search term contains specific meta key search (e.g., "audience: Lehrperson")
     if (strpos($search_term, ':') !== false) {
         list($specific_meta_key, $specific_meta_value) = explode(':', $search_term, 2);

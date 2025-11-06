@@ -100,7 +100,7 @@ function amb_dido_register_settings() {
     add_settings_field('show_ambkeywords_in_menu', 'AMB Keywords im Backend-Menü anzeigen', 'render_show_ambkeywords_in_menu_field', 'amb_dido_main_section', 'amb_dido_main_section');
     add_settings_field('use_excerpt_for_description', 'Textauszug (Exzerpt) für Beschreibung verwenden', 'render_use_excerpt_for_description_field', 'amb_dido_main_section', 'amb_dido_main_section');
 
-    // Cache-Sektion - HINZUGEFÜGT
+    // Cache-Sektion
     add_settings_section('amb_dido_cache_section', '', 'amb_dido_cache_section_callback', 'amb_dido_cache_section');
     
     add_settings_field(
@@ -182,7 +182,7 @@ function amb_dido_register_settings() {
 }
 
 function amb_dido_storage_mode_callback() {
-    $mode = get_option('amb_storage_mode', 'hybrid');
+    $mode = get_option('amb_storage_mode', 'local');
     echo '<select name="amb_storage_mode">';
     echo '<option value="hybrid"' . selected($mode, 'hybrid', false) . '>Hybrid (empfohlen)</option>';
     echo '<option value="local"' . selected($mode, 'local', false) . '>Nur lokale Dateien</option>';
@@ -233,36 +233,106 @@ function amb_dido_sanitize_options($input) {
 }
 
 function amb_dido_default_section_description() {
-    echo '<p>Die Voreinstellungen hier vornehmen, wenn sie für alle Ressourcen gesetzt werden sollen. Diese Felder werden dann im Editor nicht mehr angezeigt. Sie können Felder auch ausblenden, ohne einen Standardwert zu setzen. </p>';
+    echo '<p>Die Voreinstellungen hier vornehmen, wenn sie für alle Ressourcen gesetzt werden sollen. Diese Felder werden dann im Editor nicht mehr angezeigt. Sie können Felder auch ausblenden, ohne einen Standardwert zu setzen.</p>';
 }
 
+/**
+ * Defaults-Renderer: Radio-Buttons für Single-Value, Checkboxen für Multi-Value.
+ * Spezieller Wert "deactivate" blendet das Feld im Editor aus.
+ */
 function amb_dido_default_field_callback($args) {
-  $options = get_option('amb_dido_defaults');
-  $custom_labels = get_option('amb_dido_custom_labels', array());
+    $options = get_option('amb_dido_defaults', []);
+    $custom_labels = get_option('amb_dido_custom_labels', array());
+    $id = $args['id'];
+    $opts = $args['options'];
 
-  echo '<div class="amb-default-field-row">';
-  
-  echo '<div class="amb-default-field-dropdown">';
-  echo "<select name='amb_dido_defaults[{$args['id']}]'>";
-  echo "<option value=''>--Keine Auswahl--</option>";
-  echo "<option value='deactivate'" . ($options[$args['id']] === 'deactivate' ? ' selected="selected"' : '') . ">--Feld ausblenden--</option>";
-  foreach ($args['options'] as $option_array) {
-    foreach ($option_array as $id => $label) {
-      if(!is_array($label)) {
-        $selected = isset($options[$args['id']]) && $options[$args['id']] == $id ? 'selected="selected"' : '';
-        echo "<option value='$id' $selected>$label</option>";
-      }
+    // Check if this is a single-value field
+    $is_single_value = function_exists('amb_is_single_value_field') ? amb_is_single_value_field($id) : false;
+
+    echo '<div class="amb-default-field-row">';
+    echo '<div class="amb-default-field-dropdown">';
+
+    if ($is_single_value) {
+        // Single-value field: Radio buttons
+        $stored = isset($options[$id]) ? $options[$id] : '';
+
+        // Normalisieren für Single-Value
+        if (is_array($stored)) {
+            if (in_array('deactivate', $stored, true)) {
+                $stored = 'deactivate';
+            } elseif (!empty($stored)) {
+                $stored = $stored[0];
+            } else {
+                $stored = '';
+            }
+        }
+
+        // "Feld ausblenden" Option
+        echo '<label style="display:block;margin-bottom:6px;">';
+        echo '<input type="radio" name="amb_dido_defaults[' . esc_attr($id) . ']" value="deactivate" ' . checked($stored, 'deactivate', false) . ' />';
+        echo ' Feld ausblenden';
+        echo '</label>';
+
+        // "Keine Vorauswahl" Option
+        echo '<label style="display:block;margin-bottom:6px;">';
+        echo '<input type="radio" name="amb_dido_defaults[' . esc_attr($id) . ']" value="" ' . checked($stored, '', false) . ' />';
+        echo ' Keine Vorauswahl';
+        echo '</label>';
+
+        // Radio-Optionen
+        foreach ($opts as $option_array) {
+            foreach ($option_array as $value => $label) {
+                if (is_array($label)) {
+                    continue;
+                }
+                $checked_val = ($stored === $value);
+                echo '<label style="display:block;">';
+                echo '<input type="radio" name="amb_dido_defaults[' . esc_attr($id) . ']" value="' . esc_attr($value) . '" ' . checked($checked_val, true, false) . ' />';
+                echo ' ' . esc_html($label);
+                echo '</label>';
+            }
+        }
+        echo '<p class="description">Einzelauswahl möglich. Wenn "Feld ausblenden" aktiv ist, wird das Feld im Editor nicht angezeigt.</p>';
+
+    } else {
+        // Multi-value field: Checkboxes (original code)
+        $stored = isset($options[$id]) ? $options[$id] : [];
+        if ($stored === 'deactivate') {
+            $stored = ['deactivate'];
+        } elseif (!is_array($stored)) {
+            $stored = $stored !== '' ? [$stored] : [];
+        }
+
+        // "Feld ausblenden" (deactivate) exklusiv zu anderen Werten
+        echo '<label style="display:block;margin-bottom:6px;">';
+        echo '<input type="checkbox" name="amb_dido_defaults[' . esc_attr($id) . '][]" value="deactivate" ' . checked(in_array('deactivate', $stored, true), true, false) . ' />';
+        echo ' Feld ausblenden';
+        echo '</label>';
+
+        // Top-Level-Optionen als Checkboxen
+        foreach ($opts as $option_array) {
+            foreach ($option_array as $value => $label) {
+                if (is_array($label)) {
+                    continue; // verschachtelte Strukturen hier nicht anbieten
+                }
+                $checked = in_array($value, $stored, true);
+                echo '<label style="display:block;">';
+                echo '<input type="checkbox" name="amb_dido_defaults[' . esc_attr($id) . '][]" value="' . esc_attr($value) . '" ' . checked($checked, true, false) . ' />';
+                echo ' ' . esc_html($label);
+                echo '</label>';
+            }
+        }
+        echo '<p class="description">Mehrere Werte möglich. Wenn "Feld ausblenden" aktiv ist, werden andere Auswahl(en) ignoriert.</p>';
     }
-  }
-  echo "</select>";
-  echo '</div>';
 
-  echo '<div class="amb-default-field-label">';
-  $custom_label = isset($custom_labels[$args['id']]) ? $custom_labels[$args['id']] : '';
-  echo "<input type='text' name='amb_dido_custom_labels[{$args['id']}]' value='" . esc_attr($custom_label) . "' placeholder='Benutzerdefiniertes Label'>";
-  echo '</div>';
+    echo '</div>';
 
-  echo '</div>';
+    echo '<div class="amb-default-field-label">';
+    $custom_label = isset($custom_labels[$id]) ? $custom_labels[$id] : '';
+    echo "<input type='text' name='amb_dido_custom_labels[" . esc_attr($id) . "]' value='" . esc_attr($custom_label) . "' placeholder='Benutzerdefiniertes Label'>";
+    echo '</div>';
+
+    echo '</div>';
 }
 
 function amb_dido_sanitize_custom_labels($input) {
@@ -278,6 +348,10 @@ function amb_dido_sanitize_custom_labels($input) {
     return $sanitized_input;
 }
 
+/**
+ * Sanitize für Defaults: Arrays (Mehrfachauswahl) werden unterstützt.
+ * 'deactivate' bleibt als String erhalten und ist exklusiv.
+ */
 function amb_dido_sanitize_defaults($input) {
     // Prüfen ob $input ein Array ist
     if (!is_array($input)) {
@@ -286,12 +360,29 @@ function amb_dido_sanitize_defaults($input) {
     
     $sanitized_input = array();
     foreach ($input as $key => $value) {
-        if (!isset($value) || empty($value)) {
-            $sanitized_input[$key] = '';
-        } elseif ($value === 'deactivate') {
-            $sanitized_input[$key] = 'deactivate';
+        if (is_array($value)) {
+            // Leere Einträge entfernen
+            $value = array_values(array_filter($value, function ($v) {
+                return $v !== '' && $v !== null;
+            }));
+
+            // Wenn 'deactivate' gewählt wurde, nur das speichern
+            if (in_array('deactivate', $value, true)) {
+                $sanitized_input[$key] = 'deactivate';
+                continue;
+            }
+
+            // Ansonsten als Array von IDs speichern
+            $sanitized_input[$key] = array_map('sanitize_text_field', $value);
         } else {
-            $sanitized_input[$key] = sanitize_text_field($value);
+            // Rückwärtskompatibilität (alter Single-Select)
+            if (!isset($value) || $value === '') {
+                $sanitized_input[$key] = '';
+            } elseif ($value === 'deactivate') {
+                $sanitized_input[$key] = 'deactivate';
+            } else {
+                $sanitized_input[$key] = sanitize_text_field($value);
+            }
         }
     }
     return $sanitized_input;
@@ -462,7 +553,6 @@ function amb_dido_sanitize_taxonomy_mapping($input) {
 function render_override_ambkeyword_taxonomy_field() {
     $options = get_option('override_ambkeyword_taxonomy');
     $taxonomies = get_taxonomies(array('public' => true), 'objects');
-    $mapping = get_option('amb_dido_taxonomy_mapping', array());
 
     echo '<select name="override_ambkeyword_taxonomy">';
     echo '<option value="">--Keine Auswahl--</option>';
@@ -544,7 +634,7 @@ function amb_dido_custom_fields_js() {
                 return $container;
             }
 
-             $('#amb_dido_add_custom_field').on('click', function() {
+            $('#amb_dido_add_custom_field').on('click', function() {
                 var newField = amb_dido_render_custom_field('', '', counter);
                 $('#amb_dido_custom_fields_container').append(newField);
                 counter++;
@@ -554,6 +644,24 @@ function amb_dido_custom_fields_js() {
                 $(this).closest('.amb_dido_custom_field_container').remove();
             });
 
+            // UI-Helfer: "Feld ausblenden" exklusiv zu anderen Checkboxen im Defaults-Bereich
+            document.addEventListener('change', function(e){
+              var input = e.target;
+              if (input.name && input.name.startsWith('amb_dido_defaults[') && input.type === 'checkbox') {
+                var container = input.closest('.amb-default-field-row');
+                if (!container) return;
+                var deactivate = container.querySelector('input[value="deactivate"]');
+                var valueBoxes = container.querySelectorAll('input[type="checkbox"]:not([value="deactivate"])');
+
+                if (deactivate && input === deactivate) {
+                  if (deactivate.checked) {
+                    valueBoxes.forEach(function(cb){ cb.checked = false; });
+                  }
+                } else if (deactivate && input.value !== 'deactivate' && input.checked) {
+                  deactivate.checked = false;
+                }
+              }
+            });
         })(jQuery);
     </script>
     <?php
@@ -647,7 +755,6 @@ function amb_dido_cache_section_callback() {
 
 /**
  * AJAX-basierte Cache-Management Callback
- * Ersetzt die vorherige Version
  */
 function amb_dido_cache_management_callback() {
     // Nonce für AJAX-Sicherheit
@@ -711,7 +818,6 @@ function amb_dido_cache_management_callback() {
                 showMessage(response.message, response.success);
                 button.prop('disabled', false).text(originalText);
                 
-                // Seite nach erfolgreicher Aktion neu laden um Status zu aktualisieren
                 if (response.success && (action === 'refresh' || action === 'download')) {
                     setTimeout(function() {
                         window.location.reload();

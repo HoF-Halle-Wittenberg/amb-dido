@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name: AMB-DidO Plugin 
+ * Plugin Name: AMB-DidO Plugin
  * Description: Erstellt Metadaten gemäß AMB-Standard im JSON-Format für didaktische und Organisationsressourcen
  * Version: 0.8.6
  * Author Justus Henke, Manuel Oellers
@@ -9,14 +9,14 @@
 
 
 
-/** 
- *  Features und Funktionen laden 
+/**
+ *  Features und Funktionen laden
  * */
-include_once(plugin_dir_path( __FILE__ ) . 'metabox.php');  // Weitere Metaboxen
-include_once(plugin_dir_path( __FILE__ ) . 'frontend.php'); // Frontend-Darstellung
-include_once(plugin_dir_path( __FILE__ ) . 'search.php');   // Suchfunktionen
-require_once(plugin_dir_path( __FILE__ ) . 'options.php');  // Plugin-Einstellungen
-include_once(plugin_dir_path( __FILE__ ) . 'vocabularies-manager.php'); // Vokabular-Manager
+include_once(plugin_dir_path(__FILE__) . 'metabox.php');  // Weitere Metaboxen
+include_once(plugin_dir_path(__FILE__) . 'frontend.php'); // Frontend-Darstellung
+include_once(plugin_dir_path(__FILE__) . 'search.php');   // Suchfunktionen
+require_once(plugin_dir_path(__FILE__) . 'options.php');  // Plugin-Einstellungen
+include_once(plugin_dir_path(__FILE__) . 'vocabularies-manager.php'); // Vokabular-Manager
 
 /**
  * Abhängige Dateien laden
@@ -95,7 +95,7 @@ function amb_dido_add_custom_box() {
 // Hartkodierte Wertelisten
 function amb_get_other_fields() {
     return [
-        
+
         'amb_inLanguage' => [
             'field_label' => 'Sprache des Inhalts',
             'options' => [
@@ -130,8 +130,26 @@ function amb_get_other_fields() {
             ],
             'amb_key' => 'interactivityType'
         ]
-        
+
     ];
+}
+
+
+/**
+ * Helper function to determine if a field should be single-value (radio button) or multi-value (checkbox)
+ *
+ * @param string $field_key The field key to check
+ * @return bool True if single-value, false if multi-value
+ */
+function amb_is_single_value_field($field_key) {
+    $single_value_fields = [
+        'amb_inLanguage',
+        'amb_isAccessibleForFree',
+        'amb_conditionsOfAccess',
+        'amb_interactivityType'
+    ];
+
+    return in_array($field_key, $single_value_fields);
 }
 
 
@@ -173,7 +191,7 @@ function amb_get_json_urls() {
         'amb_hochschulfaechersystematik' => [
             'url' => 'https://skohub.io/dini-ag-kim/hochschulfaechersystematik/heads/master/w3id.org/kim/hochschulfaechersystematik/scheme.json',
             'amb_key' => 'about'
-        ]        
+        ]
     ];
 
     $custom_json_urls = get_option('amb_dido_custom_fields', []);
@@ -194,18 +212,18 @@ function amb_get_json_urls() {
 function amb_get_all_external_values_with_mode() {
     $storage_mode = get_option('amb_storage_mode', 'hybrid');
     $cache_mode = get_option('amb_cache_mode', 'auto');
-    
+
     amb_dido_log("Storage-Modus: $storage_mode, Cache-Modus: $cache_mode");
-    
+
     switch ($storage_mode) {
         case 'local':
             // Nur lokale Dateien verwenden
             return amb_get_local_vocabularies_only();
-            
+
         case 'external':
             // Nur externe Quellen (alter Modus)
             return amb_get_external_vocabularies_only($cache_mode);
-            
+
         case 'hybrid':
         default:
             // Hybrid: externe mit lokalem Fallback
@@ -219,20 +237,20 @@ function amb_get_all_external_values_with_mode() {
 function amb_get_local_backups_only() {
     $urls = amb_get_json_urls();
     $all_values = [];
-    
+
     foreach ($urls as $key => $url_data) {
         $local_backup = get_option('amb_local_backup_' . $key, []);
         if (!empty($local_backup)) {
             $all_values[$key] = $local_backup;
         }
     }
-    
+
     return $all_values;
 }
 
 function amb_load_external_values_and_cache() {
     amb_dido_log("Lade externe Wertelisten");
-    
+
     $urls = amb_get_json_urls();
     $all_values = [];
     $fetch_failed = false;
@@ -250,7 +268,7 @@ function amb_load_external_values_and_cache() {
             }
         }
     }
-    
+
     if (!$fetch_failed && !empty($all_values)) {
         set_transient('amb_external_values_cache', $all_values, 24 * HOUR_IN_SECONDS);
     }
@@ -263,15 +281,15 @@ function amb_load_external_values_and_cache() {
  */
 function amb_get_local_vocabularies_only() {
     amb_dido_log("Lade nur lokale Vokabulare");
-    
+
     $manager = amb_vocabularies_manager();
     $local_values = $manager->load_all_local_vocabularies();
-    
+
     if (empty($local_values)) {
         amb_dido_log("Keine lokalen Vokabulare gefunden - verwende Backup aus Optionen");
         return amb_get_options_backup_vocabularies();
     }
-    
+
     amb_dido_log("Erfolgreich " . count($local_values) . " lokale Vokabulare geladen");
     return $local_values;
 }
@@ -281,20 +299,20 @@ function amb_get_local_vocabularies_only() {
  */
 function amb_get_external_vocabularies_only($cache_mode) {
     amb_dido_log("Lade nur externe Vokabulare");
-    
+
     if ($cache_mode === 'offline') {
         return amb_get_options_backup_vocabularies();
     }
-    
+
     $cache_key = 'amb_external_values_cache';
-    
+
     // Cache prüfen
     $cached_values = get_transient($cache_key);
     if ($cached_values !== false && $cache_mode !== 'manual') {
         amb_dido_log("Verwende gecachte externe Vokabulare");
         return $cached_values;
     }
-    
+
     // Manueller Modus: nur bei expliziter Anfrage laden
     if ($cache_mode === 'manual' && !isset($_POST['amb_refresh_cache_manual'])) {
         if ($cached_values !== false) {
@@ -303,7 +321,7 @@ function amb_get_external_vocabularies_only($cache_mode) {
             return amb_get_options_backup_vocabularies();
         }
     }
-    
+
     // Externe Quellen laden
     return amb_load_external_vocabularies_and_cache();
 }
@@ -313,20 +331,20 @@ function amb_get_external_vocabularies_only($cache_mode) {
  */
 function amb_get_hybrid_vocabularies($cache_mode) {
     amb_dido_log("Lade Vokabulare im Hybrid-Modus");
-    
+
     if ($cache_mode === 'offline') {
         return amb_get_local_vocabularies_only();
     }
-    
+
     $cache_key = 'amb_external_values_cache';
-    
+
     // Prüfe Cache
     $cached_values = get_transient($cache_key);
     if ($cached_values !== false && $cache_mode !== 'manual') {
         amb_dido_log("Verwende gecachte Vokabulare (Hybrid)");
         return $cached_values;
     }
-    
+
     // Manueller Modus
     if ($cache_mode === 'manual' && !isset($_POST['amb_refresh_cache_manual'])) {
         if ($cached_values !== false) {
@@ -335,10 +353,10 @@ function amb_get_hybrid_vocabularies($cache_mode) {
             return amb_get_local_vocabularies_only();
         }
     }
-    
+
     // Versuche externe Quellen zu laden
     $external_values = amb_load_external_vocabularies_with_fallback();
-    
+
     if (!empty($external_values)) {
         // Cache setzen
         set_transient($cache_key, $external_values, 24 * HOUR_IN_SECONDS);
@@ -355,7 +373,7 @@ function amb_get_hybrid_vocabularies($cache_mode) {
  */
 function amb_load_external_vocabularies_with_fallback() {
     amb_dido_log("Lade externe Vokabulare mit Fallback");
-    
+
     $urls = amb_get_json_urls();
     $all_values = [];
     $manager = amb_vocabularies_manager();
@@ -363,21 +381,21 @@ function amb_load_external_vocabularies_with_fallback() {
 
     foreach ($urls as $key => $url_data) {
         $values = amb_fetch_external_values_with_timeout($url_data['url'], $key, $url_data['amb_key'], 10);
-        
+
         if (!empty($values)) {
             $all_values[$key] = $values;
-            
+
             // Als lokales Backup speichern
             update_option('amb_local_backup_' . $key, $values);
-            
+
             // Auch als lokale Datei speichern wenn möglich
             $manager->save_vocabulary_data($key, $values);
-            
+
             amb_dido_log("Erfolgreich geladen: $key");
         } else {
             $failed_keys[] = $key;
             amb_dido_log("Fehler beim Laden: $key");
-            
+
             // Versuche lokale Datei zu laden
             $local_values = $manager->load_local_vocabulary($key);
             if (!empty($local_values)) {
@@ -393,7 +411,7 @@ function amb_load_external_vocabularies_with_fallback() {
             }
         }
     }
-    
+
     if (!empty($failed_keys)) {
         amb_dido_log("Fehlgeschlagene Downloads: " . implode(', ', $failed_keys));
     }
@@ -406,17 +424,17 @@ function amb_load_external_vocabularies_with_fallback() {
  */
 function amb_get_options_backup_vocabularies() {
     amb_dido_log("Lade Vokabular-Backups aus Optionen");
-    
+
     $urls = amb_get_json_urls();
     $all_values = [];
-    
+
     foreach ($urls as $key => $url_data) {
         $backup = get_option('amb_local_backup_' . $key, []);
         if (!empty($backup)) {
             $all_values[$key] = $backup;
         }
     }
-    
+
     amb_dido_log("Backup-Vokabulare geladen: " . count($all_values));
     return $all_values;
 }
@@ -431,7 +449,7 @@ function amb_fetch_external_values_with_timeout($url, $key, $amb_key, $timeout =
         'sslverify' => true,
         'user-agent' => 'AMB-DidO Plugin/0.8.5'
     ]);
-    
+
     if (is_wp_error($response)) {
         amb_dido_log('Fehler beim Abrufen von ' . $url . ': ' . $response->get_error_message());
         return [];
@@ -483,10 +501,10 @@ function amb_refresh_external_cache() {
             }
         }
     }
-    
+
     // Cache löschen
     delete_transient('amb_external_values_cache');
-    
+
     // Versuche neue Werte zu laden
     $success = false;
     if (function_exists('amb_get_all_external_values_with_mode')) {
@@ -496,14 +514,14 @@ function amb_refresh_external_cache() {
             set_transient('amb_external_values_cache', $values, 24 * HOUR_IN_SECONDS);
             update_option('amb_last_cache_refresh', time());
             $success = true;
-            
+
             // Stilles Logging
             amb_dido_log_backup("Cache erfolgreich neu geladen");
         } else {
             amb_dido_log_backup("Cache-Neuladen fehlgeschlagen - keine Werte erhalten");
         }
     }
-    
+
     return $success;
 }
 
@@ -629,26 +647,43 @@ function amb_dido_display_defaults($field, $options) {
     // Ausgabe der Default-Werte oder "Keine Auswahl"
     if (isset($defaults[$field])) {
         if ($defaults[$field] === 'deactivate') {
-          echo "<p>{$field_label}: <strong>Feld ausgeblendet</strong></p>";
+            echo "<p>{$field_label}: <strong>Feld ausgeblendet</strong></p>";
         } else {
-          $default_value = $defaults[$field];
-          $label = 'Unbekannte Auswahl';
+            $default_value = $defaults[$field];
 
-          // Überprüfe die Optionen und finde das passende Label
-          if (isset($all_fields[$field]['options'])) {
-            foreach ($all_fields[$field]['options'] as $option) {
-              if (isset($option[$default_value])) {
-                $label = $option[$default_value];
-                break;
-              }
+            // Check if this is a single-value or multi-value field
+            if (is_array($default_value)) {
+                // Multi-value field - collect all labels
+                $labels = array();
+                if (isset($all_fields[$field]['options'])) {
+                    foreach ($default_value as $val) {
+                        foreach ($all_fields[$field]['options'] as $option) {
+                            if (isset($option[$val])) {
+                                $labels[] = $option[$val];
+                                break;
+                            }
+                        }
+                    }
+                }
+                $label = !empty($labels) ? implode(', ', $labels) : 'Unbekannte Auswahl';
+            } else {
+                // Single-value field - find the single label
+                $label = 'Unbekannte Auswahl';
+                if (isset($all_fields[$field]['options'])) {
+                    foreach ($all_fields[$field]['options'] as $option) {
+                        if (isset($option[$default_value])) {
+                            $label = $option[$default_value];
+                            break;
+                        }
+                    }
+                }
             }
-          }
 
-          echo "<p>{$field_label}: <strong>" . esc_html($label) . "</strong></p>";
+            echo "<p>{$field_label}: <strong>" . esc_html($label) . "</strong></p>";
         }
-      } else {
+    } else {
         echo "<p>{$field_label}: <strong>Keine Auswahl getroffen</strong></p>";
-      }
+    }
 }
 
 /**
@@ -666,12 +701,12 @@ function amb_generate_checkbox_group_any($name, $options, $stored_values, $title
     if ($title === null && isset($options['field_label'])) {
         $title = $options['field_label'];
     }
-    
+
     $svg_check = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" role="presentation" class="components-checkbox-control__checked" aria-hidden="true" focusable="false"><path d="M16.7 7.1l-6.3 8.5-3.3-2.5-.9 1.2 4.5 3.4L17.9 8z"></path></svg>';
 
     echo '<label class="amb-field">' . esc_html($title) . '</label><br />';
     echo '<div class="grid-container">';
-    
+
     foreach ($options['options'] as $option) {
         foreach ($option as $id => $label) {
             if (!isset($option['narrower'])) {
@@ -700,7 +735,7 @@ function amb_generate_checkbox_group_any($name, $options, $stored_values, $title
                 }
                 echo '</span>';
                 echo '<label for="type_' . esc_attr($id) . '" class="label amb-control-label">' . esc_html($label) . '</label>';
-                
+
                 // Erste Ebene von "narrower"-Unteroptionen anzeigen
                 echo '<button type="button" onclick="toggleNarrower(this);" class="amb-narrower ' . $collapse_class . '" aria-expanded="' . $expanded . '"></button>';
                 echo '<div class="narrower-container grid-container" style="display: ' . ($checked ? 'block' : 'none') . ';">';
@@ -728,12 +763,61 @@ function amb_generate_checkbox_group_any($name, $options, $stored_values, $title
             }
         }
     }
-    
+
     echo '</div>';
 }
 
 
-/* Hilfsfunktion um ids aus Arrays zu extrahieren */ 
+/**
+ * Generiert eine Radio-Button-Gruppe für Single-Value Felder
+ *
+ * @param string $name Der Name des Feldes im Formular
+ * @param array $options Die Optionen mit field_label und options array
+ * @param string $stored_value Der gespeicherte Wert (einzelner String oder Array mit einem Element)
+ * @param string|null $title Der Titel für die Gruppe
+ */
+function amb_generate_radio_group_any($name, $options, $stored_value, $title = null) {
+    // Falls kein Titel übergeben wurde, versuchen, den Titel aus den Optionen zu extrahieren
+    if ($title === null && isset($options['field_label'])) {
+        $title = $options['field_label'];
+    }
+
+    // Stored value normalisieren - könnte String oder Array sein
+    if (is_array($stored_value)) {
+        $stored_value = !empty($stored_value) && isset($stored_value[0]) ? $stored_value[0] : '';
+        // Wenn es ein Array mit id ist
+        if (is_array($stored_value) && isset($stored_value['id'])) {
+            $stored_value = $stored_value['id'];
+        }
+    }
+
+    echo '<label class="amb-field">' . esc_html($title) . '</label><br />';
+    echo '<div class="grid-container amb-radio-group">';
+
+    foreach ($options['options'] as $option) {
+        foreach ($option as $id => $label) {
+            // Skip narrower arrays - single value fields should be flat
+            if (is_array($label)) {
+                continue;
+            }
+
+            $checked = ($stored_value === $id) ? 'checked' : '';
+            $unique_id = 'radio_' . esc_attr($name) . '_' . esc_attr($id);
+
+            echo '<div class="grid-item components-base-control__field tbroad amb-radio-item">';
+            echo '<span class="components-radio-control__input-container amb-control">';
+            echo '<input type="radio" name="' . esc_attr($name) . '" value="' . esc_attr($id) . '" ' . $checked . ' id="' . $unique_id . '" class="components-radio-control__input">';
+            echo '</span>';
+            echo '<label for="' . $unique_id . '" class="label amb-control-label">' . esc_html($label) . '</label>';
+            echo '</div>';
+        }
+    }
+
+    echo '</div>';
+}
+
+
+/* Hilfsfunktion um ids aus Arrays zu extrahieren */
 function amb_get_selected_ids($meta_field) {
     $stored_values = get_post_meta(get_the_ID(), $meta_field, true);
     $stored_values = is_array($stored_values) ? $stored_values : [];
@@ -752,11 +836,19 @@ function amb_get_selected_ids($meta_field) {
 /**
  * Generiert das HTML für die AMB Metabox.
  */
-function amb_dido_meta_box_callback($post) {
+function amb_dido_meta_box_callback($post)
+{
     // Sicherheit: Einfügen eines Nonce-Feldes für Verifizierung
     wp_nonce_field('amb_dido_save_meta_box_data', 'amb_dido_meta_box_nonce');
 
     $custom_labels = get_option('amb_dido_custom_labels', array());
+    $disable_json_value = get_post_meta($post->ID, 'amb_disable_json_for_entry', true);
+
+
+    echo '<label for="amb_disable_json_for_entry">';
+    echo '<input type="checkbox" name="amb_disable_json_for_entry" id="amb_disable_json_for_entry" value="true" ' . checked($disable_json_value, true, false) . ' /> JSON Ausgabe unterdrücken';
+    echo '</label>';
+
 
     // Aktueller Wert von disable Meta field
     $disable_json_value = get_post_meta($post->ID, 'amb_disable_json_for_entry', true);
@@ -780,7 +872,7 @@ function amb_dido_meta_box_callback($post) {
         echo '<p class="components-form-token-field__help">In zwei bis drei Sätzen den Inhalt beschreiben.</p>';
         echo '<textarea name="amb_description" class="components-textarea-control__input amb-textarea" rows="4" cols="50">' . esc_textarea($description) . '</textarea><br />';
     }
-    
+
 
     // Generierung Autoren
     $creator = get_post_meta($post->ID, 'amb_creator', true);
@@ -802,12 +894,29 @@ function amb_dido_meta_box_callback($post) {
             // Field is mapped to a taxonomy, don't display it
             continue;
         } else {
-            $stored_ids = amb_get_selected_ids($field);  
             $field_label = isset($custom_labels[$field]) && !empty($custom_labels[$field]) ? $custom_labels[$field] : $data['field_label'];
-            amb_generate_checkbox_group_any($field, ['field_label' => $field_label, 'options' => $data['options']], $stored_ids);
+
+            // Check if this is a single-value field (radio buttons) or multi-value field (checkboxes)
+            if (amb_is_single_value_field($field)) {
+                // Single value field - use radio buttons
+                $stored_value = get_post_meta($post->ID, $field, true);
+                // Extract the ID if it's stored as array with concept objects
+                if (is_array($stored_value) && !empty($stored_value)) {
+                    if (isset($stored_value[0]['id'])) {
+                        $stored_value = $stored_value[0]['id'];
+                    } elseif (isset($stored_value['id'])) {
+                        $stored_value = $stored_value['id'];
+                    }
+                }
+                amb_generate_radio_group_any($field, ['field_label' => $field_label, 'options' => $data['options']], $stored_value);
+            } else {
+                // Multi-value field - use checkboxes
+                $stored_ids = amb_get_selected_ids($field);
+                amb_generate_checkbox_group_any($field, ['field_label' => $field_label, 'options' => $data['options']], $stored_ids);
+            }
         }
     }
-    
+
 }
 
 /**
@@ -857,7 +966,33 @@ function amb_dido_save_post_meta($post_id) {
     amb_save_all_checkbox_data($post_id);
 }
 
-function amb_save_all_checkbox_data($post_id) {
+// Rekursive Funktion zur Suche und Hinzufügung von Labels
+if (!function_exists('amb_find_label_and_add')) {
+    function amb_find_label_and_add($type_id, $options, &$to_save)
+    {
+        foreach ($options as $option) {
+            foreach ($option as $id => $label) {
+                if ($id === $type_id && !is_array($label)) {
+                    $to_save[] = [
+                        'id' => $type_id,
+                        'prefLabel' => ['de' => $label],
+                        'type' => 'Concept'
+                    ];
+                    return true;
+                }
+            }
+            if (isset($option['narrower']) && is_array($option['narrower'])) {
+                if (amb_find_label_and_add($type_id, $option['narrower'], $to_save)) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+}
+
+function amb_save_all_checkbox_data($post_id)
+{
     // Alle verfügbaren externen Werte abrufen
     // $all_options = amb_get_all_external_values_with_mode();
     $all_options = array_merge(amb_get_other_fields(), amb_get_all_external_values_with_mode());
@@ -866,35 +1001,27 @@ function amb_save_all_checkbox_data($post_id) {
         return;
     }
 
-    // Rekursive Funktion zur Suche und Hinzufügung von Labels
-    function find_label_and_add($type_id, $options, &$to_save) {
-        foreach ($options as $option) {
-            foreach ($option as $id => $label) {
-                if ($id == $type_id && !is_array($label)) {
-                    $to_save[] = [
-                        'id' => $type_id,
-                        'prefLabel' => ['de' => $label],
-                        'type' => 'Concept'
-                    ];
-                    return true;
-                } elseif (isset($option['narrower']) && is_array($option['narrower'])) {
-                    if (find_label_and_add($type_id, $option['narrower'], $to_save)) {
-                        return true;
-                    }
-                }
-            }
-        }
-        return false;
-    }
-
     // Durch alle Felder iterieren und die Werte speichern
     foreach ($all_options as $field_key => $field_data) {
         if (isset($_POST[$field_key])) {
             $selected_options = $_POST[$field_key];
             $to_save = [];
 
-            foreach ($selected_options as $type_id) {
-                find_label_and_add($type_id, $field_data['options'], $to_save);
+            // Check if this is a single-value field (radio button)
+            $is_single_value = amb_is_single_value_field($field_key);
+
+            if ($is_single_value) {
+                // Single value field - $selected_options is a string, not an array
+                if (!empty($selected_options)) {
+                    amb_find_label_and_add($selected_options, $field_data['options'], $to_save);
+                }
+            } else {
+                // Multi-value field - $selected_options is an array
+                if (is_array($selected_options)) {
+                    foreach ($selected_options as $type_id) {
+                        amb_find_label_and_add($type_id, $field_data['options'], $to_save);
+                    }
+                }
             }
 
             // Prüfen, ob `to_save` nicht leer ist, bevor es gespeichert wird
@@ -910,9 +1037,9 @@ function amb_save_all_checkbox_data($post_id) {
 }
 
 // creator-Objekte vorbereiten
-
-function amb_generate_creator_objects($post_id) {
-    $creators = array_filter(explode(',', get_post_meta($post_id, 'amb_creator', true)), function($value) {
+function amb_generate_creator_objects($post_id)
+{
+    $creators = array_filter(explode(',', get_post_meta($post_id, 'amb_creator', true)), function ($value) {
         return trim($value) !== '';
     });
 
@@ -923,11 +1050,11 @@ function amb_generate_creator_objects($post_id) {
             'name' => $creator,
         ];
     }
-    
-    return $creator_objects;
+    return apply_filters('amb_filter_creator_objects', $creator_objects, $post_id);
 }
 
-function amb_get_keywords($post_id) {
+function amb_get_keywords($post_id)
+{
     $override_taxonomy = get_option('override_ambkeyword_taxonomy', '');
     if (!empty($override_taxonomy)) {
         $terms = wp_get_post_terms($post_id, $override_taxonomy, ['fields' => 'names']);
@@ -963,17 +1090,17 @@ function amb_get_language($post): array {
     $defaults = get_option('amb_dido_defaults');
     $post_languages = get_post_meta($post->ID, $field, true) ?: $defaults[$field];
     $amb_languages = [];
-    
-    if(is_array($post_languages)) {
-        foreach($post_languages as $lang) {
-            if(isset($lang['id'])) {
+
+    if (is_array($post_languages)) {
+        foreach ($post_languages as $lang) {
+            if (isset($lang['id'])) {
                 $amb_languages[] = $lang['id'];
-            } 
+            }
         }
     } elseif (is_string($post_languages) && !empty($post_languages)) {
         $amb_languages[] = $post_languages;
     }
-    
+
     return !empty($amb_languages) ? $amb_languages : [''];
 }
 
@@ -989,10 +1116,10 @@ function amb_get_isaccessibleforfree($post): bool {
     $post_values = get_post_meta($post->ID, $field, true) ?: $defaults[$field];
     $amb_value = true;
 
-    if(is_array($post_values)) {
-        if(isset($post_values[0]['id'])) {
+    if (is_array($post_values)) {
+        if (isset($post_values[0]['id'])) {
             $amb_value = $post_values[0]['id'];
-        } 
+        }
     } elseif (is_string($post_values) && !empty($post_values)) {
         $amb_value = $post_values;
     }
@@ -1007,10 +1134,34 @@ function amb_get_disablejson($post): bool {
     return filter_var($meta_value, FILTER_VALIDATE_BOOLEAN);
 }
 
+if (!function_exists('amb_find_label_in_options')) {
+    function amb_find_label_in_options($id, $options)
+    {
+        foreach ($options as $option) {
+            foreach ($option as $key => $label) {
+                if ($key === 'narrower') {
+                    continue;
+                }
+                if ($key === $id && !is_array($label)) {
+                    return $label;
+                }
+            }
+            if (isset($option['narrower']) && is_array($option['narrower'])) {
+                $found = amb_find_label_in_options($id, $option['narrower']);
+                if ($found) {
+                    return $found;
+                }
+            }
+        }
+        return null;
+    }
+}
+
 /**
  * Bindet Custom-Fields in das JSON-LD-Format ein.
  */
-function amb_dido_add_json_ld_to_header() {
+function amb_dido_add_json_ld_to_header()
+{
     if (is_singular(get_option('amb_dido_post_types', []))) {
         global $post;
 
@@ -1039,69 +1190,137 @@ function amb_dido_add_json_ld_to_header() {
             "isAccessibleForFree" => amb_get_isaccessibleforfree($post),
         ];
 
-        // Keywords auslesen
-        $keywords = amb_get_keywords($post->ID) ?: '';
-        if(!empty($keywords)) $json_ld_data['keywords'] = $keywords;
+            // Keywords auslesen
+            $keywords = amb_get_keywords($post->ID) ?: '';
+            if (!empty($keywords)) $json_ld_data['keywords'] = $keywords;
 
-        // Thumbnail
-        $image = get_the_post_thumbnail_url($post, 'full');
-        if($image !== false) $json_ld_data['image'] = $image;
+            // Thumbnail
+            $image = get_the_post_thumbnail_url($post, 'full');
+            if ($image !== false) $json_ld_data['image'] = $image;
 
-        foreach ($all_options as $field => $data) {
-            // Skip already handled fields
-            if(in_array($field, ['amb_inLanguage','amb_isAccessibleForFree'])) {
-                continue;
-            } 
-
-            if (isset($mapping[$field])) {
-                // Field is mapped to a taxonomy
-                $terms = wp_get_post_terms($post->ID, $mapping[$field], array('fields' => 'all'));
-                $value = array();
-                foreach ($terms as $term) {
-                    $value[] = array(
-                        'id' => $term->slug,
-                        'prefLabel' => array('de' => $term->name),
-                        'type' => 'Concept'
-                    );
-                }
-            } else {
-                $value = get_post_meta($post->ID, $field, true);
-                if (empty($value)) {
-                    $value = $defaults[$field] ?? null;
-                }
-            }
-
-            $amb_key = $data['amb_key'] ?? 'about';
-
-            if (!is_null($value) && !empty($value)) {
-                $formatted_value = is_array($value) ? array_map(function ($item) use ($data) {
-                    return [
-                        'id' => $item['id'],
-                        'prefLabel' => ['de' => $item['prefLabel']['de']],
-                        'type' => 'Concept'
-                    ];
-                }, $value) : [
-                    'id' => $value,
-                    'prefLabel' => ['de' => $data['options'][0][$value]],
-                    'type' => 'Concept'
-                ];
-
-                if(in_array($amb_key, ['license', 'conditionsOfAccess', 'interactivityType'])) {
-                    $formatted_value = $formatted_value[0] ?? $formatted_value;
+            foreach ($all_options as $field => $data) {
+                // Skip already handled fields
+                if (in_array($field, ['amb_inLanguage', 'amb_isAccessibleForFree'])) {
+                    continue;
                 }
 
-                if (isset($json_ld_data[$amb_key])) {
-                    $json_ld_data[$amb_key] = array_merge($json_ld_data[$amb_key], $formatted_value);
+                if (isset($mapping[$field])) {
+                    // Field is mapped to a taxonomy
+                    $terms = wp_get_post_terms($post->ID, $mapping[$field], array('fields' => 'all'));
+                    $value = array();
+                    foreach ($terms as $term) {
+                        $value[] = array(
+                            'id' => $term->slug,
+                            'prefLabel' => array('de' => $term->name),
+                            'type' => 'Concept'
+                        );
+                    }
                 } else {
-                    $json_ld_data[$amb_key] = $formatted_value;
+                    $value = get_post_meta($post->ID, $field, true);
+                    if (empty($value)) {
+                        $value = $defaults[$field] ?? null;
+                    }
+                }
+
+                $amb_key = $data['amb_key'] ?? 'about';
+
+                if (!is_null($value) && !empty($value)) {
+                    // Build $formatted_value robustly for post meta arrays AND defaults arrays
+                    $formatted_value = [];
+
+                    if (is_array($value)) {
+// Case A: array of concept objects from post meta: [['id'=>..., 'prefLabel'=>['de'=>...]], ...]
+                        if (!empty($value) && is_array($value[0]) && isset($value[0]['id'])) {
+                            $formatted_value = array_map(function ($item) {
+// guard against malformed items
+                                $id = isset($item['id']) ? (string)$item['id'] : '';
+                                $label = '';
+                                if (isset($item['prefLabel']['de'])) {
+                                    $label = (string)$item['prefLabel']['de'];
+                                } elseif (isset($item['prefLabel']) && is_string($item['prefLabel'])) {
+                                    $label = $item['prefLabel'];
+                                }
+                                return [
+                                    'id' => $id,
+                                    'prefLabel' => ['de' => $label],
+                                    'type' => 'Concept'
+                                ];
+                            }, $value);
+                        } else {
+// Case B: array of string IDs from defaults
+                            $formatted_value = array_map(function ($id) use ($data) {
+                                $id = (string)$id;
+                                $label = isset($data['options']) ? amb_find_label_in_options($id, $data['options']) : null;
+                                if ($label === null) {
+                                    $label = $id;
+                                }
+                                return [
+                                    'id' => $id,
+                                    'prefLabel' => ['de' => $label],
+                                    'type' => 'Concept'
+                                ];
+                            }, $value);
+                        }
+                    } else {
+// Case C: single string ID (fallback)
+                        $id = (string)$value;
+                        if ($id !== '') {
+                            $label = isset($data['options']) ? amb_find_label_in_options($id, $data['options']) : null;
+                            if ($label === null) {
+                                $label = $id;
+                            }
+                            $formatted_value = [[
+                                'id' => $id,
+                                'prefLabel' => ['de' => $label],
+                                'type' => 'Concept'
+                            ]];
+                        }
+                    }
+
+// Allow single-value collapse ONLY for fields that should be single-value
+                    // Check the field itself, not the amb_key (since multiple fields can map to same amb_key)
+                    if (amb_is_single_value_field($field)) {
+                        // Single-value fields: collapse array to single object
+                        $formatted_value = $formatted_value[0] ?? $formatted_value;
+                    }
+                    // Note: Multi-value fields remain as arrays
+
+// Merge into $json_ld_data
+                    if (!empty($formatted_value)) {
+                        if (isset($json_ld_data[$amb_key])) {
+                            // Key already exists - need to merge
+                            // For multi-value fields or when merging multiple fields to same amb_key
+                            if (is_array($json_ld_data[$amb_key]) && isset($json_ld_data[$amb_key][0]) && is_array($json_ld_data[$amb_key][0])) {
+                                // Both are arrays of concept objects - merge them
+                                if (is_array($formatted_value) && isset($formatted_value[0]) && is_array($formatted_value[0])) {
+                                    $json_ld_data[$amb_key] = array_merge($json_ld_data[$amb_key], $formatted_value);
+                                } else {
+                                    // formatted_value is single object, add to array
+                                    $json_ld_data[$amb_key][] = $formatted_value;
+                                }
+                            } else {
+                                // Existing value is a single object; normalize to array and merge
+                                $existing = $json_ld_data[$amb_key];
+                                if (is_array($formatted_value) && isset($formatted_value[0]) && is_array($formatted_value[0])) {
+                                    $json_ld_data[$amb_key] = array_merge([$existing], $formatted_value);
+                                } else {
+                                    $json_ld_data[$amb_key] = [$existing, $formatted_value];
+                                }
+                            }
+                        } else {
+                            // Key doesn't exist yet - just set it
+                            $json_ld_data[$amb_key] = $formatted_value;
+                        }
+                    }
                 }
             }
-        }
 
         // JSON-LD-Ausgabe im Header
         echo '<script type="application/ld+json">' . json_encode($json_ld_data, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) . '</script>';
         }
     }
+
+
 }
 
 
