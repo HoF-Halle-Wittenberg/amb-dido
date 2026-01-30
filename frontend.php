@@ -71,7 +71,7 @@ function show_post_metadata() {
     $custom_labels = get_option('amb_dido_custom_labels', array());
     $mapping = get_option('amb_dido_taxonomy_mapping', array());
 
-    $all_fields = array_merge(amb_get_other_fields(), amb_get_all_external_values());
+    $all_fields = array_merge(amb_get_other_fields(), amb_get_all_external_values_with_mode());
     
     // Add description field
     $all_fields['amb_description'] = array('field_label' => 'Beschreibung');
@@ -136,7 +136,7 @@ function show_amb_metadata($meta_key) {
     global $post;
     if (empty($post)) return;
 
-    $all_fields = array_merge(amb_get_other_fields(), amb_get_all_external_values());
+    $all_fields = array_merge(amb_get_other_fields(), amb_get_all_external_values_with_mode());
     $custom_labels = get_option('amb_dido_custom_labels', array());
     $mapping = get_option('amb_dido_taxonomy_mapping', array());
 
@@ -213,7 +213,7 @@ function show_amb_metadata_shortcode($atts) {
         'field' => '',
     ], $atts);
 
-    $all_fields = array_merge(amb_get_other_fields(), amb_get_all_external_values());
+    $all_fields = array_merge(amb_get_other_fields(), amb_get_all_external_values_with_mode());
     $custom_labels = get_option('amb_dido_custom_labels', array());
     $defaults = get_option('amb_dido_defaults', array());
     $mapping = get_option('amb_dido_taxonomy_mapping', array());

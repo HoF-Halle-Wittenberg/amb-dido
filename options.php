@@ -201,8 +201,8 @@ function amb_dido_metadata_section_callback() {
     echo '<p>Sie können auch beliebige Felder in Ihrem Theme mit <span class="amb-code">show_amb_metadata("NAME_DES_FELDS")</span> aufrufen.</p>';
     echo '<p>Folgende Felder können Sie dafür verwenden:</p>';
 
-    if (function_exists('amb_get_all_external_values')) {
-        $all_fields = array_merge(amb_get_other_fields(), amb_get_all_external_values());
+    if (function_exists('amb_get_all_external_values_with_mode')) {
+        $all_fields = array_merge(amb_get_other_fields(), amb_get_all_external_values_with_mode());
     } else {
         $all_fields = amb_get_other_fields();
     }
@@ -501,9 +501,9 @@ function amb_dido_taxonomy_mapping_callback() {
     // Sichere Initialisierung
     $all_fields = amb_get_other_fields();
     
-    if (function_exists('amb_get_all_external_values')) {
+    if (function_exists('amb_get_all_external_values_with_mode')) {
         try {
-            $external_fields = amb_get_all_external_values();
+            $external_fields = amb_get_all_external_values_with_mode();
             if (is_array($external_fields)) {
                 $all_fields = array_merge($all_fields, $external_fields);
             }
