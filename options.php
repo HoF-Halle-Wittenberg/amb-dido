@@ -399,6 +399,10 @@ function amb_dido_post_types_field_html() {
 }
 
 function amb_dido_sanitize_post_types($input) {
+    // Handle null or non-array input
+    if (!is_array($input)) {
+        return [];
+    }
     $valid_post_types = get_post_types(['public' => true]);
     return array_intersect($valid_post_types, $input);
 }
