@@ -1,7 +1,7 @@
 ---
 Plugin Name: AMB-DidO Plugin 
 Description: Erstellt Metadaten gemäß AMB-Standard im JSON-Format für didaktische und Organisationsressourcen auf beliebigen Wordpress-Seiten.
-Latest Release: 0.8.7
+Latest Release: 0.8.8
 Author: Justus Henke (HoF), Manuel Oellers (Contributor, U Münster) 
 ---
 # AMB-DidO Plugin 
@@ -17,16 +17,29 @@ Kontakt und Feedback sowie Feature-Requests: opendata@hof.uni-halle.de
 ## Status 
 Bereits funktionsfähig zum Testen, aktuell keine größeren Probleme bekannt. 
 
-Neue Features in Version 0.8.6
+## Changelog
 
-Erweiterte Cache-Verwaltung: Neue Cache-Verwaltungssektion in den Optionen mit detailliertem Status
-Hybrid-Speicher-Modus: Intelligente Kombination aus externen Quellen und lokalen Backups
-Offline-Modus: Vollständig lokaler Betrieb ohne externe Abhängigkeiten
-Automatische Cache-Aktualisierung: Tägliche automatische Erneuerung der externen Wertelisten
-Lokaler Vokabular-Manager: Download und lokale Speicherung aller Vokabulare für bessere Performance
-AJAX-basierte Cache-Aktionen: Moderne Benutzeroberfläche ohne Seitenreloads
-Verbesserte Fehlerbehandlung: Robuste Fallback-Mechanismen bei Netzwerkproblemen
-Detaillierte Status-Anzeige: Übersicht über Cache-Status, lokale Backups und Vokabular-Dateien
+### Version 0.8.8 (2026-01-30)
+**Bugfixes:**
+- Behoben: Doppelte Checkbox "JSON Ausgabe unterdrücken" im Metadatenauswahlfeld entfernt (Issue #7)
+- Die Checkbox funktioniert nun korrekt und verhindert nicht mehr die Übertragung der Metadaten in den Quellcode
+
+### Version 0.8.7
+**Features:**
+- Checkbox zum Unterdrücken der JSON-Ausgabe für einzelne Einträge hinzugefügt
+- Verbesserte Handhabung von Single-Value und Multi-Value Feldern
+- Creator-Hook für erweiterte Autoren-Objekte
+
+### Version 0.8.6
+**Features:**
+- Erweiterte Cache-Verwaltung: Neue Cache-Verwaltungssektion in den Optionen mit detailliertem Status
+- Hybrid-Speicher-Modus: Intelligente Kombination aus externen Quellen und lokalen Backups
+- Offline-Modus: Vollständig lokaler Betrieb ohne externe Abhängigkeiten
+- Automatische Cache-Aktualisierung: Tägliche automatische Erneuerung der externen Wertelisten
+- Lokaler Vokabular-Manager: Download und lokale Speicherung aller Vokabulare für bessere Performance
+- AJAX-basierte Cache-Aktionen: Moderne Benutzeroberfläche ohne Seitenreloads
+- Verbesserte Fehlerbehandlung: Robuste Fallback-Mechanismen bei Netzwerkproblemen
+- Detaillierte Status-Anzeige: Übersicht über Cache-Status, lokale Backups und Vokabular-Dateien
 
 ## Integrierte Features
 - Editor: Auswählen von Metadaten (Werte und offene Felder)
