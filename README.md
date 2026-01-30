@@ -26,6 +26,8 @@ Bereits funktionsfähig zum Testen, aktuell keine größeren Probleme bekannt.
 - Behoben: Veraltete Funktion `amb_get_all_external_values()` durch `amb_get_all_external_values_with_mode()` ersetzt (Issue von Pfenya, Oct 27, 2025)
   - Betroffen waren: search.php, options.php (2x), frontend.php (3x)
   - Dies behebt Fehler bei der Frontend-Suche und in anderen Bereichen, die nach der Cache-Umstellung auftraten
+- Behoben: Fatal Error beim Speichern des Cache-Modus ohne gesetzte Post Types (Issue von Pfenya, Aug 22, 2025)
+  - `amb_dido_sanitize_post_types()` prüft nun auf null-Werte und gibt ein leeres Array zurück
 
 ### Version 0.8.7
 **Features:**
