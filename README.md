@@ -22,9 +22,10 @@ Bereits funktionsfähig zum Testen, aktuell keine größeren Probleme bekannt.
 ### Version 0.8.8 (2026-01-30)
 **Bugfixes:**
 - Behoben: Doppelte Checkbox "JSON Ausgabe unterdrücken" im Metadatenauswahlfeld entfernt (Issue #7)
-- Die Checkbox funktioniert nun korrekt und verhindert nicht mehr die Übertragung der Metadaten in den Quellcode
-- Behoben: Veraltete Funktion `amb_get_all_external_values()` durch `amb_get_all_external_values_with_mode()` ersetzt
-- Dies behebt Fehler bei der Frontend-Suche und in anderen Bereichen, die nach der Cache-Umstellung auftraten
+  - Die Checkbox funktioniert nun korrekt und verhindert nicht mehr die Übertragung der Metadaten in den Quellcode
+- Behoben: Veraltete Funktion `amb_get_all_external_values()` durch `amb_get_all_external_values_with_mode()` ersetzt (Issue von Pfenya, Oct 27, 2025)
+  - Betroffen waren: search.php, options.php (2x), frontend.php (3x)
+  - Dies behebt Fehler bei der Frontend-Suche und in anderen Bereichen, die nach der Cache-Umstellung auftraten
 
 ### Version 0.8.7
 **Features:**
