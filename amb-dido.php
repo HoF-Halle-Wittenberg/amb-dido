@@ -842,20 +842,9 @@ function amb_dido_meta_box_callback($post)
     wp_nonce_field('amb_dido_save_meta_box_data', 'amb_dido_meta_box_nonce');
 
     $custom_labels = get_option('amb_dido_custom_labels', array());
+    
+    // Checkbox to disable JSON output for this entry
     $disable_json_value = get_post_meta($post->ID, 'amb_disable_json_for_entry', true);
-
-
-    echo '<label for="amb_disable_json_for_entry">';
-    echo '<input type="checkbox" name="amb_disable_json_for_entry" id="amb_disable_json_for_entry" value="true" ' . checked($disable_json_value, true, false) . ' /> JSON Ausgabe unterdrücken';
-    echo '</label>';
-
-
-    // Aktueller Wert von disable Meta field
-    $disable_json_value = get_post_meta($post->ID, 'amb_disable_json_for_entry', true);
-
-
-
-
     echo '<label for="amb_disable_json_for_entry">' .
     '<input type="checkbox" name="amb_disable_json_for_entry" id="amb_disable_json_for_entry" value="true"' . 
     ( $disable_json_value ? ' checked' : '' ) .
